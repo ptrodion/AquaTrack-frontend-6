@@ -1,5 +1,9 @@
 function SignInPage() {
-  return <h1>SignInPage</h1>;
+  return (
+    <>
+      <h1>SignInPage</h1>
+    </>
+  );
 }
 
 export default SignInPage;
