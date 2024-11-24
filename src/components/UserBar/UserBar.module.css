@@ -255,14 +255,16 @@
         flex-direction: column;
         flex-wrap: wrap;
         position: absolute;
+        /* justify-content: flex-start; */
         /* text-align: center; */
-        top: 64px;
-        right: 32px;
+        /* top: 64px;
+        right: 32px; */
 
         border-radius: 15px;
         /* padding: 14px 57px 14px 20px; */
         max-width: 157px;
         height: 85px;
+
 
 
         /* Отступ от кнопки */
@@ -276,11 +278,11 @@
 
 
     .inPopover {
-        max-width: 80px;
+        max-width: px;
         height: 23px;
         display: flex;
         flex-wrap: nowrap;
-        justify-content: space-between;
+        justify-content: flex-start;
         align-items: center;
 
         border: none;
