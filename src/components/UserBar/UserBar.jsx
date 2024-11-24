@@ -2,6 +2,7 @@ import css from "./UserBar.module.css";
 import { useState, useRef } from 'react';
 import { TbSettings } from "react-icons/tb";
 import { MdLogout } from "react-icons/md";
+import { BsChevronUp } from "react-icons/bs";
 
 
 
@@ -18,7 +19,8 @@ const UserBar = ({ name, avatarUrl }) => {
     <div className={css.user_button_container}>
             <button className={css.user_button} onClick={togglePopover} ref={buttonRef}>
                 <span className={css.username}>{name}</span>
-                <img src={avatarUrl} alt="#" className={css.avatar} />
+              <img src={avatarUrl} alt="#" className={css.avatar} />
+              <BsChevronUp className={css.iconArrow} />
                 
       </button>
 

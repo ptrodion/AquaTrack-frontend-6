@@ -4,7 +4,7 @@
         /* display: inline-block; */
 
         border-radius: 30px;
-        min-width: 343px;
+        width: 343px;
         height: 770px;
         background: #f0eff4;
         /* margin: 16px 16px; */
@@ -95,6 +95,14 @@
 
     }
 
+    .iconArrow {
+        width: 16px;
+        height: 16px;
+        margin-left: 8px;
+        color: #fff;
+        position: absolute;
+    }
+
     .buttonLogOut {
 
         font-family: "Poppins", sans-serif;
@@ -119,7 +127,7 @@
     .user_button_container {
         position: relative;
         border-radius: 30px;
-        min-width: 704px;
+        width: 704px;
         height: 738px;
         background: #f0eff4;
 
@@ -187,7 +195,7 @@
 
         max-width: 77px;
         height: 18px;
-
+        margin-right: 32px;
         border: none;
 
         background-color: transparent;
@@ -214,6 +222,16 @@
         width: 77px;
     }
 
+    .iconArrow {
+        width: 20px;
+        height: 20px;
+        margin-left: 10px;
+        color: #fff;
+        position: absolute;
+        top: 50px;
+        right: 48px;
+    }
+
 }
 
 @media screen and (min-width: 1440px) {
@@ -228,6 +246,9 @@
     }
 
     .user_button {
+        position: absolute;
+        right: 34px;
+
         border-radius: 30px;
         padding: 6px 12px;
         max-width: 157px;
@@ -237,7 +258,7 @@
     }
 
     .avatar {
-        
+        margin-left: 10px;
     }
 
     .username {
@@ -255,13 +276,11 @@
         flex-direction: column;
         flex-wrap: wrap;
         position: absolute;
-        /* justify-content: flex-start; */
-        /* text-align: center; */
-        /* top: 64px;
-        right: 32px; */
+        text-align: center;
+        top: 64px;
+        left: 482px;
 
         border-radius: 15px;
-        /* padding: 14px 57px 14px 20px; */
         max-width: 157px;
         height: 85px;
 
@@ -280,10 +299,6 @@
     .inPopover {
         max-width: 80px;
         height: 23px;
-        /* display: flex;
-        flex-wrap: nowrap;
-        justify-content: flex-start;
-        align-items: center; */
 
         border: none;
         
@@ -307,6 +322,16 @@
         line-height: 1.49333;
         color: rgba(50, 63, 71, 0.4);
         text-align: center;
+    }
+
+    .iconArrow {
+        width: 20px;
+        height: 20px;
+        
+        color: #fff;
+        position: absolute;
+        top: 19px;
+        right: 14px;
     }
 
     .icon_setting{
