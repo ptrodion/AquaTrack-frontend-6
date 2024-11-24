@@ -11,8 +11,11 @@
     }
 
     .user_button {
-        margin-top: 20px;
-        margin-left: 20px;
+        position: absolute;
+        top: 92px;
+        left: 20px;
+
+        
         border-radius: 30px;
         padding: 6px 12px;
         width: 137px;
@@ -33,17 +36,19 @@
         color: #fff;
     }
 
-    .avatar {}
+    .avatar {
+
+    }
 
     .popover {
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
-        align-items: center;
+        align-items: flex;
         text-align: center;
         gap: 8px;
         position: absolute;
-        top: 74px;
+        top: 146px;
         left: 22px;
 
         border-radius: 15px;
@@ -71,12 +76,16 @@
     } */
 
     .inPopover {
-        display: inline-flex;
-        justify-content: center;
+        display: flex;
+        justify-content: flex-start;
         align-items: center;
+        flex-direction: row;
+        gap: 8px;
 
-        width: 77px;
+        min-width: 77px;
         height: 18px;
+
+        margin-left: 20px;
 
         border: none;
         background-color: transparent;
@@ -85,7 +94,26 @@
 
     }
 
+        .inPopoverLogOut {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: row;
+        
+            
+        width: 94px;
+        height: 18px;
+            
+        margin-left: 20px;
+            
+        border: none;
+        background-color: transparent;
+        }
+
     .buttonSetting {
+        display: flex;
+        gap: 8px;
+        align-items: center;
 
         font-family: "Poppins", sans-serif;
         font-weight: 700;
@@ -120,6 +148,12 @@
         height: 16px;
         stroke: #323f47;
     }
+
+    .icon_logout {
+        width: 16px;
+        height: 16px;
+        color: rgba(50, 63, 71, 0.4);
+    }
 }
 
 
@@ -137,12 +171,15 @@
     }
 
     .user_button {
+        position: absolute;
+        top: 32px;
+        right: 32px;
+
         border-radius: 30px;
         padding: 6px 12px;
         width: 157px;
         height: 56px;
-        margin-top: 32px;
-        margin-left: 515px;
+    
         border: none;
 
         background: #323f47;
@@ -193,7 +230,7 @@
         justify-content: center;
         align-items: center;
 
-        max-width: 77px;
+        /* max-width: 77px; */
         height: 18px;
         margin-right: 32px;
         border: none;
@@ -274,6 +311,7 @@
     .popover {
         display: flex;
         flex-direction: column;
+        align-items: flex-start;
         flex-wrap: wrap;
         position: absolute;
         text-align: center;
@@ -297,7 +335,8 @@
 
 
     .inPopover {
-        max-width: 80px;
+        justify-content: space-between;
+        /* width: 80px; */
         height: 23px;
 
         border: none;
@@ -338,12 +377,14 @@
         width: 16px;
         height: 16px;
         
+        
     }
 
     .icon_logout{
         width: 16px;
         height: 16px;
         color: rgba(50, 63, 71, 0.4);
+        
     }
 
 }

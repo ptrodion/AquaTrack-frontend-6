@@ -28,11 +28,11 @@ const UserBar = ({ name, avatarUrl }) => {
       {showPopover && (
               <div className={css.popover}>
                   <button type="button" className={css.inPopover}>
-                    <TbSettings className={css.icon_setting} />
-                      <span className={css.buttonSetting}>Setting</span>
+                    <div className={css.icon_setting}><TbSettings  /></div>
+                    <span className={css.buttonSetting}>Setting</span>
                   </button>
-                  <button type="button" className={css.inPopover}>
-                    <MdLogout className={css.icon_logout} />
+                  <button type="button" className={css.inPopoverLogOut}>
+                    <div className={css.icon_logout}><MdLogout /></div>
                     <span className={css.buttonLogOut}>Log out</span></button>
         </div>
       )}
