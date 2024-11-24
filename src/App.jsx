@@ -1,5 +1,6 @@
 // import { lazy } from 'react';
 // import { Route, Routes } from 'react-router-dom';
+import UserBar from "./components/UserBar/UserBar";
 
 // const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
 // const SignInPage = lazy(() => import('./pages/SignInPage/SignInPage'));
@@ -8,7 +9,15 @@
 
 function App() {
   return (
-    <h1>HomePage</h1>
+    <div>
+      <h1>HomePage</h1>
+      <UserBar
+        name="Nadia"
+        avatarUrl="https://example.com/avatar.jpg" //  ссылка на аватар пользователя
+      />
+    </div>
+    
+
     // <Routes>
     //   <Route path="/" element={<HomePage />} />
     //   <Route path="/signup" element={<SignUpPage />} />

@@ -1,0 +1,324 @@
+@media screen and (max-width: 767px) {
+    .user_button_container {
+        position: relative;
+        /* display: inline-block; */
+
+        border-radius: 30px;
+        min-width: 343px;
+        height: 770px;
+        background: #f0eff4;
+        /* margin: 16px 16px; */
+    }
+
+    .user_button {
+        margin-top: 20px;
+        margin-left: 20px;
+        border-radius: 30px;
+        padding: 6px 12px;
+        width: 137px;
+        height: 50px;
+        background: #323f47;
+
+        border: none;
+
+    }
+
+    .username {
+        font-family: "Poppins", sans-serif;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 1.28571;
+        letter-spacing: -0.01em;
+        text-align: center;
+        color: #fff;
+    }
+
+    .avatar {}
+
+    .popover {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+        text-align: center;
+        gap: 8px;
+        position: absolute;
+        top: 74px;
+        left: 22px;
+
+        border-radius: 15px;
+        padding-top: 14px;
+        width: 137px;
+        height: 72px;
+
+        box-shadow: 0 4px 50px 0 rgba(0, 0, 0, 0.1);
+
+        right: 1px;
+
+        background-color: #fff;
+        color: #323f47;
+        z-index: 10;
+    }
+
+    /* .popover::before {
+        content: '';
+        position: absolute;
+        top: -8px;
+        left: 20px;
+        border-width: 0 8px 8px 8px;
+        border-style: none;
+        border-color: transparent transparent #fff transparent;
+    } */
+
+    .inPopover {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+
+        width: 77px;
+        height: 18px;
+
+        border: none;
+        background-color: transparent;
+
+        color: #323f47;
+
+    }
+
+    .buttonSetting {
+
+        font-family: "Poppins", sans-serif;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 1.28571;
+        color: #323f47;
+
+    }
+
+    .buttonLogOut {
+
+        font-family: "Poppins", sans-serif;
+        font-weight: 700;
+        /* font-size: 14px; */
+        line-height: 1.28571;
+        color: rgba(50, 63, 71, 0.4);
+
+        width: 77px;
+
+    }
+
+    .icon_setting{
+        width: 16px;
+        height: 16px;
+        stroke: #323f47;
+    }
+}
+
+
+@media screen and (min-width: 768px) {
+    .user_button_container {
+        position: relative;
+        border-radius: 30px;
+        min-width: 704px;
+        height: 738px;
+        background: #f0eff4;
+
+        margin: 16px 32px 32px 32px;
+        /* display: inline-block; */
+        /* min-width: 768px; */
+    }
+
+    .user_button {
+        border-radius: 30px;
+        padding: 6px 12px;
+        width: 157px;
+        height: 56px;
+        margin-top: 32px;
+        margin-left: 515px;
+        border: none;
+
+        background: #323f47;
+    }
+
+    .username {
+        font-family: "Poppins", sans-serif;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 1.5;
+        letter-spacing: -0.01em;
+        text-align: center;
+        color: #fff;
+    }
+
+    .avatar {
+        width: 44px;
+        height: 44px;
+    }
+
+    .popover {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+        text-align: center;
+        gap: 8px;
+        position: absolute;
+        top: 96px;
+        left: 515px;
+
+        border-radius: 15px;
+        padding-top: 14px;
+        width: 157px;
+        height: 82px;
+
+        box-shadow: 0 4px 50px 0 rgba(0, 0, 0, 0.1);
+
+        right: 1px;
+
+        background: #fff;
+        color: #fff;
+        z-index: 10;
+    }
+
+    .inPopover {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+
+        width: 77px;
+        height: 18px;
+
+        border: none;
+
+        background-color: transparent;
+    }
+
+    .buttonSetting {
+        font-family: "Poppins", sans-serif;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 1.28571;
+        background-color: transparent;
+
+        color: #323f47;
+
+    }
+
+    .buttonLogOut {
+        font-family: "Poppins", sans-serif;
+        font-weight: 700;
+        /* font-size: 14px; */
+        line-height: 1.28571;
+        color: rgba(50, 63, 71, 0.4);
+
+        width: 77px;
+    }
+
+}
+
+@media screen and (min-width: 1440px) {
+    .user_button_container {
+        position: relative;
+        /* display: inline-block; */
+        border-radius: 30px;
+        width: 672px;
+        height: 736px;
+        background: #f0eff4;
+        margin: 32px 32px 32px 32px;
+    }
+
+    .user_button {
+        border-radius: 30px;
+        padding: 6px 12px;
+        max-width: 157px;
+        height: 56px;
+        background: #323f47;
+        border: none;
+    }
+
+    .avatar {
+        
+    }
+
+    .username {
+        font-family: "Poppins", sans-serif;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 1.5;
+        letter-spacing: -0.01em;
+        text-align: center;
+        color: #fff;
+    }
+
+    .popover {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        position: absolute;
+        /* text-align: center; */
+        top: 64px;
+        right: 32px;
+
+        border-radius: 15px;
+        /* padding: 14px 57px 14px 20px; */
+        max-width: 157px;
+        height: 85px;
+
+
+        /* Отступ от кнопки */
+        top: 96px;
+        right: 32px;
+        background: #fff;
+        color: #fff;
+        z-index: 10;
+
+    }
+
+
+    .inPopover {
+        max-width: 80px;
+        height: 23px;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: center;
+
+        border: none;
+        
+        background-color: transparent;
+
+    }
+
+    .buttonSetting {
+        font-family: "Poppins", sans-serif;
+        font-weight: 700;
+        font-size: 15px;
+        line-height: 1.49333;
+        color: #323f47;
+        text-align: center;
+    }
+
+    .buttonLogOut {
+        font-family: "Poppins", sans-serif;
+        font-weight: 700;
+        font-size: 15px;
+        line-height: 1.49333;
+        color: rgba(50, 63, 71, 0.4);
+        text-align: center;
+    }
+
+    .icon_setting{
+        width: 16px;
+        height: 16px;
+        
+    }
+
+    .icon_logout{
+        width: 16px;
+        height: 16px;
+        color: rgba(50, 63, 71, 0.4);
+    }
+
+}
+
+/* ================================================================================================================================================ */
