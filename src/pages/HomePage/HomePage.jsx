@@ -1,5 +1,11 @@
+import WelcomeSection from "../../components/WelcomeSection/welcome-section.jsx";
+
 function HomePage() {
-  <h1>HomePage</h1>;
+  return (
+    <>
+      <WelcomeSection />
+    </>
+  );
 }
 
 export default HomePage;

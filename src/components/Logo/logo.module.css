@@ -1,0 +1,24 @@
+.logoWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 155px;
+  height: 24px;
+}
+
+.logoText {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.11;
+  letter-spacing: 0.01em;
+  color: var(--dark-blue);
+  margin: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .logoText {
+    font-size: 24px;
+  }
+
+}
+
