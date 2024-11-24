@@ -1,4 +1,5 @@
 .WelcomeSection {
+
   padding-top: 60px;
   padding-bottom: 60px;
   background-color: #f0eff4;
@@ -10,7 +11,6 @@
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  gap: 40px;
   width: 100%;
   max-width: 375px;
   margin: 0 auto;
@@ -19,19 +19,30 @@
 
 .logo {
   align-self: flex-start;
-  /* Переміщує логотип вліво */
+
   margin-bottom: 74px;
 }
 
+.content{
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  align-self: flex-start;
+
+
+
+}
+
 .textWrapper {
-  text-align: center;
-  /* Центрує текст блоків */
+  text-align: left;
+
 }
 
 .links {
   display: flex;
   justify-content: center;
-  gap: 16px;
+  gap: 10px;
+  align-self: flex-start;
 }
 
 .subtitle {
@@ -47,15 +58,40 @@
 .title {
   font-family: 'Poppins';
   font-weight: 700;
-  font-size: 24px;
-  line-height: 1.17;
+  font-size: 38px;
+  line-height: 1;
   letter-spacing: 0.06em;
   color: #2f2f2f;
 }
+
 .buttons {
   display: flex;
   justify-content: center;
   gap: 16px;
 }
 
+.tryTracker{
+  background-color: #9BE1A0;
+  padding: 14px 19px;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.29;
+  letter-spacing: 0.01em;
+  color: #323F47;
+
+
+}
+
+.signIn{
+  border: #323F47 1px solid;
+  padding: 14px 28px;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.29;
+  letter-spacing: 0.01em;
+  color: #323F47;
+
+}
 

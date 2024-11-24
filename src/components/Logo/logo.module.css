@@ -2,11 +2,9 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  /* Вирівнювання логотипа ліворуч */
   width: auto;
-  /* Видалення фіксованої ширини, щоб текст був гнучким */
   height: auto;
-  /* Динамічне налаштування висоти */
+
 }
 
 .logoText {
