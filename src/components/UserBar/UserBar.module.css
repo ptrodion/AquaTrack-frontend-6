@@ -278,7 +278,7 @@
 
 
     .inPopover {
-        max-width: px;
+        max-width: 80px;
         height: 23px;
         display: flex;
         flex-wrap: nowrap;
