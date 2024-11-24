@@ -3,9 +3,9 @@ import styles from "../../components/WelcomeSection/welcom-section.module.css";
 
 const WelcomeSection = () => {
   return (
-    <section className={styles.section}>
+    <section className={styles.WelcomeSection}>
       <div className={styles.container}>
-        <Logo />
+        <Logo className={styles.logo}/>
         <div className={styles.textWrapper}>
 
           <h3 className={styles.subtitle}>Record daily water intake and track</h3>
@@ -14,11 +14,11 @@ const WelcomeSection = () => {
 
         </div>
         <div className={styles.links}>
-          <button>
+          <button className={styles.button}>
             <a href="#" className={styles.tryTracker}>Try tracker</a>
 
           </button>
-          <button>
+          <button className={styles.button}>
             <a href="#" className={styles.signIn}>Sign in</a>
           </button>
 
