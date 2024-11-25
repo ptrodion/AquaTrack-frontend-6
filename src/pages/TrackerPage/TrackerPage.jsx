@@ -1,11 +1,15 @@
 import UserBar from "../../components/UserBar/UserBar.jsx"
+import UserPanel from "../../components/UserPanel/UserPanel.jsx"
 
 function TrackerPage() {
   return (
-    <div><UserBar
+    <div>
+    <UserPanel />
+    <UserBar
     name="Nadia"
     avatarUrl="https://example.com/avatar.jpg"/>
-    <h1>TrackerPage</h1></div>
+      <h1>TrackerPage</h1>
+    </div>
   
   );
 }
