@@ -15,7 +15,10 @@
         top: 92px;
         left: 20px;
 
-        
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
         border-radius: 30px;
         padding: 6px 12px;
         width: 137px;
@@ -35,13 +38,13 @@
         text-align: center;
         color: #fff;
 
-        position: absolute;
+        /* position: absolute;
         top: 15px;
-        right: 88px;
+        right: 88px; */
     }
 
     .avatar {
-        margin-left: 20px;
+        /* margin-left: 53px; */
     }
 
     .popover {
@@ -62,7 +65,7 @@
 
         box-shadow: 0 4px 50px 0 rgba(0, 0, 0, 0.1);
 
-        right: 1px;
+        /* right: 1px; */
 
         background-color: #fff;
         color: #323f47;
@@ -86,7 +89,7 @@
         flex-direction: row;
         gap: 8px;
 
-        min-width: 77px;
+        width: 77px;
         height: 18px;
 
         margin-left: 20px;
@@ -102,10 +105,10 @@
         display: flex;
         justify-content: flex-start;
         align-items: center;
-        flex-direction: row;
+        /* flex-direction: row; */
+        gap: 8px;
         
-            
-        width: 94px;
+        width: 77px;
         height: 18px;
             
         margin-left: 20px;
@@ -130,22 +133,23 @@
     .iconArrow {
         width: 16px;
         height: 16px;
-        margin-left: 8px;
+        /* margin-left: 8px; */
         color: #fff;
-        position: absolute;
+        /* position: absolute;
         top: 16px;
-        right: 12px;
+        right: 12px; */
     }
 
     .buttonLogOut {
 
         font-family: "Poppins", sans-serif;
         font-weight: 700;
-        /* font-size: 14px; */
+        font-size: 14px;
         line-height: 1.28571;
         color: rgba(50, 63, 71, 0.4);
 
         width: 77px;
+        /* margin-right: 9px; */
 
     }
 
@@ -181,6 +185,10 @@
         top: 32px;
         right: 32px;
 
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
         border-radius: 30px;
         padding: 6px 12px;
         width: 157px;
@@ -200,16 +208,16 @@
         text-align: center;
         color: #fff;
 
-        position: absolute;
+        /* position: absolute;
         top: 15px;
-        right: 100px;
+        right: 100px; */
     }
 
     .avatar {
-        width: 44px;
+        /* width: 44px;
         height: 44px;
 
-        margin-left: 25px;
+        margin-left: 25px; */
     }
 
     .popover {
@@ -230,7 +238,7 @@
 
         box-shadow: 0 4px 50px 0 rgba(0, 0, 0, 0.1);
 
-        right: 1px;
+        /* right: 1px; */
 
         background: #fff;
         color: #fff;
@@ -244,14 +252,14 @@
         flex-direction: row;
         gap: 8px;
 
-        /* max-width: 77px; */
-        height: 18px;
-        margin-right: 32px;
+        width: 80px;
+        height: 23px;
+        /* margin-right: 32px; */
         border: none;
 
         background-color: transparent;
 
-        margin-left: 20px;
+        /* margin-left: 2px; */
 
         border: none;
         background-color: transparent;
@@ -264,10 +272,13 @@
         display: flex;
         justify-content: flex-start;
         align-items: center;
-        flex-direction: row;
+        /* flex-direction: row; */
+        gap: 8px;
     
-        width: 94px;
-        height: 18px;
+        width: 80px;
+        height: 23px;
+
+        margin-left: 3px;
     
         border: none;
         background-color: transparent;
@@ -288,23 +299,23 @@
     .buttonLogOut {
         font-family: "Poppins", sans-serif;
         font-weight: 700;
-        /* font-size: 14px; */
+        font-size: 14px;
         line-height: 1.28571;
         color: rgba(50, 63, 71, 0.4);
 
-        width: 77px;
+        width: 80px;
     }
 
     .iconArrow {
         width: 20px;
         height: 20px;
-        margin-left: 10px;
+        /* margin-left: 10px; */
         color: #fff;
-        position: absolute;
+        /* position: absolute;
         top: 18px;
-        right: 14px;
+        right: 14px; */
 
-        margin-left: 10px;
+        /* margin-left: 10px; */
     }
 
     .icon_setting {
@@ -322,53 +333,30 @@
 
 @media screen and (min-width: 1440px) {
     .user_button_container {
-        position: relative;
-        border-radius: 30px;
         width: 672px;
         height: 736px;
-        background: #f0eff4;
         margin: 32px 32px 32px 32px;
     }
 
     .user_button {
-        position: absolute;
         right: 34px;
 
-        border-radius: 30px;
-        padding: 6px 12px;
-        max-width: 157px;
-        height: 56px;
-        background: #323f47;
-        border: none;
     }
 
     .avatar {
-        margin-left: 15px;
+        /* margin-left: 15px;
         width: 44px;
-        height: 44px;
+        height: 44px; */
     }
 
     .username {
-        font-family: "Poppins", sans-serif;
-        font-weight: 700;
-        font-size: 16px;
-        line-height: 1.5;
-        letter-spacing: -0.01em;
-        text-align: center;
-        color: #fff;
-
-        position:absolute;
+        
+        /* position:absolute;
         top: 15px;
-        right: 100px;
+        right: 100px; */
     }
 
     .popover {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        flex-wrap: wrap;
-        position: absolute;
-        text-align: center;
         top: 64px;
         left: 482px;
 
@@ -379,41 +367,26 @@
         color: #fff;
         z-index: 10;
 
-        
-
     }
 
 
     .inPopover {
-        justify-content: flex-start;
-        align-items: center;
-        height: 23px;
-        border: none;
-        background-color: transparent;
-
-        cursor: pointer;
 
     }
 
     .inPopoverLogOut {
-        cursor: pointer;
+
     }
 
     .buttonSetting {
-        font-family: "Poppins", sans-serif;
-        font-weight: 700;
         font-size: 15px;
         line-height: 1.49333;
-        color: #323f47;
         text-align: center;
     }
 
     .buttonLogOut {
-        font-family: "Poppins", sans-serif;
-        font-weight: 700;
         font-size: 15px;
         line-height: 1.49333;
-        color: rgba(50, 63, 71, 0.4);
         text-align: center;
     }
 
@@ -422,21 +395,16 @@
         height: 20px;
         
         color: #fff;
-        position: absolute;
+        /* position: absolute;
         top: 19px;
-        right: 14px;
+        right: 14px; */
     }
 
     .icon_setting{
-        width: 16px;
-        height: 16px;
-        
         
     }
 
     .icon_logout{
-        width: 16px;
-        height: 16px;
         
     }
 
