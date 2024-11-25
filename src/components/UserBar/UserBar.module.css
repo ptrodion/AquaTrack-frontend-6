@@ -34,10 +34,14 @@
         letter-spacing: -0.01em;
         text-align: center;
         color: #fff;
+
+        position: absolute;
+        top: 15px;
+        right: 88px;
     }
 
     .avatar {
-
+        margin-left: 20px;
     }
 
     .popover {
@@ -129,6 +133,8 @@
         margin-left: 8px;
         color: #fff;
         position: absolute;
+        top: 16px;
+        right: 12px;
     }
 
     .buttonLogOut {
@@ -193,11 +199,17 @@
         letter-spacing: -0.01em;
         text-align: center;
         color: #fff;
+
+        position: absolute;
+        top: 15px;
+        right: 100px;
     }
 
     .avatar {
         width: 44px;
         height: 44px;
+
+        margin-left: 25px;
     }
 
     .popover {
@@ -226,9 +238,11 @@
     }
 
     .inPopover {
-        display: inline-flex;
-        justify-content: center;
+        display: flex;
+        justify-content: flex-start;
         align-items: center;
+        flex-direction: row;
+        gap: 8px;
 
         /* max-width: 77px; */
         height: 18px;
@@ -236,7 +250,29 @@
         border: none;
 
         background-color: transparent;
+
+        margin-left: 20px;
+
+        border: none;
+        background-color: transparent;
+        
+        color: #323f47;
+        cursor: pointer;
     }
+
+    .inPopoverLogOut {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: row;
+    
+        width: 94px;
+        height: 18px;
+    
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+        }
 
     .buttonSetting {
         font-family: "Poppins", sans-serif;
@@ -265,8 +301,21 @@
         margin-left: 10px;
         color: #fff;
         position: absolute;
-        top: 50px;
-        right: 48px;
+        top: 18px;
+        right: 14px;
+
+        margin-left: 10px;
+    }
+
+    .icon_setting {
+        width: 16px;
+        height: 16px;
+    }
+
+    .icon_logout {
+        width: 16px;
+        height: 16px;
+        color: rgba(50, 63, 71, 0.4);
     }
 
 }
@@ -274,7 +323,6 @@
 @media screen and (min-width: 1440px) {
     .user_button_container {
         position: relative;
-        /* display: inline-block; */
         border-radius: 30px;
         width: 672px;
         height: 736px;
@@ -295,7 +343,9 @@
     }
 
     .avatar {
-        margin-left: 10px;
+        margin-left: 15px;
+        width: 44px;
+        height: 44px;
     }
 
     .username {
@@ -306,23 +356,21 @@
         letter-spacing: -0.01em;
         text-align: center;
         color: #fff;
+
+        position:absolute;
+        top: 15px;
+        right: 100px;
     }
 
     .popover {
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
         flex-wrap: wrap;
         position: absolute;
         text-align: center;
         top: 64px;
         left: 482px;
-
-        border-radius: 15px;
-        max-width: 157px;
-        height: 85px;
-
-
 
         /* Отступ от кнопки */
         top: 96px;
@@ -331,18 +379,24 @@
         color: #fff;
         z-index: 10;
 
+        
+
     }
 
 
     .inPopover {
-        justify-content: space-between;
-        /* width: 80px; */
+        justify-content: flex-start;
+        align-items: center;
         height: 23px;
-
         border: none;
-        
         background-color: transparent;
 
+        cursor: pointer;
+
+    }
+
+    .inPopoverLogOut {
+        cursor: pointer;
     }
 
     .buttonSetting {
@@ -383,7 +437,6 @@
     .icon_logout{
         width: 16px;
         height: 16px;
-        color: rgba(50, 63, 71, 0.4);
         
     }
 

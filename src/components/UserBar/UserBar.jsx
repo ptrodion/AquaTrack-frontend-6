@@ -33,7 +33,8 @@ const UserBar = ({ name, avatarUrl }) => {
                   </button>
                   <button type="button" className={css.inPopoverLogOut}>
                     <div className={css.icon_logout}><MdLogout /></div>
-                    <span className={css.buttonLogOut}>Log out</span></button>
+                    <span className={css.buttonLogOut}>Log out</span>
+                  </button>
         </div>
       )}
     </div>
