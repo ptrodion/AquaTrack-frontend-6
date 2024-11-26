@@ -7,7 +7,7 @@ const WelcomeSection = () => {
   return (
     <section className={styles.WelcomeSection}>
       <div className={styles.container}>
-        <div>
+        <div className={styles.logoLanguageWrapper}>
           <Logo className={styles.logo} />
           <LanguageSwitcher />
         </div>
