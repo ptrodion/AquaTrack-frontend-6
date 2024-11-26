@@ -30,7 +30,7 @@
     },
 
     "advantages": {
-      "customers": "Unsere <1>{{counter}}</1> zufriedenen Kunden",
+      "customers": "Unsere {{counter}} zufriedenen Kunden",
       "habitDrive": "Gewohnheiten fördern",
       "viewStatistic": "Statistiken anzeigen",
       "personalSetting": "Persönliche Rateinstellungen"

@@ -30,7 +30,7 @@
     },
 
     "advantages": {
-      "customers": "Our <span class=\"accent\">happy</span> customers",
+      "customers": "Our {{counter}} happy customers",
       "habitDrive": "Habit drive",
       "viewStatistic": "View statistics",
       "personalSetting": "Personal rate setting"
