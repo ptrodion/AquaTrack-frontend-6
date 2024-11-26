@@ -26,3 +26,41 @@
   line-height: 1;
   color: #bcbcbc;
 }
+
+@media screen and (min-width: 768px) {
+  .dayliNorma {
+    top: 157px;
+    left: 32px;
+    width: 129px;
+    height: 78px;
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .dayliNormaLiters {
+    font-size: 15px;
+    line-height: 1.49333;
+  }
+
+  .dayliNormaText {
+    font-size: 12px;
+    line-height: 1.86667;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .dayliNorma {
+    top: 157px;
+    left: 64px;
+  }
+
+  .dayliNormaLiters {
+    font-size: 15px;
+    line-height: 1.49333;
+  }
+
+  .dayliNormaText {
+    font-size: 12px;
+    line-height: 1.86667;
+  }
+}
