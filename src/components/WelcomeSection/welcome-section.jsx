@@ -9,7 +9,7 @@ const WelcomeSection = () => {
       <div className={styles.container}>
         <div className={styles.logoLanguageWrapper}>
           <Logo className={styles.logo} />
-          <LanguageSwitcher />
+          <LanguageSwitcher className={styles.lang} />
         </div>
         <div className={styles.content}>
           <div className={styles.textWrapper}>
