@@ -68,3 +68,47 @@
   border-radius: 10px;
   width: 100%;
 }
+
+@media screen and (min-width: 768px) {
+  .progressBarWrapper {
+    bottom: 150px;
+  }
+  .progressBar {
+    width: 295px;
+    height: 106px;
+    padding: 20px;
+  }
+
+  .progressBarText {
+    font-size: 15px;
+    line-height: 1.49333;
+    margin-bottom: 12px;
+  }
+
+  .progressBarPercentage {
+    font-size: 12px;
+    line-height: 1.86667;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .progressBarWrapper {
+    bottom: 180px;
+  }
+  .progressBar {
+    width: 295px;
+    height: 106px;
+    padding: 20px;
+  }
+
+  .progressBarText {
+    font-size: 15px;
+    line-height: 1.49333;
+    margin-bottom: 12px;
+  }
+
+  .progressBarPercentage {
+    font-size: 12px;
+    line-height: 1.86667;
+  }
+}

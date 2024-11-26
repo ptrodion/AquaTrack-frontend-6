@@ -8,3 +8,17 @@
   box-sizing: border-box;
   padding: 24px 16px;
 }
+@media screen and (min-width: 767px) {
+  .waterMainInfo {
+    max-width: 704px;
+    height: 578px;
+    padding: 32px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .waterMainInfo {
+    width: 672px;
+    height: 736px;
+  }
+}

@@ -4,7 +4,7 @@ export const StyledProgressBarSpan = styled.span`
   position: relative;
   z-index: 10;
   display: block;
-  height: 6px;
+  height: 8px;
   background-color: #9be1a0;
   border-radius: 10px;
 
@@ -39,6 +39,10 @@ export const StyledPercentOfDrinkingWater = styled.p`
   font-size: 10px;
   line-height: 1.8;
   color: #9be1a0;
+
+  @media screen and (min-width: 768px) {
+    font-size: 12px;
+  }
 
   ${({ $percent }) => ($percent < 100 ? `left: ${$percent}%;` : `left: 100%;`)}
 `;

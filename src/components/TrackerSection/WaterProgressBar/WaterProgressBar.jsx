@@ -7,7 +7,7 @@ import css from './WaterProgressBar.module.css';
 import clsx from 'clsx';
 
 const WaterProgressBar = () => {
-  const percentOfDrinkingWater = 1000;
+  const percentOfDrinkingWater = 50;
 
   return (
     <div className={css.progressBarWrapper}>
