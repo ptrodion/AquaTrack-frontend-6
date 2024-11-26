@@ -1,7 +1,9 @@
+import SignUpForm from 'components/SignUpForm/SignUpForm';
+
 function SignUpPage() {
   return (
     <>
-      <h1>SignUpPage</h1>
+      <SignUpForm></SignUpForm>
     </>
   );
 }

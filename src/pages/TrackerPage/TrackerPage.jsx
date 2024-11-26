@@ -1,16 +1,18 @@
-import UserBar from "../../components/UserBar/UserBar.jsx"
-import UserPanel from "../../components/UserPanel/UserPanel.jsx"
+import WaterMainInfo from 'components/TrackerSection/WaterMainInfo/WaterMainInfo.jsx';
+import css from './TrackerPage.module.css';
+import UserBar from '../../components/UserBar/UserBar.jsx';
+import UserPanel from '../../components/UserPanel/UserPanel.jsx'
 
 function TrackerPage() {
   return (
-    <div>
-    <UserPanel />
-    <UserBar
-    name="Nadia"
-    avatarUrl="https://example.com/avatar.jpg"/>
-      <h1>TrackerPage</h1>
+    <div className={css.container}>
+      <UserPanel />
+      <UserBar
+      name="Nadia"
+      avatarUrl="https://example.com/avatar.jpg"
+      />
+      <WaterMainInfo />
     </div>
-  
   );
 }
 

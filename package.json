@@ -12,6 +12,7 @@
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
     "@reduxjs/toolkit": "^2.3.0",
+    "antd": "^5.22.2",
     "axios": "^1.7.7",
     "clsx": "^2.1.1",
     "date-fns": "^4.1.0",
@@ -29,6 +30,7 @@
     "react-router-dom": "^7.0.1",
     "redux": "^5.0.1",
     "redux-persist": "^6.0.0",
+    "styled-components": "^6.1.13",
     "yup": "^1.4.0"
   },
   "devDependencies": {
