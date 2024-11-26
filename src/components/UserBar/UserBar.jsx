@@ -2,30 +2,35 @@ import css from "./UserBar.module.css";
 import { useState, useRef } from 'react';
 import { TbSettings } from "react-icons/tb";
 import { MdLogout } from "react-icons/md";
-import { BsChevronUp } from "react-icons/bs";
+import { BsChevronUp, BsChevronDown  } from "react-icons/bs";
+
 
 
 
 
 const UserBar = ({ name, avatarUrl }) => {
-    const [showPopover, setShowPopover] = useState(true);
+    const [showPopoverOpen, setShowPopoverOpen] = useState(false);
   const buttonRef = useRef(null);
 
   const togglePopover = () => {
-    setShowPopover(!showPopover);
+    setShowPopoverOpen(!showPopoverOpen);
   };
 
   return (
     <div className={css.user_button_container}>
             <button className={css.user_button} onClick={togglePopover} ref={buttonRef}>
                 <span className={css.username}>{name}</span>
-              <img src={avatarUrl} alt="#" className={css.avatar} />
-              <BsChevronUp className={css.iconArrow} />
+                <img src={avatarUrl} alt="#" className={css.avatar} />
+                {showPopoverOpen ? (
+          <BsChevronDown className={css.iconArrow} />
+        ) : (
+          <BsChevronUp className={css.iconArrow} />
+        )}
                 
       </button>
 
       { /* Всплывающее окно (popover) */ }
-      {showPopover && (
+      {showPopoverOpen && (
               <div className={css.popover}>
                   <button type="button" className={css.inPopover}>
                     <div className={css.icon_setting}><TbSettings  /></div>
