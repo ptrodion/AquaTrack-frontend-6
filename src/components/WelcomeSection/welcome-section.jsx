@@ -2,6 +2,7 @@ import LanguageSwitcher from 'components/LanguageSwitcher/LanguageSwitcher.jsx';
 import Logo from '../../components/Logo/logo.jsx';
 import styles from '../../components/WelcomeSection/welcom-section.module.css';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router';
 
 const WelcomeSection = () => {
   const { t } = useTranslation();
@@ -20,14 +21,14 @@ const WelcomeSection = () => {
           </div>
           <div className={styles.links}>
             <button className={styles.button}>
-              <a href="#" className={styles.tryTracker}>
+              <Link to="/signup"  className={styles.tryTracker}>
                 {t('homepage.welcome.tryBtn')}
-              </a>
+              </Link>
             </button>
             <button className={styles.button}>
-              <a href="#" className={styles.signIn}>
+              <Link to="/signin" className={styles.signIn}>
                 {t('homepage.welcome.signInBtn')}
-              </a>
+              </Link>
             </button>
           </div>
         </div>

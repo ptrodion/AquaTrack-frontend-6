@@ -1,6 +1,5 @@
 .WelcomeSection {
-  /* padding-top: 60px;
-  padding-bottom: 60px; */
+
   background-color: #f0eff4;
   border-radius: 30px;
   padding: 24px 16px 67px 16px;
@@ -11,7 +10,6 @@
   flex-direction: column;
   align-items: stretch;
   width: 100%;
-  /* max-width: 375px; */
   height: 100%;
   margin: 0 auto;
   text-align: left;
@@ -19,7 +17,7 @@
 .logoLanguageWrapper {
   position: relative;
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
   justify-content: space-between;
   margin-top: 0;
   margin-bottom: 74px;
@@ -41,7 +39,11 @@
 }
 
 .textWrapper {
+  display: flex;
+  flex-direction: column;
+  word-wrap: break-word;
   text-align: left;
+
 }
 
 .links {
@@ -60,6 +62,7 @@
   color: #2f2f2f;
   margin-bottom: 16px;
   color: #323f47;
+  min-width: 311px;
 }
 
 .title {
@@ -69,12 +72,13 @@
   line-height: 1;
   letter-spacing: 0.06em;
   color: #323f47;
+  max-width: 311px;
 }
 
 .button {
   display: flex;
   justify-content: center;
-  /* gap: 16px; */
+
 }
 
 .tryTracker {
@@ -104,17 +108,21 @@
 @media screen and (min-width: 768px) {
   .WelcomeSection {
     padding: 32px 32px 50px 32px;
+
   }
   .logo {
     margin-bottom: 50px;
   }
 
+
   .subtitle {
     font-size: 16px;
+    max-width: 547px;
   }
 
   .title {
     font-size: 64px;
+    max-width: 547px;
   }
 
   .tryTracker {
@@ -133,6 +141,8 @@
 @media screen and (min-width: 1440px) {
   .WelcomeSection {
     padding: 32px 32px 188px 32px;
+
+
   }
 
   .logo {
