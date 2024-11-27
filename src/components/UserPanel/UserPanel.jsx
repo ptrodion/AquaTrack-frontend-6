@@ -1,7 +1,8 @@
-import { t } from 'i18next';
 import css from './UserPanel.module.css';
+import { useTranslation } from 'react-i18next';
 
 const UserPanel = () => {
+  const { t } = useTranslation();
   return (
     <div className={css.welcome}>
       {t('userPanel.greeting')}

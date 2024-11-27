@@ -1,7 +1,8 @@
-import { t } from 'i18next';
+import { useTranslation } from 'react-i18next';
 import css from './WaterDailyNorma.module.css';
 
 const WaterDailyNorma = () => {
+  const { t } = useTranslation();
   const dayliNorma = 1.5;
 
   return (

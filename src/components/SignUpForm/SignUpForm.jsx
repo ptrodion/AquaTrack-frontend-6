@@ -4,22 +4,21 @@ import * as Yup from 'yup';
 import css from './SignUpForm.module.css';
 import { Input } from 'antd';
 import Logo from 'components/Logo/logo';
-import { t } from 'i18next';
-import 'components/LanguageSwitcher/i18n/i18n.js';
-
-const validationSchema = Yup.object().shape({
-  email: Yup.string()
-    .required(t('validation.requiredEmail'))
-    .email(t('validation.validEmail')),
-  password: Yup.string()
-    .required(t('validation.requiredPassword'))
-    .min(6, t('validation.passwordMessage')),
-  repeatPassword: Yup.string()
-    .required(t('validation.repeatPasswordMessage'))
-    .oneOf([Yup.ref('password')], t('validation.oneOf')),
-});
+import { useTranslation } from 'react-i18next';
 
 const SignUpForm = () => {
+  const { t } = useTranslation();
+  const validationSchema = Yup.object().shape({
+    email: Yup.string()
+      .required(t('validation.requiredEmail'))
+      .email(t('validation.validEmail')),
+    password: Yup.string()
+      .required(t('validation.requiredPassword'))
+      .min(6, t('validation.passwordMessage')),
+    repeatPassword: Yup.string()
+      .required(t('validation.repeatPasswordMessage'))
+      .oneOf([Yup.ref('password')], t('validation.oneOf')),
+  });
   const {
     handleSubmit,
     control,
@@ -37,7 +36,6 @@ const SignUpForm = () => {
   const onSubmit = data => {
     console.log(data);
   };
-
   return (
     <>
       <div className={css.backgroundContainer}>
