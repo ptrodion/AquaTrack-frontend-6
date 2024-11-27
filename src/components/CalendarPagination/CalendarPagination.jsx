@@ -4,12 +4,12 @@ import css from './CalendarPagination.module.css';
 export const CalendarPagination = () => {
   return (
     <div className={css.paginationWrap}>
-      <button>
-        <SlArrowLeft className={css.paginationIcon} />
+      <button type="button" className={css.paginationIcon}>
+        <SlArrowLeft />
       </button>
       <p className={css.paginationText}>Month, YYYY</p>
-      <button>
-        <SlArrowRight className={css.paginationIcon} />
+      <button type="button" className={css.paginationIcon}>
+        <SlArrowRight />
       </button>
     </div>
   );
