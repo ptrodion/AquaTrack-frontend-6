@@ -3,9 +3,10 @@ import { useState, useRef } from 'react';
 import { TbSettings } from 'react-icons/tb';
 import { MdLogout } from 'react-icons/md';
 import { BsChevronUp, BsChevronDown } from 'react-icons/bs';
-import { t } from 'i18next';
+import { useTranslation } from 'react-i18next';
 
 const UserBar = ({ name, avatarUrl }) => {
+  const { t } = useTranslation();
   const [showPopoverOpen, setShowPopoverOpen] = useState(false);
   const buttonRef = useRef(null);
 

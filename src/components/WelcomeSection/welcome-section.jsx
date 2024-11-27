@@ -1,9 +1,10 @@
-import { t } from 'i18next';
 import LanguageSwitcher from 'components/LanguageSwitcher/LanguageSwitcher.jsx';
 import Logo from '../../components/Logo/logo.jsx';
 import styles from '../../components/WelcomeSection/welcom-section.module.css';
+import { useTranslation } from 'react-i18next';
 
 const WelcomeSection = () => {
+  const { t } = useTranslation();
   return (
     <section className={styles.WelcomeSection}>
       <div className={styles.container}>

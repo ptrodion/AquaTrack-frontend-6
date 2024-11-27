@@ -1,4 +1,4 @@
-import { t } from 'i18next';
+import { useTranslation } from 'react-i18next';
 import {
   StyledPercentOfDrinkingWater,
   StyledProgressBarSpan,
@@ -8,6 +8,7 @@ import css from './WaterProgressBar.module.css';
 import clsx from 'clsx';
 
 const WaterProgressBar = () => {
+  const { t } = useTranslation();
   const percentOfDrinkingWater = 50;
 
   return (

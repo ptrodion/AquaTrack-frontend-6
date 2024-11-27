@@ -1,8 +1,8 @@
-import { t } from 'i18next';
 import styles from './advantages-section.module.css';
 import { FaCircle } from 'react-icons/fa';
-
+import { useTranslation } from 'react-i18next';
 const AdvantagesSection = () => {
+  const { t } = useTranslation();
   return (
     <section className={styles.AdvantagesSection}>
       <div className={styles.container}>
