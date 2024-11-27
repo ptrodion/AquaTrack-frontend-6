@@ -4,16 +4,34 @@
   background-image: url('src/assets/img/bottles/bottle_for_water_mob_1x.webp');
   background-position: center;
   background-repeat: no-repeat;
+  background-size: contain;
+}
+
+@media screen and (min-resolution: 192dpi) {
+  .bottleForWater {
+    background-image: url('src/assets/img/bottles/bottle_for_water_mob_2x.webp');
+  }
 }
 
 @media screen and (min-width: 768px) {
   .bottleForWater {
     background-image: url('src/assets/img/bottles/bottle_for_water_tablet_1x.webp');
   }
+
+  @media screen and (min-resolution: 192dpi) {
+    .bottleForWater {
+      background-image: url('src/assets/img/bottles/bottle_for_water_tablet_2x.webp');
+    }
+  }
 }
 
 @media screen and (min-width: 1440px) {
   .bottleForWater {
     background-image: url('src/assets/img/bottles/bottle_for_water_desktop_1x.webp');
+  }
+  @media screen and (min-resolution: 192dpi) {
+    .bottleForWater {
+      background-image: url('src/assets/img/bottles/bottle_for_water_desktop_2x.webp');
+    }
   }
 }
