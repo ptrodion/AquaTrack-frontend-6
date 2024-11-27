@@ -51,20 +51,22 @@
 
   "signUp": {
     "title": "Sign Up",
-    "account": "Already have account?",
-    "signIn": "Sign In",
     "email": "Email",
     "placeholderEmail": "Enter your email",
     "password": "Password",
     "placeholderPassword": "Enter your password",
-    "placeholderRepeatPassword": "Repeat password"
+    "account": "Already have account?",
+    "signIn": "Sign In",
+    "placeholderRepeatPassword": "Repeat your password"
   },
 
   "validation": {
-    "emailMessage": "Must be a valid email",
-    "requiredMessage": "Required",
-    "passwordMessage": "Password must contain at least 6 characters",
-    "repeatPasswordMessage": "Passwords must match"
+    "requiredEmail": "Email is required",
+    "validEmail": "Please enter a valid email",
+    "requiredPassword": "Password is required",
+    "passwordMessage": "Password must be at least 6 characters",
+    "repeatPasswordMessage": "Please repeat your password",
+    "oneOf": "Passwords do not match"
   },
 
   "notFound": {

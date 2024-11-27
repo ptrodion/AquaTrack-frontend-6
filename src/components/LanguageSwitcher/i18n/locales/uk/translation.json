@@ -50,21 +50,23 @@
   },
 
   "signUp": {
-    "title": "Реєстрація",
-    "account": "Вже маєте акаунт?",
-    "signIn": "Вхід",
+    "title": "Зареєструватися",
     "email": "Електронна пошта",
-    "placeholderEmail": "Введіть електронну пошту",
+    "placeholderEmail": "Введіть Вашу електронну пошту",
     "password": "Пароль",
-    "placeholderPassword": "Введіть пароль",
-    "placeholderRepeatPassword": "Повторіть пароль"
+    "placeholderPassword": "Введіть Ваш пароль",
+    "account": "Вже маєте обліковий запис?",
+    "signIn": "Увійти",
+    "placeholderRepeatPassword": "Повторіть Ваш пароль"
   },
 
   "validation": {
-    "emailMessage": "Має бути дійсна електронна адреса",
-    "requiredMessage": "Обов'язково",
-    "passwordMessage": "Пароль має містити не менше 6 символів",
-    "repeatPasswordMessage": "Паролі повинні співпадати"
+    "requiredEmail": "Електронна пошта є обов'язковою",
+    "validEmail": "Будь ласка, введіть дійсну електронну пошту",
+    "requiredPassword": "Пароль є обов'язковим",
+    "passwordMessage": "Пароль має бути не менше 6 символів",
+    "repeatPasswordMessage": "Будь ласка, повторіть Ваш пароль",
+    "oneOf": "Паролі не співпадають"
   },
 
   "notFound": {

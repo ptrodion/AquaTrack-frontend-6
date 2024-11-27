@@ -51,20 +51,22 @@
 
   "signUp": {
     "title": "Registrieren",
-    "account": "Haben Sie bereits ein Konto?",
-    "signIn": "Anmelden",
     "email": "E-Mail",
     "placeholderEmail": "Geben Sie Ihre E-Mail ein",
     "password": "Passwort",
     "placeholderPassword": "Geben Sie Ihr Passwort ein",
-    "placeholderRepeatPassword": "Passwort wiederholen"
+    "account": "Haben Sie bereits ein Konto?",
+    "signIn": "Anmelden",
+    "placeholderRepeatPassword": "Wiederholen Sie Ihr Passwort"
   },
 
   "validation": {
-    "emailMessage": "Muss eine gültige E-Mail-Adresse sein",
-    "requiredMessage": "Erforderlich",
-    "passwordMessage": "Das Passwort muss mindestens 6 Zeichen enthalten",
-    "repeatPasswordMessage": "Die Passwörter müssen übereinstimmen"
+    "requiredEmail": "E-Mail ist erforderlich",
+    "validEmail": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
+    "requiredPassword": "Passwort ist erforderlich",
+    "passwordMessage": "Das Passwort muss mindestens 6 Zeichen lang sein",
+    "repeatPasswordMessage": "Bitte wiederholen Sie Ihr Passwort",
+    "oneOf": "Die Passwörter stimmen nicht überein"
   },
 
   "notFound": {
