@@ -1,5 +1,6 @@
-import styles from "./advantages-section.module.css";
-import { FaCircle } from "react-icons/fa";
+import { t } from 'i18next';
+import styles from './advantages-section.module.css';
+import { FaCircle } from 'react-icons/fa';
 
 const AdvantagesSection = () => {
   return (
@@ -24,7 +25,11 @@ const AdvantagesSection = () => {
 
 
               </picture> */}
-              <img src="src/assets/img/customers/customer_1_mob_1x.webp" alt="Customer 1" className={styles.image}  />
+              <img
+                src="src/assets/img/customers/customer_1_mob_1x.webp"
+                alt="Customer 1"
+                className={styles.image}
+              />
               {/* <picture >
                 <source srcSet="
                                 src/assets/img/customers/customer_2_tab_desk_1x.webp 1x,
@@ -40,7 +45,11 @@ const AdvantagesSection = () => {
                 />
 
               </picture> */}
-              <img src="src/assets/img/customers/customer_2_mob_1x.webp" alt="Customer 2" className={styles.image}  />
+              <img
+                src="src/assets/img/customers/customer_2_mob_1x.webp"
+                alt="Customer 2"
+                className={styles.image}
+              />
               {/* <picture >
                 <source srcSet="
                                 src/assets/img/customers/customer_3_tab_desk_1x.webp 1x,
@@ -56,28 +65,37 @@ const AdvantagesSection = () => {
                 />
 
               </picture> */}
-              <img src="src/assets/img/customers/customer_3_mob_1x.webp" alt="Customer 3" className={styles.image}  />
-
-
-  </div>
-            <h3 className={styles.textCustomers}>Our <span className={styles.accent}>happy</span> customers</h3>
+              <img
+                src="src/assets/img/customers/customer_3_mob_1x.webp"
+                alt="Customer 3"
+                className={styles.image}
+              />
+            </div>
+            <h3 className={styles.textCustomers}>
+              {t('homepage.advantages.customers', { counter: 1 })}
+              {/* Our <span className={styles.accent}>happy</span> customers */}
+            </h3>
           </button>
         </div>
         <div className={styles.buttonsBenefits}>
           <button className={styles.buttonHabitDrive}>
             <FaCircle className={styles.icon} />
-            <a href="#" className={styles.habitDrive}>Habit drive</a>
+            <a href="#" className={styles.habitDrive}>
+              {t('homepage.advantages.habitDrive')}
+            </a>
           </button>
           <button className={styles.buttonViewStatistics}>
-            <a href="#" className={styles.viewStatistics}>View statistics</a>
+            <a href="#" className={styles.viewStatistics}>
+              {t('homepage.advantages.viewStatistic')}
+            </a>
           </button>
           <button className={styles.buttonPersonalRateSetting}>
-            <a href="#" className={styles.personalRateSetting}>Personal rate setting</a>
+            <a href="#" className={styles.personalRateSetting}>
+              {t('homepage.advantages.personalSetting')}
+            </a>
           </button>
-
         </div>
       </div>
-
     </section>
   );
 };

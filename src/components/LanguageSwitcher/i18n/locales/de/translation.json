@@ -1,0 +1,218 @@
+{
+  "lang": {
+    "choose": "Sprache wählen",
+    "select": "Sprache auswählen",
+    "language": "Deutsch"
+  },
+
+  "pages": {
+    "home": "AquaTrack",
+    "notFound": "Seite nicht gefunden",
+    "signIn": "Anmelden",
+    "signUp": "Registrieren",
+    "tracker": "Ihr Tracker",
+    "forgot": "Passwort vergessen",
+    "renew": "Erneuern",
+    "error": "Fehler",
+    "resetPwd": "Passwort zurücksetzen"
+  },
+
+  "logo": {
+    "logo": "Aquatrack"
+  },
+
+  "homepage": {
+    "welcome": {
+      "text": "Tägliche Wasseraufnahme aufzeichnen und verfolgen",
+      "title": "Wasserverbrauch Tracker",
+      "tryBtn": "Tracker ausprobieren",
+      "signInBtn": "Anmelden"
+    },
+
+    "advantages": {
+      "customers": "Unsere {{counter}} zufriedenen Kunden",
+      "habitDrive": "Gewohnheiten fördern",
+      "viewStatistic": "Statistiken anzeigen",
+      "personalSetting": "Persönliche Rateinstellungen"
+    }
+  },
+
+  "signIn": {
+    "title": "Anmelden",
+    "account": "Haben Sie kein Konto?",
+    "signUp": "Registrieren",
+    "email": "E-Mail",
+    "placeholderEmail": "Geben Sie Ihre E-Mail ein",
+    "password": "Passwort",
+    "placeholderPassword": "Geben Sie Ihr Passwort ein",
+    "forgotPassword": "Passwort vergessen?",
+    "googleBtn": "Weiter mit"
+  },
+
+  "signUp": {
+    "title": "Registrieren",
+    "email": "E-Mail",
+    "placeholderEmail": "Geben Sie Ihre E-Mail ein",
+    "password": "Passwort",
+    "placeholderPassword": "Geben Sie Ihr Passwort ein",
+    "account": "Haben Sie bereits ein Konto?",
+    "signIn": "Anmelden",
+    "placeholderRepeatPassword": "Wiederholen Sie Ihr Passwort"
+  },
+
+  "validation": {
+    "requiredEmail": "E-Mail ist erforderlich",
+    "validEmail": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
+    "requiredPassword": "Passwort ist erforderlich",
+    "passwordMessage": "Das Passwort muss mindestens 6 Zeichen lang sein",
+    "repeatPasswordMessage": "Bitte wiederholen Sie Ihr Passwort",
+    "oneOf": "Die Passwörter stimmen nicht überein"
+  },
+
+  "notFound": {
+    "title": "Hoppla!",
+    "info": "Es scheint, dass diese Seite nicht verfügbar ist.",
+    "advice": "Lassen Sie uns Sie wieder auf den richtigen Weg bringen!",
+    "goBack": "Zurück zur Startseite"
+  },
+
+  "chooseDate": {
+    "today": "Heute",
+    "noWaterConsumed": "An diesem Tag wurde kein Wasser konsumiert.",
+    "edit": "Wassereintrag bearbeiten",
+    "delete": "Wassereintrag löschen",
+    "ml": "ml",
+    "l": "L"
+  },
+
+  "waterForm": {
+    "titleEdit": "Correct entered data",
+    "titleAdd": "Choose a value",
+    "secondTitle": "Amount of water",
+    "time": "Recording time",
+    "waterUsed": "Enter the value of the water used",
+    "button": "Save"
+  },
+
+  "waterModal": {
+    "edit": "Edit the entered amount of water",
+    "add": "Add water"
+  },
+
+  "settingsModal": {
+    "titleModal": "Setting"
+  },
+
+  "deleteModal": {
+    "title": "Delete entry",
+    "confirm": "Are you sure you want to delete the entry?",
+    "delete": "Delete",
+    "ariaDelete": "Confirm delete",
+    "close": "Cancel",
+    "ariaClose": "Cancel delete"
+  },
+
+  "logOutModal": {
+    "title": "Log out",
+    "confirm": "Do you really want to leave?",
+    "logOut": "Log out",
+    "ariaLogOut": "Confirm log out",
+    "close": "Cancel",
+    "ariaClose": "Cancel log out"
+  },
+
+  "settingsForm": {
+    "userPhotoAlt": "User photo",
+    "userUploadButton": "Upload a photo",
+    "userGender": "Your gender identity",
+    "genderWoman": "Woman",
+    "genderMan": "Man",
+    "userNameLabel": "Your name",
+    "userNamePlaceholder": "User name",
+    "userEmailLabel": "Email",
+    "subtitle": "My daily norma",
+    "textForWoman": "For woman:",
+    "textForMan": "For man:",
+    "textDescription": "V is the volume of the water norm in liters per day, M is your body weight, T is the time of active sports, or another type of activity commensurate in terms of loads (in the absence of these, you must set 0)",
+    "textActiveTime": "Active time in hours",
+    "userWeight": "Your weight in kilograms:",
+    "userTime": "The time of active participation in sports (hours):",
+    "WaterAmount": " The required amount of water in liters per day:",
+    "labelWaterNorma": "Write down how much water you will drink (ml):",
+    "subButton": "Save",
+    "ValidationGender": "Please select your gender",
+    "ValidationNameMin": "The minimum number of characters is 3",
+    "ValidationNameMax": "The maximum number of characters is 50",
+    "ValidationNameRequired": "Name is required",
+    "ValidationEmail": "Invalid email format",
+    "ValidationEmailRequired": "Email is required",
+    "ValidationWeightTypeError": "Weight should be a numeric value",
+    "ValidationWeightMin": "Weight must be greater than 0",
+    "ValidationWeightRequired": "Weight is required",
+    "ValidationTimeTypeError": "Active time should be a numeric value.",
+    "ValidationTimeMin": "Active time must be greater than 0",
+    "ValidationTimeRequired": "Active time is required",
+    "ValidationDailyRequirementTypeError": "Daily water should be a numeric value",
+    "ValidationDailyRequirementMin": "Daily water requirement must be greater than 0",
+    "ValidationDailyRequirementRequired": "Daily water requirement is required"
+  },
+
+  "resetPwd": {
+    "title": "Reset password",
+    "email": "Email",
+    "placeholderEmail": "Enter your email",
+    "password": "Password",
+    "placeholderPassword": "Enter your password",
+    "placeholderRepeatPassword": "Repeat password"
+  },
+
+  "waterDailyNorma": {
+    "liters": "L",
+    "dailyNorma": "My daily norma"
+  },
+
+  "addWaterBtn": {
+    "addWater": "Add water"
+  },
+
+  "userPanel": {
+    "greeting": "Hello"
+  },
+
+  "userBarPopover": {
+    "setting": "Setting",
+    "logout": "Log out"
+  },
+
+  "calendar": {
+    "statistics": "Statistics",
+    "month": "Month",
+    "previousMonth": "previous month",
+    "nextMonth": "next month",
+    "hideChart": "hide chart",
+    "showChart": "show chart"
+  },
+
+  "months": {
+    "January": "January",
+    "February": "February",
+    "March": "March",
+    "April": "April",
+    "May": "May",
+    "June": "June",
+    "July": "July",
+    "August": "August",
+    "September": "September",
+    "October": "October",
+    "November": "November",
+    "December": "December"
+  },
+  "validationForm": {
+    "drinkingTimeRequired": "Recording time is required",
+    "usedWaterRequired": "Water value is required!",
+    "usedWaterTypeError": "Value must be a number",
+    "usedWaterPositive": "Value must be greater than 0",
+    "usedWaterInteger": "Value must be a whole number",
+    "usedWaterMax": "Value must not exceed 9999"
+  }
+}
