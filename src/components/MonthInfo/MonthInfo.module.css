@@ -1,0 +1,11 @@
+.calendarWrap {
+  width: 303px;
+  padding: 20px;
+  background: #f0eff4;
+}
+.titleWrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
