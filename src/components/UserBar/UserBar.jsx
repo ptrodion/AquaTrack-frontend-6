@@ -4,14 +4,26 @@ import { TbSettings } from 'react-icons/tb';
 import { MdLogout } from 'react-icons/md';
 import { BsChevronUp, BsChevronDown } from 'react-icons/bs';
 import { useTranslation } from 'react-i18next';
+// import { UserSettingsModal } from 'components/UserSettingsModal/UserSettingsModal.jsx';
 
 const UserBar = ({ name, avatarUrl }) => {
   const { t } = useTranslation();
   const [showPopoverOpen, setShowPopoverOpen] = useState(false);
   const buttonRef = useRef(null);
+  const [isOpenModal, setIsModalOpen] = useState(false);
+  const [showModalSettings, setShowModalSettings] = useState(false);
+  const [showLogOutModal, setShowLogOutmodal] = useState(false);
 
   const togglePopover = () => {
     setShowPopoverOpen(!showPopoverOpen);
+  };
+
+  const handlModal = () => {
+    setShowModalSettings(!showModalSettings);
+  };
+
+  const handleLogOut = () => {
+    setShowLogOutmodal(!showLogOutModal);
   };
 
   return (
