@@ -9,28 +9,29 @@ const AdvantagesSection = () => {
         <div className={styles.buttonCustomers}>
           <button className={styles.button}>
             <div className={styles.imageContainer}>
-              {/* <picture >
-                <source srcSet="
-                              src/assets/img/customers/customer_1_mob_1x.webp 1x,
-                              src/assets/img/customers/customer_1_mob_2x.webp 2x
-                              "
-                  media="(max-width: 768px)" />
+              <picture className={styles.image}>
                 <source srcSet="
                                 src/assets/img/customers/customer_1_tab_desk_1x.webp 1x,
                                 src/assets/img/customers/customer_1_tab_desk_2x.webp 2x
                         "
                         media="(min-width: 768px)"
                 />
+                <source srcSet="
+                              src/assets/img/customers/customer_1_mob_1x.webp 1x,
+                              src/assets/img/customers/customer_1_mob_2x.webp 2x
+                              "
+                  media="(max-width: 768px)" />
+
+                <img
+                  src="src/assets/img/customers/customer_1_mob_1x.webp"
+                  alt="Customer 1"
+
+                />
 
 
+              </picture>
 
-              </picture> */}
-              <img
-                src="src/assets/img/customers/customer_1_mob_1x.webp"
-                alt="Customer 1"
-                className={styles.image}
-              />
-              {/* <picture >
+              <picture className={styles.image}>
                 <source srcSet="
                                 src/assets/img/customers/customer_2_tab_desk_1x.webp 1x,
                                 src/assets/img/customers/customer_2_tab_desk_2x.webp 2x
@@ -43,14 +44,14 @@ const AdvantagesSection = () => {
                               "
                         media="(max-width: 768px)"
                 />
-
-              </picture> */}
-              <img
+               <img
                 src="src/assets/img/customers/customer_2_mob_1x.webp"
                 alt="Customer 2"
-                className={styles.image}
+
               />
-              {/* <picture >
+              </picture>
+
+              <picture className={styles.image}>
                 <source srcSet="
                                 src/assets/img/customers/customer_3_tab_desk_1x.webp 1x,
                                 src/assets/img/customers/customer_3_tab_desk_2x.webp 2x
@@ -63,13 +64,13 @@ const AdvantagesSection = () => {
                               "
                         media="(max-width: 768px)"
                 />
-
-              </picture> */}
               <img
                 src="src/assets/img/customers/customer_3_mob_1x.webp"
                 alt="Customer 3"
-                className={styles.image}
+
               />
+              </picture>
+
             </div>
             <h3 className={styles.textCustomers}>
               {t('homepage.advantages.customers', { counter: 1 })}
