@@ -1,3 +1,4 @@
+import { t } from 'i18next';
 import {
   StyledPercentOfDrinkingWater,
   StyledProgressBarSpan,
@@ -12,7 +13,7 @@ const WaterProgressBar = () => {
   return (
     <div className={css.progressBarWrapper}>
       <div className={css.progressBar}>
-        <p className={css.progressBarText}>Today</p>
+        <p className={css.progressBarText}>{t('chooseDate.today')}</p>
         <div className={css.progressLine}>
           <span className={css.progressBarBackground}></span>
 
