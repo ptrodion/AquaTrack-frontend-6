@@ -1,5 +1,13 @@
+import WelcomeSection from "../../components/WelcomeSection/welcome-section.jsx";
+import AdvantagesSection from "../../components/AdvantagesSection/advantages-section.jsx";
+import styles from "./home-page.module.css";
 function HomePage() {
-  <h1>HomePage</h1>;
+  return (
+    <div className={styles.sectionsContainer}>
+      <WelcomeSection />
+      <AdvantagesSection />
+    </div>
+  );
 }
 
 export default HomePage;
