@@ -58,7 +58,7 @@ const UserBar = ({ name, avatarUrl }) => {
           <button
               type="button"
               className={css.inPopover}
-              onClick={handleSettingsModal}
+              // onClick={handleSettingsModal}
           >
             <div className={css.icon_setting}>
               <TbSettings />
