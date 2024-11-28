@@ -5,9 +5,11 @@ import UserBar from '../../UserBar/UserBar.jsx';
 const WaterDetailedInfo = () => {
   return (
       <div className={css.waterDetailedInfo}>
-          WaterDetailedInfo
+          {/* WaterDetailedInfo */}
       <UserPanel />
-      <UserBar />
+      <UserBar
+      name="Nadia"
+      />
       </div>
   )
 }
