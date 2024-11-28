@@ -1,0 +1,259 @@
+/* .backdrop{
+  position: relative;
+} */
+.modal {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 15px;
+  padding: 40px 20px;
+  box-shadow: 0 4px 50px 0 rgba(0, 0, 0, 0.1);
+  background: #fff;
+  width: 343px;
+}
+
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.image {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.button {
+  border: none;
+  padding: 0;
+}
+
+.flexGroup {
+  width: 303px;
+  margin-bottom: 40px;
+}
+
+.label {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  text-align: center;
+  display: inline-block;
+  margin-bottom: 14px;
+}
+
+.genderGroup {
+  margin-bottom: 24px;
+}
+
+.radioBox {
+  display: flex;
+  gap: 20px;
+}
+
+.radioInput {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.28571;
+  letter-spacing: -0.01em;
+}
+
+.input {
+  border: 1px solid rgba(47, 47, 47, 0.15);
+  border-radius: 15px;
+  padding-left: 16px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  width: 303px;
+  height: 46px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.formula {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.28571;
+  letter-spacing: -0.01em;
+  color: #9be1a0;
+}
+
+.description {
+  border: 1px solid rgba(47, 47, 47, 0.15);
+  border-radius: 15px;
+  padding: 16px;
+  width: 303px;
+  margin-bottom: 14px;
+  color: rgba(47, 47, 47, 0.6);
+}
+
+.textActive {
+  display: inline-block;
+  margin-bottom: 24px;
+}
+
+.nameGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start;
+  margin-bottom: 14px;
+}
+
+.emailGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+.weightGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start;
+  margin-bottom: 14px;
+}
+
+.text {
+  margin-bottom: 14px;
+}
+.span {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.28571;
+  color: #9be1a0;
+}
+
+.buttonSubmit {
+  border-radius: 30px;
+  padding: 14px 40px;
+  width: 116px;
+  height: 46px;
+  background: #9be1a0;
+}
+
+@media only screen and (min-width: 768px) {
+  .modal {
+    padding: 40px;
+    width: 648px;
+  }
+  .title {
+    font-size: 28px;
+    line-height: 1.14286;
+  }
+  .image {
+    width: 100px;
+    height: 100px;
+  }
+
+  .flexGroup {
+    width: 568px;
+  }
+
+  .label {
+    font-size: 18px;
+    line-height: 1.33333;
+  }
+
+  .radioInput {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  .input {
+    padding-left: 16px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    width: 568px;
+    height: 56px;
+  }
+
+  .list {
+    flex-direction: row;
+    gap: 28px;
+  }
+
+  .formula {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .description {
+    width: 568px;
+  }
+
+  .span {
+    font-size: 15px;
+    line-height: 1.49333;
+  }
+
+  .buttonSubmit {
+    padding: 16px 50px;
+    width: 141px;
+    height: 56px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .modal {
+    width: 920px;
+  }
+  .box {
+    margin-bottom: 24px;
+  }
+
+  .flexGroup {
+    height: 508px;
+    width: 840px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    column-gap: 40px;
+  }
+
+  .input {
+    width: 400px;
+  }
+
+  .description {
+    width: 400px;
+  }
+
+  .textActive {
+    margin-bottom: 0;
+  }
+}
