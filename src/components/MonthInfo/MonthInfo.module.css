@@ -9,3 +9,10 @@
   align-items: center;
   margin-bottom: 24px;
 }
+
+@media only screen and (min-width: 768px) {
+  .calendarWrap {
+    width: 640px;
+    padding: 40px 32px 35px 32px;
+  }
+}
