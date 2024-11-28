@@ -6,7 +6,7 @@ const SharedLayout = ({ children }) => {
   return (
     <main>
       <div className="container">
-        <div className="pageContentWrapper">
+        <div className="section">
           <Suspense fallback={<Loader />}>
             {children}
             <Outlet />

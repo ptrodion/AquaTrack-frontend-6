@@ -33,22 +33,39 @@ h1 {
   min-width: 320px;
   max-width: 375px;
   width: 100%;
-  padding: 0 20px;
+  /* padding: 0 20px; */
   margin: 0 auto;
+}
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px;
 }
 
 /* Tablet */
 @media only screen and (min-width: 768px) {
   .container {
     max-width: 768px;
-    padding: 0 32px;
+    /* padding: 0 32px; */
+  }
+  .section {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px;
   }
 }
-
 /* Desktop */
 @media only screen and (min-width: 1440px) {
   .container {
     max-width: 1440px;
+  }
+  .section {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 32px;
+    padding: 32px;
   }
 }
 
