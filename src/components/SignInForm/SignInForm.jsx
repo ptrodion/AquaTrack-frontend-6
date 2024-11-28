@@ -74,7 +74,9 @@ const SignInForm = () => {
             )}
           />
           {errors.password && (
-            <p className={css.error}>{errors.password.message}</p>
+            <p className={`${css.error} ${css.lastError}`}>
+              {errors.password.message}
+            </p>
           )}
 
           <button type="submit" className={css.btn}>
