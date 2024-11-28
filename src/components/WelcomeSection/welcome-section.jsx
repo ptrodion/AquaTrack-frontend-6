@@ -1,27 +1,36 @@
-import Logo from "../../components/Logo/logo.jsx";
-import styles from "../../components/WelcomeSection/welcom-section.module.css";
+import LanguageSwitcher from 'components/LanguageSwitcher/LanguageSwitcher.jsx';
+import Logo from '../../components/Logo/logo.jsx';
+import styles from '../../components/WelcomeSection/welcom-section.module.css';
+import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router';
 
 const WelcomeSection = () => {
+  const { t } = useTranslation();
   return (
-    <section className={styles.section}>
+    <section className={styles.WelcomeSection}>
       <div className={styles.container}>
-        <Logo />
-        <div className={styles.textWrapper}>
-
-          <h3 className={styles.subtitle}>Record daily water intake and track</h3>
-
-          <h1 className={styles.title}>Water consumption tracker</h1>
-
+        <div className={styles.logoLanguageWrapper}>
+          <Logo className={styles.logo} />
+          <LanguageSwitcher className={styles.lang} />
         </div>
-        <div className={styles.links}>
-          <button>
-            <a href="#" className={styles.tryTracker}>Try tracker</a>
+        <div className={styles.content}>
+          <div className={styles.textWrapper}>
+            <h3 className={styles.subtitle}>{t('homepage.welcome.text')}</h3>
 
-          </button>
-          <button>
-            <a href="#" className={styles.signIn}>Sign in</a>
-          </button>
-
+            <h1 className={styles.title}>{t('homepage.welcome.title')}</h1>
+          </div>
+          <div className={styles.links}>
+            <button className={styles.button}>
+              <Link to="/signup"  className={styles.tryTracker}>
+                {t('homepage.welcome.tryBtn')}
+              </Link>
+            </button>
+            <button className={styles.button}>
+              <Link to="/signin" className={styles.signIn}>
+                {t('homepage.welcome.signInBtn')}
+              </Link>
+            </button>
+          </div>
         </div>
       </div>
     </section>
