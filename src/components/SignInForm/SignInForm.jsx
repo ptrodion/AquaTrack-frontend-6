@@ -1,12 +1,12 @@
 import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
-import css from './SignUpForm.module.css';
+import css from './SignInForm.module.css';
 import { Input } from 'antd';
 import Logo from 'components/Logo/logo';
 import { useTranslation } from 'react-i18next';
 
-const SignUpForm = () => {
+const SignInForm = () => {
   const { t } = useTranslation();
   const validationSchema = Yup.object().shape({
     email: Yup.string()
@@ -29,7 +29,6 @@ const SignUpForm = () => {
     defaultValues: {
       email: '',
       password: '',
-      repeatPassword: '',
     },
   });
 
@@ -41,9 +40,9 @@ const SignUpForm = () => {
       <div className={css.backgroundContainer}>
         {/* <Logo></Logo> */}
         <form className={css.formContainer} onSubmit={handleSubmit(onSubmit)}>
-          <h2 className={css.formTitle}>{t('signUp.title')}</h2>
+          <h2 className={css.formTitle}>Sign In</h2>
 
-          <label className={css.label}>{t('signUp.email')}</label>
+          <label className={css.label}>Email</label>
           <Controller
             name="email"
             control={control}
@@ -52,7 +51,7 @@ const SignUpForm = () => {
                 {...field}
                 className={css.input}
                 type="text"
-                placeholder={t('signUp.placeholderEmail')}
+                placeholder="Enter your email"
                 variant="borderless"
                 autoComplete="off"
               />
@@ -60,16 +59,16 @@ const SignUpForm = () => {
           />
           {errors.email && <p className={css.error}>{errors.email.message}</p>}
 
-          <label className={css.label}>{t('signUp.password')}</label>
+          <label className={css.label}>Password</label>
           <Controller
             name="password"
             control={control}
             render={({ field }) => (
               <Input.Password
                 {...field}
-                className={css.input}
+                className={`${css.input} ${css.lastInput}`}
                 type="password"
-                placeholder={t('signUp.placeholderPassword')}
+                placeholder="Enter your password"
                 variant="borderless"
               />
             )}
@@ -78,37 +77,15 @@ const SignUpForm = () => {
             <p className={css.error}>{errors.password.message}</p>
           )}
 
-          <label className={css.label}>
-            {t('signUp.placeholderRepeatPassword')}
-          </label>
-          <Controller
-            name="repeatPassword"
-            control={control}
-            render={({ field }) => (
-              <Input.Password
-                {...field}
-                className={`${css.input} ${css.lastInput}`}
-                type="password"
-                placeholder={t('signUp.placeholderRepeatPassword')}
-                variant="borderless"
-              />
-            )}
-          />
-          {errors.repeatPassword && (
-            <p className={`${css.error} ${css.lastError}`}>
-              {errors.repeatPassword.message}
-            </p>
-          )}
-
           <button type="submit" className={css.btn}>
-            {t('signUp.title')}
+            Sign in
           </button>
 
           <div className={css.linkContainer}>
             <p className={css.text}>
-              {t('signUp.account')}
+              Don’t have an account?
               <a className={css.link} href="#">
-                {t('signUp.signIn')}
+                Sign Up
               </a>
             </p>
           </div>
@@ -118,4 +95,4 @@ const SignUpForm = () => {
   );
 };
 
-export default SignUpForm;
+export default SignInForm;
