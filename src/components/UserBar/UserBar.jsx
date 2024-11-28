@@ -4,7 +4,9 @@ import { TbSettings } from 'react-icons/tb';
 import { MdLogout } from 'react-icons/md';
 import { BsChevronUp, BsChevronDown } from 'react-icons/bs';
 import { useTranslation } from 'react-i18next';
-// import { UserSettingsModal } from '../UserSettingsModal/UserSettingsModal.jsx';
+
+// import { UserSettingsModal } from 'components/UserSettingsModal/UserSettingsModal.jsx';
+
 
 const UserBar = ({ name, avatarUrl }) => {
   const { t } = useTranslation();
