@@ -5,7 +5,9 @@ import { MdLogout } from 'react-icons/md';
 import { BsChevronUp, BsChevronDown } from 'react-icons/bs';
 import { useTranslation } from 'react-i18next';
 // import { UserSettingsModal } from 'components/UserSettingsModal/UserSettingsModal.jsx';
-
+{
+  /* <UserBar name="Nadia" avatarUrl="https://example.com/avatar.jpg" /> */
+}
 const UserBar = ({ name, avatarUrl }) => {
   const { t } = useTranslation();
   const [showPopoverOpen, setShowPopoverOpen] = useState(false);
