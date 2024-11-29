@@ -57,7 +57,7 @@ const UserBar = ({ name, avatarUrl }) => {
       {showPopoverOpen && (
         <div className={css.popover}>
           <button
-              type="button"
+            type="button"
               className={css.inPopover}
               // onClick={handleSettingsModal}
           >
