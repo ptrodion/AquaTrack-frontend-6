@@ -1,8 +1,8 @@
 .WelcomeSection {
-
   background-color: #f0eff4;
   border-radius: 30px;
   padding: 24px 16px 67px 16px;
+  height: 100%;
 }
 
 .container {
@@ -43,7 +43,6 @@
   flex-direction: column;
   word-wrap: break-word;
   text-align: left;
-
 }
 
 .links {
@@ -78,7 +77,6 @@
 .button {
   display: flex;
   justify-content: center;
-
 }
 
 .tryTracker {
@@ -108,12 +106,10 @@
 @media screen and (min-width: 768px) {
   .WelcomeSection {
     padding: 32px 32px 50px 32px;
-
   }
   .logo {
     margin-bottom: 50px;
   }
-
 
   .subtitle {
     font-size: 16px;
@@ -141,8 +137,7 @@
 @media screen and (min-width: 1440px) {
   .WelcomeSection {
     padding: 32px 32px 188px 32px;
-
-
+    width: 672px;
   }
 
   .logo {

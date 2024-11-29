@@ -32,51 +32,49 @@ h1 {
   width: 100%;
   min-width: 320px;
   max-width: 375px;
-  /* padding: 0 16px; */
   margin: 0 auto;
 }
 
+.pageContentWrapper {
+  margin: 16px 0;
+  gap: 16px;
+  /* За замовчуванням секції одна під одною */
+  display: flex;
+  flex-direction: column;
+}
+.section {
+  position: relative;
+  margin-left: 16px;
+  margin-right: 16px;
+}
 @media only screen and (min-width: 768px) {
   .container {
     max-width: 768px;
-    /* padding: 0 32px; */
+  }
+  .pageContentWrapper {
+    margin: 32px 0;
+    justify-content: space-between;
+    /* Вирівнювання секцій із проміжком між ними */
+    gap: 16px;
+  }
+  .section {
+    margin-left: 32px;
+    margin-right: 32px;
   }
 }
 
 @media only screen and (min-width: 1440px) {
   .container {
     max-width: 1440px;
-    /* height: 100vh; */
   }
-}
-.pageContentWrapper {
-  position: relative;
-  margin-top: 16px;
-  margin-bottom: 16px;
-  gap: 16px;
-  /* За замовчуванням секції одна під одною */
-  display: flex;
-  flex-direction: column;
-}
-
-@media screen and (min-width: 768px) {
-  .pageContentWrapper {
-    margin-top: 32px;
-    margin-bottom: 32px;
-    justify-content: space-between;
-    /* Вирівнювання секцій із проміжком між ними */
-    gap: 16px;
-  }
-}
-
-@media screen and (min-width: 1440px) {
   .pageContentWrapper {
     flex-direction: row;
     /* Горизонтальне розташування секцій */
     gap: 32px;
+    margin: 32px;
+  }
+  .section {
     margin: 0;
-    height: 100vh;
-    padding: 32px;
   }
 }
 
