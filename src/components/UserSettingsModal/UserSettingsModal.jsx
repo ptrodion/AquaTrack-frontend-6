@@ -2,8 +2,10 @@
 import { GoX } from 'react-icons/go';
 import css from '../UserSettingsForm/UserSettingsForm.module.css';
 import { UserSettingsForm } from 'components/UserSettingsForm/UserSettingsForm.jsx';
+import { useTranslation } from 'react-i18next';
 
 export const UserSettingsModal = () => {
+  const { t } = useTranslation();
   // const [isModalOpen, setIsModalOpen] = useState(false);
   // const showModal = () => {
   //   setIsModalOpen(true);
@@ -14,10 +16,10 @@ export const UserSettingsModal = () => {
   return (
     <div className={css.modal}>
       <div className={css.box}>
-        <h2 className={css.title}>Settings</h2>
+        <h2 className={css.title}>{t('settingsModal.titleModal')}</h2>
         <GoX />
       </div>
-      <UserSettingsForm/>
+      <UserSettingsForm />
     </div>
   );
 };
