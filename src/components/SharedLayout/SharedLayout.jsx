@@ -5,14 +5,10 @@ import { Outlet } from 'react-router';
 const SharedLayout = ({ children }) => {
   return (
     <main>
-      <div className="container">
-        <div className="pageContentWrapper">
-          <Suspense fallback={<Loader />}>
-            {children}
-            <Outlet />
-          </Suspense>
-        </div>
-      </div>
+      <Suspense fallback={<Loader />}>
+        {children}
+        <Outlet />
+      </Suspense>
     </main>
   );
 };

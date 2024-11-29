@@ -1,17 +1,14 @@
 import AdvantagesSection from 'components/AdvantagesSection/advantages-section';
 import SignInForm from 'components/SignInForm/SignInForm';
-
-import css from './SignInPage.module.css';
+import Container from 'components/Container/Container.jsx';
 
 function SignInPage() {
   return (
     <>
-      <div className={css.signInContainer}>
+      <Container>
         <SignInForm></SignInForm>
-        <div className={css.advantageContainer}>
-          <AdvantagesSection></AdvantagesSection>
-        </div>
-      </div>
+        <AdvantagesSection></AdvantagesSection>
+      </Container>
     </>
   );
 }
