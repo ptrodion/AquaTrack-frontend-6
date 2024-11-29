@@ -4,27 +4,38 @@ import { TbSettings } from 'react-icons/tb';
 import { MdLogout } from 'react-icons/md';
 import { BsChevronUp, BsChevronDown } from 'react-icons/bs';
 import { useTranslation } from 'react-i18next';
+
 // import { UserSettingsModal } from 'components/UserSettingsModal/UserSettingsModal.jsx';
+
 
 const UserBar = ({ name, avatarUrl }) => {
   const { t } = useTranslation();
   const [showPopoverOpen, setShowPopoverOpen] = useState(false);
   const buttonRef = useRef(null);
-  const [isOpenModal, setIsModalOpen] = useState(false);
-  const [showModalSettings, setShowModalSettings] = useState(false);
-  const [showLogOutModal, setShowLogOutmodal] = useState(false);
+  // const [showModalSettings, setShowModalSettings] = useState(false);
+  // const [showLogOutModal, setShowLogOutmodal] = useState(false);
 
   const togglePopover = () => {
     setShowPopoverOpen(!showPopoverOpen);
   };
 
-  const handlModal = () => {
-    setShowModalSettings(!showModalSettings);
-  };
+  // const handleSettingsModal = () => {
+  //   setShowModalSettings(true);
+  //   setShowPopoverOpen(false);
+  // };
 
-  const handleLogOut = () => {
-    setShowLogOutmodal(!showLogOutModal);
-  };
+//   const handleSettingsModalClose = () => {
+//     setShowModalSettings(false);
+// }
+
+  // const handleLogOut = () => {
+  //   setShowLogOutmodal(true);
+  //   setShowPopoverOpen(false);
+  // };
+
+  // const handleLogOutModalClose = () => {
+  //   setShowLogOutmodal(false);
+  // }
 
   return (
     <div className={css.user_button_container}>
@@ -45,7 +56,11 @@ const UserBar = ({ name, avatarUrl }) => {
       {/* Всплывающее окно (popover) */}
       {showPopoverOpen && (
         <div className={css.popover}>
-          <button type="button" className={css.inPopover}>
+          <button
+            type="button"
+              className={css.inPopover}
+              // onClick={handleSettingsModal}
+          >
             <div className={css.icon_setting}>
               <TbSettings />
             </div>
@@ -53,7 +68,12 @@ const UserBar = ({ name, avatarUrl }) => {
               {t('userBarPopover.setting')}
             </span>
           </button>
-          <button type="button" className={css.inPopoverLogOut}>
+
+          <button
+              type="button"
+              className={css.inPopoverLogOut}
+              // onClick={handleLogOut}
+          >
             <div className={css.icon_logout}>
               <MdLogout />
             </div>
@@ -63,6 +83,19 @@ const UserBar = ({ name, avatarUrl }) => {
           </button>
         </div>
       )}
+
+      {/* Модальное окно настроек */}
+      {/* <UserSettingsModal
+        isOpen={showModalSettings}
+        onClose={handleSettingsModalClose}
+      /> */}
+
+      {/* Модальное окно выхода
+      <UserLogOutModal
+        isOpen={showLogOutModal}
+        onClose={handleLogOutModalClose}
+      /> */}
+      
     </div>
   );
 };

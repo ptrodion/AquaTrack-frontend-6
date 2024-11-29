@@ -93,14 +93,14 @@
 }
 
 .text {
-  text-align: center;
+  margin-top: 16px;
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
   font-size: 14px;
-  line-height: 1.3;
+  line-height: 1.28571;
   letter-spacing: -0.01em;
   color: rgba(47, 47, 47, 0.5);
-  margin: 16px 50.5px 0 50.5px;
+  text-align: center;
 }
 
 .link {
@@ -115,12 +115,6 @@
 @media (min-width: 768px) {
   .backgroundContainer {
     padding: 32px 32px 100px 32px;
-  }
-
-  .formContainer {
-    margin-left: auto;
-    margin-right: auto;
-    /* padding: 32px; */
   }
 
   .formTitle {

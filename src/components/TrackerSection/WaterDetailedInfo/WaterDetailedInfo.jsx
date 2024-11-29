@@ -1,15 +1,16 @@
 import css from './WaterDetailedInfo.module.css';
 import UserPanel from '../../UserPanel/UserPanel.jsx';
-import UserBar from '../../UserBar/UserBar.jsx';
+import MonthInfo from 'components/MonthInfo/MonthInfo';
+import WaterList from 'components/WaterList/WaterList.jsx';
 
 const WaterDetailedInfo = () => {
   return (
-      <div className={css.waterDetailedInfo}>
-          WaterDetailedInfo
+    <div className={css.waterDetailedInfo}>
       <UserPanel />
-      <UserBar />
-      </div>
-  )
-}
+      <MonthInfo />
+      <WaterList />
+    </div>
+  );
+};
 
-export default WaterDetailedInfo
+export default WaterDetailedInfo;
