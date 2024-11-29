@@ -1,6 +1,7 @@
 .calendarWrap {
-  width: 343px;
-  padding: 40px 16px;
+  width: 100%;
+  margin-top: 40px;
+  margin-bottom: 40px;
   background: #f0eff4;
 }
 .titleWrap {
@@ -12,7 +13,12 @@
 
 @media only screen and (min-width: 768px) {
   .calendarWrap {
-    width: 640px;
-    padding: 40px 32px 35px 32px;
+    margin-bottom: 35px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .calendarWrap {
+    margin-bottom: 33px;
   }
 }
