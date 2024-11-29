@@ -1,6 +1,8 @@
 .languageSwitcher {
-  position: relative;
-  display: inline-block;
+  position: absolute;
+  /* display: inline-block; */
+  top: 16px;
+  right: 8px;
 }
 
 .languageSelect {

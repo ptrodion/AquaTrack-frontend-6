@@ -11,10 +11,9 @@ const WelcomeSection = () => {
     <Section>
       <section className={styles.WelcomeSection}>
         <div className={styles.container}>
-          <div className={styles.logoLanguageWrapper}>
-            <Logo className={styles.logo} />
-            <LanguageSwitcher className={styles.lang} />
-          </div>
+          <Logo className={styles.logo} />
+          <LanguageSwitcher className={styles.lang} />
+
           <div className={styles.content}>
             <div className={styles.textWrapper}>
               <h3 className={styles.subtitle}>{t('homepage.welcome.text')}</h3>
