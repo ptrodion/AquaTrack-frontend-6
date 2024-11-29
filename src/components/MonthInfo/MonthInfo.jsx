@@ -3,9 +3,12 @@ import { CalendarPagination } from 'components/CalendarPagination/CalendarPagina
 import css from './MonthInfo.module.css';
 import { useState } from 'react';
 import { getDaysInMonth } from 'date-fns';
+import { useTranslation } from 'react-i18next';
 
 const MonthInfo = () => {
   const [date, setDate] = useState(new Date());
+  const { t } = useTranslation();
+
 
   const onSetDate = selectedDate => {
     setDate(selectedDate);
@@ -21,12 +24,15 @@ const MonthInfo = () => {
   return (
     <div className={css.calendarWrap}>
       <div className={css.titleWrap}>
-        <h2 className={css.title}>Month</h2>
+        <h2 className={css.title}>{t('calendar.month')}</h2>
         <CalendarPagination initialDate={date} onSetDate={onSetDate} />
-      </div>
+        </div>
       <Calendar days={days} />
     </div>
   );
 };
-
 export default MonthInfo;
+
+
+
+
