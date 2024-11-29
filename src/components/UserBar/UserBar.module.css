@@ -43,6 +43,9 @@
     }
 
     .avatar {
+
+        width: 38px;
+        height: 38px;
         /* margin-left: 53px; */
     }
 
@@ -89,7 +92,7 @@
 
     }
 
-        .inPopoverLogOut {
+    .inPopoverLogOut {
         display: flex;
         justify-content: flex-start;
         align-items: center;
@@ -142,12 +145,18 @@
     }
 
     .icon_setting{
+        display: flex;
+        align-items: center;
+
         width: 16px;
         height: 16px;
         stroke: #323f47;
     }
 
     .icon_logout {
+        display: flex;
+        align-items: center;
+
         width: 16px;
         height: 16px;
         color: rgba(50, 63, 71, 0.4);
@@ -201,10 +210,10 @@
     }
 
     .avatar {
-        /* width: 44px;
+        width: 44px;
         height: 44px;
 
-        margin-left: 25px; */
+        /* margin-left: 25px; */
     }
 
     .popover {
@@ -265,7 +274,7 @@
         width: 80px;
         height: 23px;
 
-        margin-left: 3px;
+        /* margin-left: 3px; */
     
         border: none;
         background-color: transparent;
@@ -306,11 +315,17 @@
     }
 
     .icon_setting {
+        display: flex;
+        align-items: center;
+
         width: 16px;
         height: 16px;
     }
 
     .icon_logout {
+        display: flex;
+        align-items: center;
+
         width: 16px;
         height: 16px;
         color: rgba(50, 63, 71, 0.4);
