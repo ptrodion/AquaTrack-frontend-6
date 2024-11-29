@@ -1,11 +1,20 @@
-/* .backdrop{
-  position: relative;
+/* @media only screen and (min-width: 320px) and (max-width: 375px){
+  .modal {
+    position: absolute;
+    left: 50%;
+    top: 80px;
+    border-radius: 15px;
+    padding: 40px 20px;
+    box-shadow: 0 4px 50px 0 rgba(0, 0, 0, 0.1);
+    background: #fff;
+    width: 343px;
+  }
 } */
 .modal {
   position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  left: 16px;
+  top: 80px;
+  /* transform: translate(-50%, -50%); */
   border-radius: 15px;
   padding: 40px 20px;
   box-shadow: 0 4px 50px 0 rgba(0, 0, 0, 0.1);
@@ -171,6 +180,8 @@
   .modal {
     padding: 40px;
     width: 648px;
+    left: 60px;
+    top: 64x;
   }
   .title {
     font-size: 28px;
@@ -231,6 +242,7 @@
 @media only screen and (min-width: 1440px) {
   .modal {
     width: 920px;
+    left: 260px;
   }
   .box {
     margin-bottom: 24px;
