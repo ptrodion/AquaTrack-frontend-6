@@ -1,0 +1,80 @@
+.waterListContainer {
+  overflow-x: auto;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+}
+
+.waterList {
+  display: flex;
+  gap: 15px;
+  flex-wrap: nowrap; /* Важливо для горизонтального скролу */
+}
+
+.scrollContainer {
+  overflow-x: auto; /* Горизонтальний скрол */
+  display: flex;
+}
+
+.waterItem {
+  min-width: 150px;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: row; /* елементи по горизонталі */
+  align-items: center; /* вирівнюємо по вертикалі */
+  justify-content: space-between; /* Простір між іконкою і текстом */
+}
+
+.waterIcon {
+  margin-right: 15px; /* Відступ від іконки */
+  fill: rgba(92, 184, 92, 0.5); /* Прозорий зелений колір */
+  flex-shrink: 0;
+}
+
+.waterDetails {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Розташовуємо текст зліва */
+  text-align: left;
+}
+
+.waterAmount {
+  font-size: 16px;
+  font-weight: bold;
+  color: #2f2f2f;
+  margin: 0;
+}
+
+.waterTime {
+  font-size: 14px;
+  color: #888888;
+  margin: 0;
+}
+
+.waterActions {
+  display: flex;
+  flex-direction: column; /* Кнопки одна під одною */
+  gap: 10px; /* Відступ між кнопками */
+}
+
+.editBtn,
+.deleteBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: #555555; /* Нейтральний колір кнопок */
+  transition: color 0.3s ease;
+}
+
+.editBtn:hover {
+  color: #007bff; /* Синій для кнопки редагування */
+}
+
+.deleteBtn:hover {
+  color: #dc3545; /* Червоний для кнопки видалення */
+}
