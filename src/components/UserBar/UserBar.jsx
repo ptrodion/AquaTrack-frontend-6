@@ -12,7 +12,6 @@ const UserBar = ({ name, avatarUrl }) => {
   const { t } = useTranslation();
   const [showPopoverOpen, setShowPopoverOpen] = useState(false);
   const buttonRef = useRef(null);
-  // const [isOpenModal, setIsModalOpen] = useState(false);
   // const [showModalSettings, setShowModalSettings] = useState(false);
   // const [showLogOutModal, setShowLogOutmodal] = useState(false);
 

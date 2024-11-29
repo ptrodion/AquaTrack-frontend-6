@@ -1,0 +1,20 @@
+.paginationWrap {
+  display: flex;
+  align-items: center;
+}
+.paginationText {
+  margin-left: 16px;
+  margin-right: 16px;
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 129%;
+  letter-spacing: -0.01em;
+  text-align: center;
+  color: var(--main);
+}
+
+.paginationIcon {
+  border: none;
+  cursor: pointer;
+}
