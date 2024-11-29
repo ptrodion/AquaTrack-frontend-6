@@ -4,7 +4,7 @@ import { SlTrash } from 'react-icons/sl';
 import css from './WaterList.module.css';
 
 const WaterList = () => {
-  // Ініціалізуємо стан waterItems через useState
+  // useState
   const [waterItems, setWaterItems] = useState([
     { id: 1, amount: 250, time: '7:00 AM' },
     { id: 2, amount: 250, time: '11:00 AM' },
@@ -13,7 +13,7 @@ const WaterList = () => {
     { id: 5, amount: 200, time: '6:00 PM' },
   ]);
 
-  // Функція для додавання нового елемента
+  // add
   const addItem = () => {
     const newItem = {
       id: Date.now(),
@@ -26,12 +26,12 @@ const WaterList = () => {
     setWaterItems([...waterItems, newItem]);
   };
 
-  // Функція для видалення елемента
+  // delete
   const deleteItem = id => {
     setWaterItems(waterItems.filter(item => item.id !== id));
   };
 
-  // Функція для редагування елемента
+  // edit
   const editItem = id => {
     const newAmount = prompt('Enter new amount:');
     if (newAmount) {
