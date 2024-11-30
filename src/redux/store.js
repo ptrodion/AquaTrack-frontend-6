@@ -1,7 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
 import storage from 'redux-persist/lib/storage';
 import userReducer from './auth/slice';
-import waterReducer from './water/selector';
+import waterReducer from './water/slice';
+
 
 import {
   persistStore,
@@ -27,6 +28,7 @@ export const store = configureStore({
   reducer: {
     user: persistedReducer,
     water: waterReducer,
+
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
