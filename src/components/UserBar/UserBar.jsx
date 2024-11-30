@@ -101,4 +101,5 @@ const UserBar = ({ name, avatarUrl }) => {
   );
 };
 
+
 export default UserBar;
