@@ -1,8 +1,9 @@
 {
   "gender": "Woman",
-  "name": "Nadia",
+  "name": "",
   "email": "nadia10@gmail.com",
   "weight": 0,
   "activeTime": 0,
-  "waterIntake": 1.8
+  "waterIntake": 1.8,
+  "avatarUrl":null
 }

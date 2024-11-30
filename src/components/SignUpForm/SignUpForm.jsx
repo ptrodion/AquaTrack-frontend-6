@@ -5,6 +5,7 @@ import css from './SignUpForm.module.css';
 import { Input } from 'antd';
 import Logo from 'components/Logo/logo';
 import { useTranslation } from 'react-i18next';
+import Section from 'components/Section/Section.jsx';
 
 const SignUpForm = () => {
   const { t } = useTranslation();
@@ -37,9 +38,9 @@ const SignUpForm = () => {
     console.log(data);
   };
   return (
-    <>
+    <Section>
       <div className={css.backgroundContainer}>
-        {/* <Logo></Logo> */}
+        <Logo></Logo>
         <form className={css.formContainer} onSubmit={handleSubmit(onSubmit)}>
           <h2 className={css.formTitle}>{t('signUp.title')}</h2>
 
@@ -114,7 +115,7 @@ const SignUpForm = () => {
           </div>
         </form>
       </div>
-    </>
+    </Section>
   );
 };
 
