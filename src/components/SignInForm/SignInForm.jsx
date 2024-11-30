@@ -42,9 +42,9 @@ const SignInForm = () => {
       <div className={css.backgroundContainer}>
         <Logo></Logo>
         <form className={css.formContainer} onSubmit={handleSubmit(onSubmit)}>
-          <h2 className={css.formTitle}>Sign In</h2>
+          <h2 className={css.formTitle}>{t('signIn.title')}</h2>
 
-          <label className={css.label}>Email</label>
+          <label className={css.label}>{t('signIn.email')}</label>
           <Controller
             name="email"
             control={control}
@@ -53,7 +53,7 @@ const SignInForm = () => {
                 {...field}
                 className={css.input}
                 type="text"
-                placeholder="Enter your email"
+                placeholder={t('signIn.placeholderEmail')}
                 variant="borderless"
                 autoComplete="off"
               />
@@ -61,7 +61,7 @@ const SignInForm = () => {
           />
           {errors.email && <p className={css.error}>{errors.email.message}</p>}
 
-          <label className={css.label}>Password</label>
+          <label className={css.label}>{t('signIn.password')}</label>
           <Controller
             name="password"
             control={control}
@@ -70,7 +70,7 @@ const SignInForm = () => {
                 {...field}
                 className={`${css.input} ${css.lastInput}`}
                 type="password"
-                placeholder="Enter your password"
+                placeholder={t('signIn.placeholderPassword')}
                 variant="borderless"
               />
             )}
@@ -82,14 +82,14 @@ const SignInForm = () => {
           )}
 
           <button type="submit" className={css.btn}>
-            Sign in
+            {t('signIn.title')}
           </button>
 
           <div className={css.linkContainer}>
             <p className={css.text}>
-              Don’t have an account?
+              {t('signIn.account')}
               <Link className={css.link} to="/signup">
-                Sign Up
+                {t('signIn.signUp')}
               </Link>
             </p>
           </div>
