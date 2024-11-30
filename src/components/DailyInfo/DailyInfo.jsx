@@ -1,4 +1,4 @@
-import WaterList from '../WaterList/WaterList';
+import WaterList from './WaterList';
 
 const DailyInfo = () => {
   return (

@@ -1,4 +1,4 @@
-import WaterList from '../../components/WaterList/WaterList';
+import WaterList from '../../components/DailyInfo/WaterList';
 
 const TestPage = () => {
   return (
