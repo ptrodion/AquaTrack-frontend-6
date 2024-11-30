@@ -5,28 +5,28 @@ import { MdLogout } from 'react-icons/md';
 import { BsChevronUp, BsChevronDown } from 'react-icons/bs';
 import { useTranslation } from 'react-i18next';
 
-// import { UserSettingsModal } from 'components/UserSettingsModal/UserSettingsModal.jsx';
+import { UserSettingsModal } from 'components/UserSettingsModal/UserSettingsModal.jsx';
 
 
 const UserBar = ({ name, avatarUrl }) => {
   const { t } = useTranslation();
   const [showPopoverOpen, setShowPopoverOpen] = useState(false);
   const buttonRef = useRef(null);
-  // const [showModalSettings, setShowModalSettings] = useState(false);
+  const [showModalSettings, setShowModalSettings] = useState(false);
   // const [showLogOutModal, setShowLogOutmodal] = useState(false);
 
   const togglePopover = () => {
     setShowPopoverOpen(!showPopoverOpen);
   };
 
-  // const handleSettingsModal = () => {
-  //   setShowModalSettings(true);
-  //   setShowPopoverOpen(false);
-  // };
+  const handleSettingsModal = () => {
+    setShowModalSettings(true);
+    setShowPopoverOpen(false);
+  };
 
-//   const handleSettingsModalClose = () => {
-//     setShowModalSettings(false);
-// }
+  const handleSettingsModalClose = () => {
+    setShowModalSettings(false);
+}
 
   // const handleLogOut = () => {
   //   setShowLogOutmodal(true);
@@ -59,7 +59,7 @@ const UserBar = ({ name, avatarUrl }) => {
           <button
             type="button"
               className={css.inPopover}
-              // onClick={handleSettingsModal}
+              onClick={handleSettingsModal}
           >
             <div className={css.icon_setting}>
               <TbSettings />
@@ -85,10 +85,11 @@ const UserBar = ({ name, avatarUrl }) => {
       )}
 
       {/* Модальное окно настроек */}
-      {/* <UserSettingsModal
+      {showModalSettings && <UserSettingsModal
         isOpen={showModalSettings}
         onClose={handleSettingsModalClose}
-      /> */}
+      />
+       }
 
       {/* Модальное окно выхода
       <UserLogOutModal
