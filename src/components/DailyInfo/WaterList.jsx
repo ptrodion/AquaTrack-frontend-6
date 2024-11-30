@@ -83,14 +83,14 @@ const WaterList = () => {
                     <button
                       className={css.editBtn}
                       onClick={() => editItem(item.id)}
-                      aria-label="Edit water entry"
+                      aria-label={t('chooseDate.edit')}
                     >
                       <SlPencil />
                     </button>
                     <button
                       className={css.deleteBtn}
                       onClick={() => deleteItem(item.id)}
-                      aria-label="Delete water entry"
+                      aria-label={t('chooseDate.delete')}
                     >
                       <SlTrash />
                     </button>

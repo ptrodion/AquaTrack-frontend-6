@@ -13,7 +13,7 @@ const initialAvatar =
   'src/assets/img/settings_avatar/settings_avatar_mob_1x.webp';
 
 // { onClose, onUpdate }
-export const UserSettingsForm = onClose => {
+export const UserSettingsForm = ({ onModalClose }) => {
   const { t } = useTranslation();
   const [avatar, setAvatar] = useState(null);
   const [error, setError] = useState(null);
@@ -41,7 +41,11 @@ export const UserSettingsForm = onClose => {
 
 
   const onSubmit = async data => {
+
     const formData = new FormData();
+
+      console.log("data", data);
+
 
     formData.append('gender', data.gender);
     formData.append('name', data.name);
@@ -50,16 +54,19 @@ export const UserSettingsForm = onClose => {
     formData.append('activeTime', data.activeTime);
     formData.append('waterIntake', data.waterIntake);
     formData.append('avatarUrl', avatar);
+    console.log('formData', formData);
+    onModalClose()
+    // try {
+    //   console.log('formData', formData);
+    //   console.log("data", data);
 
-    try {
-      console.log('formData', formData);
 
-      // const response = await axios.post('/api/user/update', formData);
-      // onUpdate(response.data);
-      onClose(onClose);
-    } catch (error) {
-      setError(error.response?.data?.message || 'An error occurred');
-    }
+    //   // const response = await axios.post('/api/user/update', formData);
+    //   // onUpdate(response.data);
+    //   onModalClose();
+    // } catch (error) {
+    //   setError(error.response?.data?.message || 'An error occurred');
+    // }
   };
   const handleAvatarChange = e => {
     setAvatar(e.target.files[0]);
@@ -68,7 +75,7 @@ export const UserSettingsForm = onClose => {
   return (
     <>
       {/* {error && ( */}
-        <form className="user-settings-form" onSubmit={handleSubmit(onSubmit)}>
+        <form className="user-settings-form" onSubmit={onSubmit}>
           <div className={css.formGroup}>
             {!avatar && (
               <img

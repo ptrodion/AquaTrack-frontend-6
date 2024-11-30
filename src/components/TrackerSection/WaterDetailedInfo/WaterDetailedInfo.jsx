@@ -1,7 +1,7 @@
 import css from './WaterDetailedInfo.module.css';
 import UserPanel from '../../UserPanel/UserPanel.jsx';
 import MonthInfo from 'components/MonthInfo/MonthInfo';
-import WaterList from 'components/WaterList/WaterList.jsx';
+import WaterList from 'components/DailyInfo/WaterList.jsx';
 
 const WaterDetailedInfo = () => {
   return (

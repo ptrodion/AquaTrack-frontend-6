@@ -1,4 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
+// import { useDispatch, useSelector } from 'react-redux';
+// import { fetchUserCount } from '../../redux/userCount/userCountSlice';
 import styles from './advantages-section.module.css';
 import { FaCircle } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
@@ -6,13 +8,24 @@ import Section from 'components/Section/Section.jsx';
 const AdvantagesSection = () => {
   const { t } = useTranslation();
 
+  // const dispatch = useDispatch();
+  // const userCount = useSelector((state) => state.userCount.count);
+  // const status = useSelector((state) => state.userCount.status);
+  // const error = useSelector((state) => state.userCount.error);
+
   const [userCount, setUserCount] = useState(0);
 
   useEffect(() => {
+    // if (status === 'idle') {
+    //   dispatch(fetchUserCount());
+    // }
+
     const fetchUserCount = async () => {
       try {
+
         const response = await fetch('/api/users-count');
         if (!response.ok) {
+
           throw new Error('Network response was not ok');
         }
         const data = await response.json();
@@ -89,6 +102,7 @@ const AdvantagesSection = () => {
                               src/assets/img/customers/customer_3_mob_1x.webp 1x,
                               src/assets/img/customers/customer_3_mob_2x.webp 2x
                               "
+
                     media="(max-width: 768px)"
                   />
                   <img
@@ -123,6 +137,7 @@ const AdvantagesSection = () => {
               </a>
             </button>
           </div>
+
         </div>
       </section>
     </Section>
