@@ -93,16 +93,19 @@ const UserBar = ({ name, avatarUrl }) => {
       {isSettingModalOpen && 
         (<ModalBackdrop>
           <UserSettingsModal
-        onSettingModalClose={onSettingModalClose}
+          onSettingModalClose={onSettingModalClose}
         />
         </ModalBackdrop>
        )}
 
-      {/* Модальное окно выхода
-      <UserLogOutModal
-        isOpen={showLogOutModal}
-        onClose={handleLogOutModalClose}
-      /> */}
+       {/* Модальное окно выхода */}
+      {/* {isLogOutModalOpen &&
+        (<ModalBackdrop>
+        <LogOutModal
+          onClose={handleLogOutModalClose}
+        />
+      </ModalBackdrop>
+      )} */}
       
     </div>
   );
