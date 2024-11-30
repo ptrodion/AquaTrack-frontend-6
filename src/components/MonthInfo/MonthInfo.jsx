@@ -3,6 +3,7 @@ import { CalendarPagination } from 'components/CalendarPagination/CalendarPagina
 import WaterConsumptionChart from 'components/WaterConsumptionChart/WaterConsumptionChart';
 import css from './MonthInfo.module.css';
 import { useState } from 'react';
+
 import { FiPieChart } from "react-icons/fi";
 
 const MonthInfo = () => {
@@ -31,3 +32,4 @@ const MonthInfo = () => {
 };
 
 export default MonthInfo;
+

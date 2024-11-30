@@ -28,27 +28,53 @@ h1 {
 .small-text {
   font-size: 14px;
 }
-/* Mobile */
 .container {
+  width: 100%;
   min-width: 320px;
   max-width: 375px;
-  width: 100%;
-  padding: 0 20px;
   margin: 0 auto;
 }
 
-/* Tablet */
+.pageContentWrapper {
+  margin: 16px 0;
+  gap: 16px;
+  /* За замовчуванням секції одна під одною */
+  display: flex;
+  flex-direction: column;
+}
+.section {
+  position: relative;
+  margin-left: 16px;
+  margin-right: 16px;
+}
 @media only screen and (min-width: 768px) {
   .container {
     max-width: 768px;
-    padding: 0 32px;
+  }
+  .pageContentWrapper {
+    margin: 32px 0;
+    justify-content: space-between;
+    /* Вирівнювання секцій із проміжком між ними */
+    gap: 16px;
+  }
+  .section {
+    margin-left: 32px;
+    margin-right: 32px;
   }
 }
 
-/* Desktop */
 @media only screen and (min-width: 1440px) {
   .container {
     max-width: 1440px;
+  }
+  .pageContentWrapper {
+    flex-direction: row;
+    /* Горизонтальне розташування секцій */
+    gap: 32px;
+    margin: 32px;
+  }
+  .section {
+    margin: 0;
   }
 }
 
