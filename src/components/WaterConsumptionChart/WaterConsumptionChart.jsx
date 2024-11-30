@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 import {
   LineChart,
   Line,
@@ -7,8 +7,7 @@ import {
   CartesianGrid,
   Tooltip,
   ResponsiveContainer,
-} from "recharts";
-import css from './WaterConsumptionChart';
+} from 'recharts';
 
 const getCurrentWeekDates = () => {
   const currentDate = new Date();
@@ -32,8 +31,7 @@ const WaterConsumptionChart = () => {
 
   useEffect(() => {
     const weekDates = getCurrentWeekDates();
-    const consumptionData = weekDates.map((date, index) => {
-
+    const consumptionData = weekDates.map(date => {
       const dayString = date.getDate();
 
       const consumption = Math.floor(Math.random() * 3);
@@ -51,11 +49,11 @@ const WaterConsumptionChart = () => {
     <ResponsiveContainer width="100%" height={300}>
       <LineChart data={chartData}>
         <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="day"/>
+        <XAxis dataKey="day" />
         <YAxis
-        ticks={[0, 0.5, 1, 1.5, 2, 2.5]}
-        domain={[0, 2.5]}
-        tickFormatter={(tick) => (tick === 0 ? "0" : `${tick}L`)}
+          ticks={[0, 0.5, 1, 1.5, 2, 2.5]}
+          domain={[0, 2.5]}
+          tickFormatter={tick => (tick === 0 ? '0' : `${tick}L`)}
         />
         <Tooltip />
         <Line
