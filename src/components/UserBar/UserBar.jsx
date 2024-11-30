@@ -7,7 +7,6 @@ import { useTranslation } from 'react-i18next';
 
 
 // import { useDispatch } from "react-redux";
-// import { selectUser } from '../../redux/auth/selector';
 
 // import { LogOutModal } from '../LogOutModal/LogOutModal.jsx';
 import { UserSettingsModal } from 'components/UserSettingsModal/UserSettingsModal.jsx';
