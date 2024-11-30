@@ -35,7 +35,7 @@ const WaterList = () => {
 
   // edit
   const editItem = id => {
-    const newAmount = prompt('Enter new amount:');
+    const newAmount = prompt(t('chooseDate.newAmount'));
     if (newAmount) {
       setWaterItems(
         waterItems.map(item =>
