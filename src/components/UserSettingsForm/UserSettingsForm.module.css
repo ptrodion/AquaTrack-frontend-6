@@ -1,18 +1,16 @@
-/* @media only screen and (min-width: 320px) and (max-width: 375px){
-  .modal {
-    position: absolute;
-    left: 50%;
-    top: 80px;
-    border-radius: 15px;
-    padding: 40px 20px;
-    box-shadow: 0 4px 50px 0 rgba(0, 0, 0, 0.1);
-    background: #fff;
-    width: 343px;
-  }
-} */
+body.no-scroll {
+  overflow: hidden;
+}
+.container{
+  position: relative;
+  width: 100vb;
+  height: 100vb;
+}
 .modal {
   position: absolute;
-  left: 16px;
+  left:0;
+  /* top: 50%; */
+  /* left: 16px;*/
   top: 80px;
   /* transform: translate(-50%, -50%); */
   border-radius: 15px;
@@ -53,9 +51,30 @@
   margin-bottom: 10px;
 }
 
-.button {
+/* .button {
   border: none;
   padding: 0;
+  background-color: transparent;
+} */
+input[type="file"] {
+  display: none;
+}
+
+/* Custom label styling */
+.customFileLabel {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s;
+}
+
+/* Hover effect */
+.customFileLabel:hover {
+  background-color: #45a049;
 }
 
 .flexGroup {
@@ -180,7 +199,7 @@
   .modal {
     padding: 40px;
     width: 648px;
-    left: 60px;
+    left: -32px;
     top: 64x;
   }
   .title {
@@ -242,7 +261,7 @@
 @media only screen and (min-width: 1440px) {
   .modal {
     width: 920px;
-    left: 260px;
+    left: -50%;
   }
   .box {
     margin-bottom: 24px;
