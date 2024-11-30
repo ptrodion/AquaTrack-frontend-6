@@ -1,40 +1,40 @@
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchUserCount } from '../../redux/userCount/userCountSlice';
+import { useEffect, useState } from 'react';
+// import { useDispatch, useSelector } from 'react-redux';
+// import { fetchUserCount } from '../../redux/userCount/userCountSlice';
 import styles from './advantages-section.module.css';
 import { FaCircle } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
 const AdvantagesSection = () => {
   const { t } = useTranslation();
 
-  const dispatch = useDispatch();
-  const userCount = useSelector((state) => state.userCount.count);
-  const status = useSelector((state) => state.userCount.status);
-  const error = useSelector((state) => state.userCount.error);
+  // const dispatch = useDispatch();
+  // const userCount = useSelector((state) => state.userCount.count);
+  // const status = useSelector((state) => state.userCount.status);
+  // const error = useSelector((state) => state.userCount.error);
 
-  // const [userCount, setUserCount] = useState(0);
+  const [userCount, setUserCount] = useState(0);
 
   useEffect(() => {
-    if (status === 'idle') {
-      dispatch(fetchUserCount());
-    }
+    // if (status === 'idle') {
+    //   dispatch(fetchUserCount());
+    // }
 
-    // const fetchUserCount = async () => {
-    //   try {
-    //     const response = await fetch('/api/users-count');
-    //     if(!response.ok) {
-    //       throw new Error('Network response was not ok');
-    //     }
-    //     const data = await response.json();
-    //     setUserCount(data.count);
-    //   } catch (error) {
-    //     console.error('Error fetching user count:', error);
-    //     setUserCount(0);
-    //   }
-    // };
+    const fetchUserCount = async () => {
+      try {
+        const response = await fetch('/api/user-count');
+        if(!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        setUserCount(data.count);
+      } catch (error) {
+        console.error('Error fetching user count:', error);
+        setUserCount(0);
+      }
+    };
 
-    // fetchUserCount();
-  }, [status, dispatch]);
+    fetchUserCount();
+  }, []);
 
   return (
     <section className={styles.AdvantagesSection}>
@@ -106,16 +106,16 @@ const AdvantagesSection = () => {
 
             </div>
             <h3 className={styles.textCustomers}>
-              {status === 'loading'
+              {/* { status === 'loading'
                 ? t('homepage.advantages.loading')
-                : status === 'failed'
+                :  status=== 'failed'
                 ? t('homepage.advantages.error', { error })
                   : t('homepage.advantages.customers', { counter: userCount })
-              }
-              {/* {userCount !== null
+              } */}
+              {userCount !== null
                 ? t('homepage.advantages.customers', { counter: userCount })
                 : t('homepage.advantages.customers', { counter: 0 })
-              } */}
+              }
 
             </h3>
           </button>

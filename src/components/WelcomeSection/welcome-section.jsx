@@ -15,7 +15,7 @@ const WelcomeSection = () => {
         </div>
         <div className={styles.content}>
           <div className={styles.textWrapper}>
-            <h3 className={styles.subtitle}>{t('homepage.welcome.text')}</h3>
+            <p className={styles.subtitle}>{t('homepage.welcome.text')}</p>
 
             <h1 className={styles.title}>{t('homepage.welcome.title')}</h1>
           </div>
