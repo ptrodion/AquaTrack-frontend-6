@@ -1,94 +1,67 @@
 import { createSlice } from '@reduxjs/toolkit';
-import {
-  fetchCurrentUser,
-  logIn,
-  logOut,
-  refresUser,
-  register,
-  updateFetchUser,
-} from './operations';
+import { login, logout, refreshUser, register } from './operations';
 
-const userSlice = createSlice({
-  name: 'user',
-  initialState: {
-    user: {
-      email: null,
-    },
-    token: null,
-    isLoggedIn: false,
-    isRefreshing: false,
-    error: false,
-  },
-  extraReducers: builder => {
+const INITIAL_STATE = {
+  token: null,
+  isLoggedIn: false,
+  isRefreshing: false,
+  refreshToken: null,
+  error: null,
+};
+
+export const authSlice = createSlice({
+  name: 'auth',
+  initialState: INITIAL_STATE,
+  reducers: {},
+  extraReducers: builder =>
     builder
       .addCase(register.pending, state => {
-        state.isRefreshing = false;
+        state.error = null;
       })
       .addCase(register.fulfilled, (state, action) => {
-        state.user = action.payload.user;
-        state.token = action.payload.token;
         state.isLoggedIn = true;
-        state.isRefreshing = false;
+        state.token = action.payload;
       })
       .addCase(register.rejected, (state, action) => {
-        state.isRefreshing = false;
-        state.isLoggedIn = false;
-        console.error(action.payload);
+        state.error = action.payload;
       })
-      .addCase(logIn.rejected, state => {
-        state.isRefreshing = false;
+
+      .addCase(login.pending, state => {
+        state.error = null;
       })
-      .addCase(logIn.fulfilled, (state, action) => {
-        state.user = action.payload.user;
-        state.token = action.payload.token;
+      .addCase(login.fulfilled, (state, action) => {
         state.isLoggedIn = true;
-        state.isRefreshing = false;
+        state.token = action.payload.accessToken;
+        state.refreshToken = action.payload.refreshToken;
       })
-      .addCase(logOut.pending, state => {
-        state.isRefreshing = false;
+      .addCase(login.rejected, (state, action) => {
+        state.error = action.payload;
       })
-      .addCase(logOut.fulfilled, state => {
-        state.user = {
-          name: null,
-          email: null,
-        };
-        state.token = null;
-        state.isLoggedIn = false;
-        state.isRefreshing = false;
-      })
-      .addCase(refresUser.pending, state => {
+
+      .addCase(refreshUser.pending, state => {
+        state.error = null;
         state.isRefreshing = true;
       })
-      .addCase(refresUser.fulfilled, (state, action) => {
-        state.user = action.payload;
+      .addCase(refreshUser.fulfilled, (state, action) => {
         state.isLoggedIn = true;
+        state.user = action.payload;
         state.isRefreshing = false;
       })
-      .addCase(updateFetchUser.pending, state => {
-        state.loading = true;
+      .addCase(refreshUser.rejected, (state, action) => {
+        state.error = action.payload;
+        state.isRefreshing = false;
+      })
+
+      .addCase(logout.pending, state => {
         state.error = null;
       })
-      .addCase(updateFetchUser.fulfilled, (state, action) => {
-        state.loading = false;
-        state.user = { ...state.user, ...action.payload };
+      .addCase(logout.fulfilled, () => {
+        return INITIAL_STATE;
       })
-      .addCase(updateFetchUser.rejected, (state, action) => {
-        state.loading = false;
+      .addCase(logout.rejected, (state, action) => {
         state.error = action.payload;
-      })
-      .addCase(fetchCurrentUser.pending, state => {
-        state.isLoading = true;
-        state.error = null;
-      })
-      .addCase(fetchCurrentUser.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.user = action.payload;
-      })
-      .addCase(fetchCurrentUser.rejected, (state, action) => {
-        state.isLoading = false;
-        state.error = action.payload;
-      });
-  },
+        state.isRefreshing = false;
+      }),
 });
 
-export default userSlice.reducer;
+export const authReducer = authSlice.reducer;
