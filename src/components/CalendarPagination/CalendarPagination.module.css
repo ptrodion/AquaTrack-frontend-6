@@ -3,6 +3,7 @@
   align-items: center;
 }
 .paginationText {
+  min-width: 120px;
   margin-left: 16px;
   margin-right: 16px;
   font-family: var(--font-family);
