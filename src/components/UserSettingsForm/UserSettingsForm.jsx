@@ -8,18 +8,23 @@ import { useState } from 'react';
 // import axios from 'axios';
 import json from './userSettingsForm.json';
 import { useTranslation } from 'react-i18next';
+// import { useDispatch } from 'react-redux';
+// import useSelection from 'antd/es/table/hooks/useSelection.js';
+// import { selectUser } from 'redux/user/selector.js';
 
 const initialAvatar =
   'src/assets/img/settings_avatar/settings_avatar_mob_1x.webp';
 
 // { onClose, onUpdate }
-export const UserSettingsForm = ({ onModalClose }) => {
+export const UserSettingsForm = ({ onSettingModalClose }) => {
+  // const dispatch = useDispatch();
+// const user = useSelection(selectUser);
   const { t } = useTranslation();
   const [avatar, setAvatar] = useState(null);
-  const [error, setError] = useState(null);
+  // const [error, setError] = useState(null);
 
   const validationSchema = Yup.object().shape({
-    gender: yup.string().required(t('settingsForm.ValidationGender')),
+    gender: Yup.string().required(t('settingsForm.ValidationGender')),
     name: Yup.string(),
     email: Yup.string()
       .email(t('settingsForm.ValidationEmail'))
@@ -33,7 +38,7 @@ export const UserSettingsForm = ({ onModalClose }) => {
 
   const {
     register,
-    handleSubmit,
+    // handleSubmit,
     // control,
     formState: { errors },
   } = useForm({
@@ -54,7 +59,7 @@ export const UserSettingsForm = ({ onModalClose }) => {
     formData.append('waterIntake', data.waterIntake);
     formData.append('avatarUrl', avatar);
     console.log('formData', formData);
-    onModalClose();
+    onSettingModalClose();
     // try {
     //   console.log('formData', formData);
     //   console.log("data", data);
@@ -69,6 +74,7 @@ export const UserSettingsForm = ({ onModalClose }) => {
   const handleAvatarChange = e => {
     setAvatar(e.target.files[0]);
   };
+// console.log(user);
 
   return (
     <>
