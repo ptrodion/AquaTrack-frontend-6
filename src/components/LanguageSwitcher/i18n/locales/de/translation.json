@@ -82,7 +82,8 @@
     "edit": "Wassereintrag bearbeiten",
     "delete": "Wassereintrag löschen",
     "ml": "ml",
-    "l": "L"
+    "l": "L",
+    "newAmount": "Geben Sie den neuen Betrag ein:"
   },
 
   "waterForm": {
