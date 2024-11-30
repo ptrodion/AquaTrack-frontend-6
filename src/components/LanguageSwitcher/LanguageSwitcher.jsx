@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import css from './LanguageSwitcher.module.css';
-import en from '../../assets/icons/lang/en-us.svg';
+import en from '../../assets/icons/lang/en.svg';
 import uk from '../../assets/icons/lang/uk.svg';
 import de from '../../assets/icons/lang/de.svg';
 import { useTranslation } from 'react-i18next';

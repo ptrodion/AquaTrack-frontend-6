@@ -7,12 +7,14 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useState } from 'react';
 // import axios from 'axios';
 import json from './userSettingsForm.json';
+import { useTranslation } from 'react-i18next';
 
 const initialAvatar =
   'src/assets/img/settings_avatar/settings_avatar_mob_1x.webp';
 
 // { onClose, onUpdate }
 export const UserSettingsForm = onClose => {
+  const { t } = useTranslation();
   const [avatar, setAvatar] = useState(null);
   const [error, setError] = useState(null);
 
@@ -36,6 +38,7 @@ export const UserSettingsForm = onClose => {
     resolver: yupResolver(validationSchema),
     defaultValues: json,
   });
+
 
   const onSubmit = async data => {
     const formData = new FormData();

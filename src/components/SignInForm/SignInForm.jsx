@@ -5,6 +5,7 @@ import css from './SignInForm.module.css';
 import { Input } from 'antd';
 import Logo from 'components/Logo/logo';
 import { useTranslation } from 'react-i18next';
+import Section from 'components/Section/Section.jsx';
 
 const SignInForm = () => {
   const { t } = useTranslation();
@@ -36,9 +37,9 @@ const SignInForm = () => {
     console.log(data);
   };
   return (
-    <>
+    <Section>
       <div className={css.backgroundContainer}>
-        {/* <Logo></Logo> */}
+        <Logo></Logo>
         <form className={css.formContainer} onSubmit={handleSubmit(onSubmit)}>
           <h2 className={css.formTitle}>Sign In</h2>
 
@@ -93,7 +94,7 @@ const SignInForm = () => {
           </div>
         </form>
       </div>
-    </>
+    </Section>
   );
 };
 
