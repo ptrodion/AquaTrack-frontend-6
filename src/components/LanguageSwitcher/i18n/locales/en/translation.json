@@ -82,7 +82,8 @@
     "edit": "Edit water entry",
     "delete": "Delete water entry",
     "ml": "ml",
-    "l": "L"
+    "l": "L",
+    "newAmount": "Enter new amount:"
   },
 
   "waterForm": {

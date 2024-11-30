@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 export const BaseURL = axios.create({
-  //baseURL: /////// створений бек
+  baseURL: 'https://warettrack.onrender.com',
 });
 
 const setAuthHeader = token => {
@@ -22,7 +22,6 @@ export const addWaterRecord = createAsyncThunk(
   }
 );
 
-// Редагування запису
 export const updateWaterRecord = createAsyncThunk(
   'water/updateRecord',
   async ({ id, updatedData }, thunkAPI) => {

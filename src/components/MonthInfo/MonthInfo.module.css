@@ -10,10 +10,35 @@
   align-items: center;
   margin-bottom: 24px;
 }
+  .title {
+  margin-right: auto;
+}
+.paginationWrap {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.statsToggleBtn {
+  width: 20px;
+  height: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 @media only screen and (min-width: 768px) {
   .calendarWrap {
     margin-bottom: 35px;
+  }
+  .statsToggleBtn {
+    width: 24px;
+    height: 24px;
+  }
+  .paginationWrap {
+    gap: 20px;
   }
 }
 
