@@ -4,7 +4,7 @@ import css from '../UserSettingsForm/UserSettingsForm.module.css';
 import { UserSettingsForm } from 'components/UserSettingsForm/UserSettingsForm.jsx';
 import { useTranslation } from 'react-i18next';
 
-export const UserSettingsModal = () => {
+export const UserSettingsModal = (onClose) => {
   const { t } = useTranslation();
   // const [isModalOpen, setIsModalOpen] = useState(false);
   // const showModal = () => {
@@ -14,12 +14,14 @@ export const UserSettingsModal = () => {
   //   setIsModalOpen(false);
   // };
   return (
+    <div className={css.container}>
     <div className={css.modal}>
       <div className={css.box}>
         <h2 className={css.title}>{t('settingsModal.titleModal')}</h2>
-        <GoX />
+        <button onClick={onClose}><GoX/></button>
       </div>
-      <UserSettingsForm />
+      <UserSettingsForm onClose={onClose}/>
+    </div>
     </div>
   );
 };
