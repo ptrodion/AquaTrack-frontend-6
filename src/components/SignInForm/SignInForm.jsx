@@ -6,6 +6,7 @@ import { Input } from 'antd';
 import Logo from 'components/Logo/logo';
 import { useTranslation } from 'react-i18next';
 import Section from 'components/Section/Section.jsx';
+import { Link } from 'react-router';
 
 const SignInForm = () => {
   const { t } = useTranslation();
@@ -87,9 +88,9 @@ const SignInForm = () => {
           <div className={css.linkContainer}>
             <p className={css.text}>
               Don’t have an account?
-              <a className={css.link} href="#">
+              <Link className={css.link} to="/signup">
                 Sign Up
-              </a>
+              </Link>
             </p>
           </div>
         </form>
