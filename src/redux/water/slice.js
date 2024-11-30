@@ -5,7 +5,7 @@ import {
   deleteWaterRecord,
   getDailyWaterRecords,
   getMonthlyWaterRecords,
-} from './waterActions';
+} from './operatioms';
 
 const waterSlice = createSlice({
   name: 'water',
