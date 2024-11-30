@@ -5,6 +5,8 @@ import css from './SignUpForm.module.css';
 import { Input } from 'antd';
 import Logo from 'components/Logo/logo';
 import { useTranslation } from 'react-i18next';
+import Section from 'components/Section/Section.jsx';
+import { Link } from 'react-router';
 
 const SignUpForm = () => {
   const { t } = useTranslation();
@@ -37,9 +39,9 @@ const SignUpForm = () => {
     console.log(data);
   };
   return (
-    <>
+    <Section>
       <div className={css.backgroundContainer}>
-        {/* <Logo></Logo> */}
+        <Logo></Logo>
         <form className={css.formContainer} onSubmit={handleSubmit(onSubmit)}>
           <h2 className={css.formTitle}>{t('signUp.title')}</h2>
 
@@ -107,14 +109,14 @@ const SignUpForm = () => {
           <div className={css.linkContainer}>
             <p className={css.text}>
               {t('signUp.account')}
-              <a className={css.link} href="#">
+              <Link className={css.link} to="/signin">
                 {t('signUp.signIn')}
-              </a>
+              </Link>
             </p>
           </div>
         </form>
       </div>
-    </>
+    </Section>
   );
 };
 

@@ -5,8 +5,10 @@
   width: auto;
   height: auto;
   position: absolute;
-  top: 24px;
-  left: 16px;
+
+  top: 16px;
+  left: 8px;
+
 }
 
 .logoText {
@@ -15,7 +17,7 @@
   font-size: 18px;
   line-height: 1.11;
   letter-spacing: 0.01em;
-  color: #323F47;
+  color: #323f47;
   margin: 0;
 }
 

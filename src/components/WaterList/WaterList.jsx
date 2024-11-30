@@ -2,8 +2,10 @@ import { useState } from 'react';
 import { SlPencil } from 'react-icons/sl';
 import { SlTrash } from 'react-icons/sl';
 import css from './WaterList.module.css';
+import { useTranslation } from 'react-i18next';
 
 const WaterList = () => {
+  const { t } = useTranslation();
   // useState
   const [waterItems, setWaterItems] = useState([
     { id: 1, amount: 250, time: '7:00 AM' },
@@ -33,7 +35,7 @@ const WaterList = () => {
 
   // edit
   const editItem = id => {
-    const newAmount = prompt('Enter new amount:');
+    const newAmount = prompt(t('chooseDate.newAmount'));
     if (newAmount) {
       setWaterItems(
         waterItems.map(item =>
@@ -46,7 +48,7 @@ const WaterList = () => {
   return (
     <div className={css.waterListContainer}>
       <button onClick={addItem} className={css.addBtn}>
-        Add water
+        {t('waterModal.add')}
       </button>
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -106,7 +108,10 @@ const WaterList = () => {
                   <use href="#icon-water-glass" />
                 </svg>
                 <div className={css.waterDetails}>
-                  <p className={css.waterAmount}>{item.amount} ml</p>
+                  <p className={css.waterAmount}>
+                    {item.amount}
+                    {t('chooseDate.ml')}
+                  </p>
                   <p className={css.waterTime}>{item.time}</p>
                 </div>
                 <div className={css.waterActions}>
