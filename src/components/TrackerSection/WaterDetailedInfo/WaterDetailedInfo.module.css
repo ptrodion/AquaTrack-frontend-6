@@ -1,0 +1,26 @@
+.waterDetailedInfo {
+  /* margin: 0 auto; */
+  position: relative;
+  max-width: 343px;
+  height: 770px;
+  border-radius: 30px;
+  box-sizing: border-box;
+  padding: 24px 16px;
+  background: #f0eff4;
+}
+
+@media screen and (min-width: 767px) {
+  .waterDetailedInfo {
+    max-width: 704px;
+    height: 738px;
+    padding: 25px 32px 35px 32px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .waterDetailedInfo {
+    width: 672px;
+    height: 736px;
+    padding: 32px 34px 33px 32px;
+  }
+}

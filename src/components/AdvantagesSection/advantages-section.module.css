@@ -48,8 +48,11 @@
 .image{
   width: 26.4px;
   height: 28px;
+  /* width: 26.4px;
+  height: auto; */
   border-radius: 50%;
   border: 2px solid #fff;
+  object-fit: cover;
 
 }
 
@@ -72,16 +75,18 @@
 
 .textCustomers{
   color: #323F47;
-    font-size: 12px;
-    font-weight: 700;
-    line-height: 1.17;
-    letter-spacing: 0;
-    width: 67px;
+  font-family: 'Poppins';
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.17;
+  letter-spacing: 0;
+  width: 67px;
 }
 
 .accent{
   color: #9BE1A0;
   font-size: 12px;
+  font-family: 'Poppins';
   font-weight: 700;
   line-height: 1.17;
   letter-spacing: 0;
@@ -112,11 +117,11 @@
 }
 
 .habitDrive{
-
+  font-family: 'Poppins';
   font-size: 8px;
   font-weight: 700;
   line-height: 1;
-  letter-spacing: 0.01em;
+  letter-spacing: -0.01em;
   color: #fff;
   text-align: center;
 
@@ -139,11 +144,11 @@
 }
 
 .viewStatistics{
-
+  font-family: 'Poppins';
   font-size: 8px;
   font-weight: 700;
   line-height: 1;
-  letter-spacing: 0.01em;
+  letter-spacing: -0.01em;
   color: #323F47;
   text-align: center;
 
@@ -160,11 +165,113 @@
 }
 
 .personalRateSetting{
-
+  font-family: 'Poppins';
   font-size: 8px;
   font-weight: 700;
   line-height: 1;
-  letter-spacing: 0.01em;
+  letter-spacing: -0.01em;
   color: #323F47;
   text-align: center;
+}
+
+@media screen and (min-resolution: 192dpi),
+screen and (-webkit-min-device-pixel-ratio: 2) {
+  .AdvantagesSection {
+    background-image: url("src/assets/img/woman_aqua_track/woman_aqua_track_mob_2x.webp");
+  }
+}
+
+@media screen and (min-width: 768px) {
+.AdvantagesSection{
+background-image: url(src/assets/img/woman_aqua_track/woman_aqua_track_tablet_1x.webp);
+}
+.container{
+  height: 446px;
+}
+.button{
+  padding: 10px 20px;
+  left: 32px;
+}
+.textCustomers{
+  font-size: 15px;
+  width: 90px;
+}
+.accent{
+  font-size: 15px;
+}
+.image{
+  width: 40px;
+  height: 40px;
+}
+.image:nth-child(2) {
+  z-index: 2;
+  margin-left: -20px;
+
+}
+
+.image:nth-child(3) {
+  z-index: 1;
+  margin-left: -20px;
+
+}
+.buttonsBenefits{
+  width: 242px;
+  gap: 10px;
+  bottom: 32px;
+  right: 32px;
+}
+
+.habitDrive{
+  font-size: 12px;
+}
+.viewStatistics{
+  font-size: 12px;
+}
+.personalRateSetting{
+  font-size: 12px
+}
+
+@media screen and (min-width: 768px) and (min-resolution: 192dpi),
+screen and (min-width: 768px) and (-webkit-min-device-pixel-ratio: 2) {
+  .AdvantagesSection {
+    background-image: url("src/assets/img/woman_aqua_track/woman_aqua_track_tablet_2x.webp");
+  }
+}
+}
+
+@media screen and (min-width: 1440px) {
+
+  .AdvantagesSection{
+    background-image: url(src/assets/img/woman_aqua_track/woman_aqua_track_desktop_1x.webp);
+  }
+
+  .container{
+    height: 732px;
+    width: 672px;
+
+  }
+
+  .button {
+
+    bottom: 132px;
+  }
+
+  .image {
+    width: 47px;
+    height: 47px;
+  }
+
+  .buttonsBenefits {
+
+    bottom: 64px;
+
+  }
+
+    @media screen and (min-width: 1440px) and (min-resolution: 192dpi),
+    screen and (min-width: 1440px) and (-webkit-min-device-pixel-ratio: 2) {
+      .AdvantagesSection {
+        background-image: url("src/assets/img/woman_aqua_track/woman_aqua_track_desktop_2x.webp");
+      }
+    }
+
 }

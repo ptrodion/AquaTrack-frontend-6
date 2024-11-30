@@ -1,0 +1,36 @@
+.calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 20px 18px; /* 7 колонок для кожного дня тижня */
+  width: 100%;
+  justify-items: center;
+}
+
+/* Стилі для кожної кнопки */
+
+
+
+/* background: var(--main-white);  FFFFFF */
+@media only screen and (min-width: 768px) {
+  .calendar {
+    grid-template-columns: repeat(8, 1fr);
+    gap: 15px 48px;
+  }
+  .dayButton {
+    width: 38px;
+    height: 38px;
+    font-size: 16px;
+    line-height: 150%;
+    margin-bottom: 4px;
+  }
+  .dayInfo {
+    font-size: 12px;
+    line-height: 187%;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .calendar {
+    gap: 15px 43px;
+  }
+}

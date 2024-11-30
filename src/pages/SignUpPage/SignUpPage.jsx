@@ -1,8 +1,13 @@
+import AdvantagesSection from 'components/AdvantagesSection/advantages-section';
+import SignUpForm from 'components/SignUpForm/SignUpForm';
+import Container from 'components/Container/Container.jsx';
+
 function SignUpPage() {
   return (
-    <>
-      <h1>SignUpPage</h1>
-    </>
+    <Container>
+      <SignUpForm></SignUpForm>
+      <AdvantagesSection></AdvantagesSection>
+    </Container>
   );
 }
 

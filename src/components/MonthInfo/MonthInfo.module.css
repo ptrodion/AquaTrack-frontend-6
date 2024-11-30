@@ -1,0 +1,24 @@
+.calendarWrap {
+  width: 100%;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  background: #f0eff4;
+}
+.titleWrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+@media only screen and (min-width: 768px) {
+  .calendarWrap {
+    margin-bottom: 35px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .calendarWrap {
+    margin-bottom: 33px;
+  }
+}

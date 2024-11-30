@@ -1,12 +1,13 @@
-import WaterList from './WaterList';
+import WaterMainInfo from 'components/TrackerSection/WaterMainInfo/WaterMainInfo.jsx';
+import WaterDetailedInfo from 'components/TrackerSection/WaterDetailedInfo/WaterDetailedInfo.jsx';
+import Container from 'components/Container/Container.jsx';
 
 function TrackerPage() {
-  // return <h1>TrackerPage</h1>;
   return (
-    <div className="tracker-page">
-      <WaterList />
-    </div>
+    <Container>
+      <WaterMainInfo />
+      <WaterDetailedInfo />
+    </Container>
   );
 }
-
 export default TrackerPage;
