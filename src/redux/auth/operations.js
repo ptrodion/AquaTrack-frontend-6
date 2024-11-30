@@ -13,7 +13,6 @@ export const register = createAsyncThunk(
   async (newUser, thunkApi) => {
     try {
       const res = await BaseURL.post('/api/auth/register', newUser);
-      setAuthHeader(res.data.token);
       return res.data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
