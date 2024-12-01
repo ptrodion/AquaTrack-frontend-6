@@ -20,7 +20,7 @@ export const authSlice = createSlice({
       })
       .addCase(register.fulfilled, (state, action) => {
         state.isLoggedIn = true;
-        state.token = action.payload;
+        state.token = action.payload.accessToken;
       })
       .addCase(register.rejected, (state, action) => {
         state.error = action.payload;
