@@ -6,9 +6,14 @@ import { Input } from 'antd';
 import Logo from 'components/Logo/logo';
 import { useTranslation } from 'react-i18next';
 import Section from 'components/Section/Section.jsx';
-import { Link } from 'react-router';
-import { useDispatch } from 'react-redux';
+import { Link, useNavigate } from 'react-router';
+import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../../redux/auth/operations';
+import {
+  selectAuthError,
+  selectAuthIsLoggedIn,
+} from '../../redux/auth/selector';
+import { useEffect } from 'react';
 
 const SignInForm = () => {
   const { t } = useTranslation();
@@ -19,9 +24,6 @@ const SignInForm = () => {
     password: Yup.string()
       .required(t('validation.requiredPassword'))
       .min(6, t('validation.passwordMessage')),
-    repeatPassword: Yup.string()
-      .required(t('validation.repeatPasswordMessage'))
-      .oneOf([Yup.ref('password')], t('validation.oneOf')),
   });
   const {
     handleSubmit,
@@ -37,11 +39,21 @@ const SignInForm = () => {
   });
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const loggedIn = useSelector(selectAuthIsLoggedIn);
+  const error = useSelector(selectAuthError);
+
+  useEffect(() => {
+    if (loggedIn) {
+      navigate('/tracker');
+    }
+  });
 
   const onSubmit = data => {
-    console.log(data);
     dispatch(login(data));
   };
+
   return (
     <Section>
       <div className={css.backgroundContainer}>
@@ -85,11 +97,14 @@ const SignInForm = () => {
               {errors.password.message}
             </p>
           )}
-
+          {error && (
+            <p className={`${css.error} ${css.lastError}`}>
+              Wrong password or email
+            </p>
+          )}
           <button type="submit" className={css.btn}>
             {t('signIn.title')}
           </button>
-
           <div className={css.linkContainer}>
             <p className={css.text}>
               {t('signIn.account')}
