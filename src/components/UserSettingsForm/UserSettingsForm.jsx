@@ -18,7 +18,7 @@ const initialAvatar =
 // { onClose, onUpdate }
 export const UserSettingsForm = ({ onSettingModalClose }) => {
   // const dispatch = useDispatch();
-// const user = useSelection(selectUser);
+  // const user = useSelection(selectUser);
   const { t } = useTranslation();
   const [avatar, setAvatar] = useState(null);
   // const [error, setError] = useState(null);
@@ -74,7 +74,7 @@ export const UserSettingsForm = ({ onSettingModalClose }) => {
   const handleAvatarChange = e => {
     setAvatar(e.target.files[0]);
   };
-// console.log(user);
+  // console.log(user);
 
   return (
     <>
@@ -152,17 +152,17 @@ export const UserSettingsForm = ({ onSettingModalClose }) => {
             <p className={css.label}>{t('settingsForm.subtitle')}</p>
             <ul className={css.list}>
               <li className={css.item}>
-                <p>{t('settingsForm.textForWoman')}:</p>
+                <p>{t('settingsForm.textForWoman')}</p>
                 <p className={css.formula}>V=(M*0,03) + (T*0,4)</p>
               </li>
               <li className={css.item}>
-                <p>{t('settingsForm.textForWoman')}:</p>
+                <p>{t('settingsForm.textForMan')}</p>
                 <p className={css.formula}>V=(M*0,04) + (T*0,6)</p>
               </li>
             </ul>
 
             <p className={css.description}>
-              * {t('settingsForm.textDescription"')}
+              * {t('settingsForm.textDescription')}
             </p>
             <p className={css.textActive}>
               <span className={css.formula}>!</span>
@@ -171,10 +171,7 @@ export const UserSettingsForm = ({ onSettingModalClose }) => {
           </div>
 
           <div className={css.weightGroup}>
-            <label className={css.label}>
-              {' '}
-              {t('settingsForm.userWeight')}:
-            </label>
+            <label className={css.label}> {t('settingsForm.userWeight')}</label>
             <input
               type="number"
               {...register('weight')}
@@ -184,7 +181,7 @@ export const UserSettingsForm = ({ onSettingModalClose }) => {
           </div>
 
           <div className={css.emailGroup}>
-            <label className={css.label}>{t('settingsForm.userWeight')}:</label>
+            <label className={css.label}>{t('settingsForm.userWeight')}</label>
             <input
               type="number"
               {...register('activeTime')}
@@ -204,7 +201,7 @@ export const UserSettingsForm = ({ onSettingModalClose }) => {
 
           <div className={css.emailGroup}>
             <label className={css.label}>
-              {t('settingsForm.labelWaterNorma')}:
+              {t('settingsForm.labelWaterNorma')}
             </label>
             <input
               type="number"
