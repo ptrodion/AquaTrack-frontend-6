@@ -6,8 +6,6 @@ import { BsChevronUp, BsChevronDown } from 'react-icons/bs';
 import { useTranslation } from 'react-i18next';
 
 
-// import { useDispatch } from "react-redux";
-
 // import { LogOutModal } from '../LogOutModal/LogOutModal.jsx';
 import { UserSettingsModal } from 'components/UserSettingsModal/UserSettingsModal.jsx';
 import ModalBackdrop from 'components/ModalBackdrop/ModalBackdrop';
