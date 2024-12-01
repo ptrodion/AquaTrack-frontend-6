@@ -6,7 +6,11 @@ import { Input } from 'antd';
 import Logo from 'components/Logo/logo';
 import { useTranslation } from 'react-i18next';
 import Section from 'components/Section/Section.jsx';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
+import { useDispatch, useSelector } from 'react-redux';
+import { register } from '../../redux/auth/operations';
+import { useEffect } from 'react';
+import { selectAuthIsLoggedIn } from '../../redux/auth/selector';
 
 const SignUpForm = () => {
   const { t } = useTranslation();
@@ -35,8 +39,19 @@ const SignUpForm = () => {
     },
   });
 
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const loggedIn = useSelector(selectAuthIsLoggedIn);
+
+  useEffect(() => {
+    if (loggedIn) {
+      navigate('/tracker');
+    }
+  });
+
   const onSubmit = data => {
-    console.log(data);
+    const { email, password } = data;
+    dispatch(register({ email, password }));
   };
   return (
     <Section>

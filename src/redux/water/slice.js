@@ -1,55 +1,95 @@
 import { createSlice } from '@reduxjs/toolkit';
 import {
-  addWaterRecord,
-  updateWaterRecord,
-  deleteWaterRecord,
-  getDailyWaterRecords,
-  getMonthlyWaterRecords,
-} from './operatioms';
+  getWaterByDay,
+  getWaterByMonth,
+  addWater,
+  updateWater,
+  deleteWater,
+} from './operations';
 
-const waterSlice = createSlice({
+const INITIAL_STATE = {
+  monthWater: [],
+  dailyWater: [],
+  isLoading: false,
+  error: null,
+};
+
+export const waterSlice = createSlice({
   name: 'water',
-  initialState: {
-    records: [],
-    dailyRecords: [],
-    monthlyRecords: [],
-    isLoading: false,
-    error: null,
-  },
-  reducers: {},
+  initialState: INITIAL_STATE,
   extraReducers: builder => {
     builder
-      .addCase(addWaterRecord.fulfilled, (state, action) => {
-        state.records.push(action.payload);
+      .addCase(getWaterByDay.pending, state => {
+        state.isLoading = true;
       })
-      .addCase(updateWaterRecord.fulfilled, (state, action) => {
-        const index = state.records.findIndex(r => r.id === action.payload.id);
-        if (index !== -1) state.records[index] = action.payload;
+      .addCase(getWaterByDay.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        state.dailyWater = action.payload;
       })
-      .addCase(deleteWaterRecord.fulfilled, (state, action) => {
-        state.records = state.records.filter(r => r.id !== action.payload);
+      .addCase(getWaterByDay.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
       })
-      .addCase(getDailyWaterRecords.fulfilled, (state, action) => {
-        state.dailyRecords = action.payload;
+
+      .addCase(getWaterByMonth.pending, state => {
+        state.isLoading = true;
       })
-      .addCase(getMonthlyWaterRecords.fulfilled, (state, action) => {
-        state.monthlyRecords = action.payload;
+      .addCase(getWaterByMonth.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        state.monthWater = action.payload;
       })
-      .addMatcher(
-        action => action.type.endsWith('/pending'),
-        state => {
-          state.isLoading = true;
-          state.error = null;
-        }
-      )
-      .addMatcher(
-        action => action.type.endsWith('/rejected'),
-        (state, action) => {
-          state.isLoading = false;
-          state.error = action.payload;
-        }
-      );
+      .addCase(getWaterByMonth.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
+      .addCase(addWater.pending, state => {
+        state.isLoading = true;
+      })
+      .addCase(addWater.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        state.dailyWater.push(action.payload);
+        state.monthWater.push(action.payload);
+      })
+      .addCase(addWater.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
+
+      .addCase(updateWater.pending, state => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(updateWater.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.monthWater = state.monthWater.map(water =>
+          water.id === action.payload.id ? action.payload : water
+        );
+        state.dailyWater = state.dailyWater.map(water =>
+          water.id === action.payload.id ? action.payload : water
+        );
+      })
+      .addCase(updateWater.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
+
+      .addCase(deleteWater.pending, state => {
+        state.isLoading = true;
+      })
+      .addCase(deleteWater.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.monthWater = state.monthWater.filter(
+          water => water.id !== action.payload
+        );
+      })
+      .addCase(deleteWater.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      });
   },
 });
 
-export default waterSlice.reducer;
+export const waterReducer = waterSlice.reducer;
