@@ -32,7 +32,6 @@ export const login = createAsyncThunk(
   async (formData, thunkAPI) => {
     try {
       const { data } = await instance.post('api/auth/login', formData);
-      console.log(data.data.accessToken);
 
       setAuthToken(data.data.accessToken);
 
@@ -50,12 +49,9 @@ export const refreshUser = createAsyncThunk(
       const state = thunkAPI.getState();
       const token = state.auth.token;
 
-      console.log('token', token);
-
       setAuthToken(token);
 
       const { data } = await instance.post('api/auth/refresh');
-      console.log(data);
 
       return data;
     } catch (error) {
