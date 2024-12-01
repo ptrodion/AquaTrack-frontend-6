@@ -9,7 +9,7 @@ const SignInPage = lazy(() => import('./pages/SignInPage/SignInPage'));
 const SignUpPage = lazy(() => import('./pages/SignUpPage/SignUpPage'));
 const TrackerPage = lazy(() => import('./pages/TrackerPage/TrackerPage'));
 
-// const TestPage = lazy(() => import('./pages/TestPage/TestPage'));
+const TestPage = lazy(() => import('./pages/TestPage/TestPage'));
 
 function App() {
   return (
@@ -22,6 +22,7 @@ function App() {
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="/signin" element={<SignInPage />} />
           <Route path="/tracker" element={<TrackerPage />} />
+          <Route path="/test" element={<TestPage />} />
         </Routes>
       </SharedLayout>
     </>
