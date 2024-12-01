@@ -32,7 +32,6 @@ export const authSlice = createSlice({
       .addCase(login.fulfilled, (state, action) => {
         state.isLoggedIn = true;
         state.token = action.payload.accessToken;
-        state.refreshToken = action.payload.refreshToken;
       })
       .addCase(login.rejected, (state, action) => {
         state.error = action.payload;
