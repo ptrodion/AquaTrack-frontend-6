@@ -7,9 +7,9 @@ const UserPanel = () => {
   return (
     <div className={css.welcome}>
       {t('userPanel.greeting')}
-      <span className={css.userName}>, Nadia</span>
+      <span className={css.userName}>, User</span>
       <UserBar
-        name="Nadia"
+        name=""
       />
     </div>
   );

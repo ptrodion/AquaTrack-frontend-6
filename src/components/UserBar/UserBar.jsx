@@ -5,8 +5,9 @@ import { MdLogout } from 'react-icons/md';
 import { LuUserCircle2 } from "react-icons/lu";
 import { BsChevronUp, BsChevronDown } from 'react-icons/bs';
 import { useTranslation } from 'react-i18next';
-// import { useDispatch, useSelector } from "react-redux";
-// import { selectUser } from '../../redux/user/selector';
+import { useDispatch, useSelector } from "react-redux";
+import { selectUser } from '../../redux/user/selector';
+import { getUser } from '../../redux/user/operetions';
 
 
 
@@ -15,13 +16,16 @@ import { UserSettingsModal } from 'components/UserSettingsModal/UserSettingsModa
 import ModalBackdrop from 'components/ModalBackdrop/ModalBackdrop';
 
 
-const UserBar = ({ name, avatarUrl }) => {
+const UserBar = ({ name, avatarUrlCloudinary }) => {
   const { t } = useTranslation();
   const [showPopoverOpen, setShowPopoverOpen] = useState(false);
   const buttonRef = useRef(null);
   const [isSettingModalOpen, setSettingModalOpen] = useState(false);
   // const [isLogOutModalOpen, setLogOutModalClose] = useState(false);
-  // const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+
+  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+  const user = useSelector(selectUser);
+  const dispatch = useDispatch();
 
 
   const togglePopover = () => {
@@ -46,22 +50,22 @@ const UserBar = ({ name, avatarUrl }) => {
   //   isLogOutModalOpen(false);
   // }
 
-  // useEffect(() => {
-  //   if (isLoggedIn) {
-  //     dispatch(fetchUser());
-  //   }
-  // }, [dispatch, isLoggedIn]);
+  useEffect(() => {
+    if (isLoggedIn) {
+      dispatch(getUser());
+    }
+  }, [dispatch, isLoggedIn]);
 
-  // const getInitials = (name, email) => {
-  //   if (name) {
-  //     return name.slice(0, 5).toUpperCase();
-  //   } else if (email) {
-  //     return email.slice(0, 5).toUpperCase();
-  //   }
-  //   return "";
-  // };
+  const getInitials = (name, email) => {
+    if (name) {
+      return name.charAt(0).toUpperCase();
+    } else if (email) {
+      return email.CharAt(0).toUpperCase();
+    }
+    return "";
+  };
 
-  // const initials = getInitials(user?.name, user?.email);
+  const initials = getInitials(user?.name, user?.email);
 
   return (
     <div className={css.user_button_container}>
@@ -70,9 +74,9 @@ const UserBar = ({ name, avatarUrl }) => {
         onClick={togglePopover}
         ref={buttonRef}
       >
-        <span className={css.username}>{/*{user?.name || user?.email}*/}</span>
+        <span className={css.username}>{user?.name || user?.email}</span>
         <img
-          src={avatarUrl}
+          src={avatarUrlCloudinary}
           alt="Photo"
           className={css.avatar} />
           
@@ -83,10 +87,24 @@ const UserBar = ({ name, avatarUrl }) => {
         ) : (
           <BsChevronUp className={css.iconArrow} />
         )}
-      </button>) : (
+      </button>) : (<button
+        className={css.user_button}
+        onClick={togglePopover}
+        ref={buttonRef}
+        >
+
+        <span className={css.username}>{initials}</span>
           <div>
-            <LuUserCircle2 className={ css.avatarIcon } />
+            <LuUserCircle2 className={ css.avatarIcon} />
           </div>
+          
+          {showPopoverOpen ? (
+          <BsChevronDown className={css.iconArrow} />
+        ) : (
+          <BsChevronUp className={css.iconArrow} />
+        )}
+      </button>
+          
       )}
       
 
