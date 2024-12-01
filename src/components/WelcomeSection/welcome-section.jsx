@@ -16,21 +16,21 @@ const WelcomeSection = () => {
 
           <div className={styles.content}>
             <div className={styles.textWrapper}>
-              <h3 className={styles.subtitle}>{t('homepage.welcome.text')}</h3>
+              <p className={styles.subtitle}>{t('homepage.welcome.text')}</p>
 
               <h1 className={styles.title}>{t('homepage.welcome.title')}</h1>
             </div>
             <div className={styles.links}>
-              <button className={styles.button}>
+              <a className={styles.button}>
                 <Link to="/signup" className={styles.tryTracker}>
                   {t('homepage.welcome.tryBtn')}
                 </Link>
-              </button>
-              <button className={styles.button}>
+              </a>
+              <a className={styles.button}>
                 <Link to="/signin" className={styles.signIn}>
                   {t('homepage.welcome.signInBtn')}
                 </Link>
-              </button>
+              </a>
             </div>
           </div>
         </div>
