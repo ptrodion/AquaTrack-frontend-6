@@ -5,6 +5,7 @@ import uk from '../../assets/icons/lang/uk.svg';
 import de from '../../assets/icons/lang/de.svg';
 import { useTranslation } from 'react-i18next';
 
+
 const LanguageSwitcher = () => {
   const { t, i18n } = useTranslation();
   const [language, setLanguage] = useState('en');
