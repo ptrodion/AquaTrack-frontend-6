@@ -23,7 +23,7 @@ const AdvantagesSection = () => {
     const fetchUserCount = async () => {
       try {
 
-        const response = await fetch('/api/users-count');
+        const response = await fetch('/api/auth/users-count');
         if (!response.ok) {
 
           throw new Error('Network response was not ok');

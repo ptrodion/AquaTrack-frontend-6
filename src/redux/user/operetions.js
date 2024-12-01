@@ -1,4 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+
 import { instance } from '../auth/operations';
 
 export const getUser = createAsyncThunk('user/getUser', async (_, thunkAPI) => {
@@ -8,6 +9,7 @@ export const getUser = createAsyncThunk('user/getUser', async (_, thunkAPI) => {
     console.log(response.data.data);
 
     return response.data.data;
+
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);
   }

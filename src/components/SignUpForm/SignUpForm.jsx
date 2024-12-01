@@ -7,6 +7,8 @@ import Logo from 'components/Logo/logo';
 import { useTranslation } from 'react-i18next';
 import Section from 'components/Section/Section.jsx';
 import { Link } from 'react-router';
+import { useDispatch } from 'react-redux';
+import { register } from '../../redux/auth/operations';
 
 const SignUpForm = () => {
   const { t } = useTranslation();
@@ -35,8 +37,11 @@ const SignUpForm = () => {
     },
   });
 
+  const dispatch = useDispatch();
+
   const onSubmit = data => {
     console.log(data);
+    dispatch(register(data));
   };
   return (
     <Section>
