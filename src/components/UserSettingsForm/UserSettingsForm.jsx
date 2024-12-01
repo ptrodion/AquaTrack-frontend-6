@@ -181,7 +181,7 @@ export const UserSettingsForm = ({ onSettingModalClose }) => {
           </div>
 
           <div className={css.emailGroup}>
-            <label className={css.label}>{t('settingsForm.userWeight')}</label>
+            <label className={css.label}>{t('settingsForm.userTime')}</label>
             <input
               type="number"
               {...register('activeTime')}
