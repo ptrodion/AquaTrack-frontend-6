@@ -1,14 +1,10 @@
 import css from './UserBar.module.css';
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import { TbSettings } from 'react-icons/tb';
 import { MdLogout } from 'react-icons/md';
 import { LuUserCircle2 } from "react-icons/lu";
 import { BsChevronUp, BsChevronDown } from 'react-icons/bs';
 import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from "react-redux";
-import { selectUser } from '../../redux/user/selector';
-import { getUser } from '../../redux/user/operetions';
-
 
 
 // import  LogOutModal  from '../LogOutModal/LogOutModal.jsx';
@@ -16,16 +12,12 @@ import { UserSettingsModal } from 'components/UserSettingsModal/UserSettingsModa
 import ModalBackdrop from 'components/ModalBackdrop/ModalBackdrop';
 
 
-const UserBar = ({ name, avatarUrlCloudinary }) => {
+const UserBar = ({ user }) => {
   const { t } = useTranslation();
   const [showPopoverOpen, setShowPopoverOpen] = useState(false);
   const buttonRef = useRef(null);
   const [isSettingModalOpen, setSettingModalOpen] = useState(false);
   // const [isLogOutModalOpen, setLogOutModalClose] = useState(false);
-
-  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
-  const user = useSelector(selectUser);
-  const dispatch = useDispatch();
 
 
   const togglePopover = () => {
@@ -50,35 +42,27 @@ const UserBar = ({ name, avatarUrlCloudinary }) => {
   //   isLogOutModalOpen(false);
   // }
 
-  useEffect(() => {
-    if (isLoggedIn) {
-      dispatch(getUser());
-    }
-  }, [dispatch, isLoggedIn]);
-
-  const getInitials = (name, email) => {
-    if (name) {
-      return name.charAt(0).toUpperCase();
-    } else if (email) {
-      return email.CharAt(0).toUpperCase();
-    }
-    return "";
-  };
-
-  const initials = getInitials(user?.name, user?.email);
 
   return (
     <div className={css.user_button_container}>
-      {isLoggedIn ? (<button
+      {user && (<button
         className={css.user_button}
         onClick={togglePopover}
         ref={buttonRef}
       >
-        <span className={css.username}>{user?.name || user?.email}</span>
-        <img
-          src={avatarUrlCloudinary}
-          alt="Photo"
-          className={css.avatar} />
+        <span className={css.username}>
+          {(user?.name || user?.email)?.slice(0, 6)}</span>
+        
+        {/* проверка аватара */}
+        {user.avatarUrlCloudinary ? (
+      <img
+        src={user.avatarUrlCloudinary}
+        alt="Photo"
+        className={css.avatar}
+      />
+    ) : (
+      <LuUserCircle2 className={css.avatarIcon} />
+    )}
           
         
         {/* Popover */}
@@ -87,25 +71,8 @@ const UserBar = ({ name, avatarUrlCloudinary }) => {
         ) : (
           <BsChevronUp className={css.iconArrow} />
         )}
-      </button>) : (<button
-        className={css.user_button}
-        onClick={togglePopover}
-        ref={buttonRef}
-        >
-
-        <span className={css.username}>{initials}</span>
-          <div>
-            <LuUserCircle2 className={ css.avatarIcon} />
-          </div>
-          
-          {showPopoverOpen ? (
-          <BsChevronDown className={css.iconArrow} />
-        ) : (
-          <BsChevronUp className={css.iconArrow} />
-        )}
       </button>
-          
-      )}
+          )}
       
 
       {/* Всплывающее окно (popover) */}

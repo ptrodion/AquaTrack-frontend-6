@@ -1,18 +1,38 @@
 import css from './UserPanel.module.css';
 import { useTranslation } from 'react-i18next';
 import UserBar from 'components/UserBar/UserBar';
+import { useDispatch, useSelector } from "react-redux";
+import { selectUser } from '../../redux/user/selector';
+import { getUser } from '../../redux/user/operetions';
+import { useEffect } from 'react';
+
+
 
 const UserPanel = () => {
   const { t } = useTranslation();
+  const user = useSelector(selectUser);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getUser());
+  }, [dispatch]);
+
+
+
+
+
   return (
-    <div className={css.welcome}>
-      {t('userPanel.greeting')}
-      <span className={css.userName}>, User</span>
-      <UserBar
-        name=""
-      />
-    </div>
+    <>
+      {user && (
+        <div className={css.welcome}>
+          {t('userPanel.greeting')}
+          <span className={css.userName}>, {(user.name || user.email)?.slice(0, 6)}</span>
+          <UserBar user={user} />
+        </div>
+      )}
+    </>
   );
-};
+}
+
 
 export default UserPanel;
