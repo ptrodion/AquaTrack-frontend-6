@@ -15,11 +15,10 @@ import { selectUser } from '../../redux/user/selector.js';
 const initialAvatar =
   'src/assets/img/settings_avatar/settings_avatar_mob_1x.webp';
 
-export const UserSettingsForm = ({onSettingModalClose}) => {
-
+export const UserSettingsForm = ({ onSettingModalClose }) => {
   const dispatch = useDispatch();
   // const selector = ;
-  const user = useSelector(selectUser)
+  const user = useSelector(selectUser);
   // dispatch(getUser());
   // console.log(user);
 
@@ -40,7 +39,6 @@ export const UserSettingsForm = ({onSettingModalClose}) => {
       .required(t('settingsForm.ValidationDailyRequirementMin')),
   });
 
-
   const {
     register,
     handleSubmit,
@@ -52,25 +50,27 @@ export const UserSettingsForm = ({onSettingModalClose}) => {
     defaultValues: user,
   });
 
-  const onSubmit = async (data) => {
-    console.log("data", data);
+  const onSubmit = async data => {
+    console.log('data', data);
     try {
       const formData = new FormData();
-      Object.keys(data).forEach((key) => formData.append(key, data[key]));
+      Object.keys(data).forEach(key => formData.append(key, data[key]));
 
-      if (avatar) formData.append("avatarUrlLocal", avatar);
+      if (avatar) formData.append('avatarUrlLocal', avatar);
 
-      dispatch(updateUser(data));
-
+      dispatch(updateUser({
+        name: "Inna"
+      }));
     } catch (error) {
-      alert(`Error: ${error.response?.data?.message || "Something went wrong"}`);
+      alert(
+        `Error: ${error.response?.data?.message || 'Something went wrong'}`
+      );
     }
     onSettingModalClose();
   };
   const handleAvatarChange = e => {
     setAvatar(e.target.files[0]);
   };
-  
 
   return (
     <>
@@ -93,7 +93,11 @@ export const UserSettingsForm = ({onSettingModalClose}) => {
           )}
           <label name="avatar" className={css.customFileLabel}>
             <UploadOutlined /> {t('settingsForm.userUploadButton')}
-            <input {...register('avatarUrlLocal')} type="file" onChange={handleAvatarChange}  />
+            <input
+              {...register('avatarUrlLocal')}
+              type="file"
+              onChange={handleAvatarChange}
+            />
           </label>
         </div>
 
@@ -101,20 +105,11 @@ export const UserSettingsForm = ({onSettingModalClose}) => {
           <label className={css.label}>{t('settingsForm.userGender')}:</label>
           <div className={css.radioBox}>
             <label className={css.radioInput}>
-              <input
-                type="radio"
-                value="woman"
-                {...register('gender')}
-
-              />
+              <input type="radio" value="woman" {...register('gender')} />
               {t('settingsForm.genderWoman')}
             </label>
             <label className={css.radioInput}>
-              <input
-                type="radio"
-                value="man"
-                {...register('gender')}
-              />
+              <input type="radio" value="man" {...register('gender')} />
               {t('settingsForm.genderMan')}
             </label>
           </div>
@@ -127,11 +122,7 @@ export const UserSettingsForm = ({onSettingModalClose}) => {
               <label className={css.label}>
                 {t('settingsForm.userNameLabel')}:
               </label>
-              <input
-                type="text"
-                {...register('name')}
-                className={css.input}
-              />
+              <input type="text" {...register('name')} className={css.input} />
               {errors.name && <p className="error">{errors.name.message}</p>}
             </div>
 
@@ -189,7 +180,7 @@ export const UserSettingsForm = ({onSettingModalClose}) => {
 
             <div className={css.emailGroup}>
               <label className={css.label}>
-                {t('settingsForm.userWeight')}
+                {t('settingsForm.userTime')}
               </label>
               <input
                 type="number"
@@ -223,6 +214,7 @@ export const UserSettingsForm = ({onSettingModalClose}) => {
                 <p className="error">{errors.currentDailyNorm.message}</p>
               )}
             </div>
+
           </div>
         </div>
 

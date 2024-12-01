@@ -137,7 +137,7 @@
     "textDescription": "V ist das Volumen der Wasser Norm in Litern pro Tag, M ist Ihr Körpergewicht, T ist die Zeit, die Sie aktiv Sport treiben oder eine andere Art von Aktivität mit entsprechenden Belastungen ausüben (bei Abwesenheit müssen Sie 0 angeben)",
     "textActiveTime": "Aktive Zeit in Stunden",
     "userWeight": "Ihr Gewicht in Kilogramm:",
-    "userTime": "Die Zeit der aktiven Teilnahme am Sport (Stunden):",
+    "userTime": "Die Zeit der aktiven Teilnahme am Sport:",
     "WaterAmount": "Die benötigte Menge Wasser in Litern pro Tag:",
     "labelWaterNorma": "Notieren Sie, wie viel Wasser Sie trinken werden (ml):",
     "subButton": "Speichern",
