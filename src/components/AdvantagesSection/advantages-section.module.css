@@ -48,8 +48,7 @@
 .image{
   width: 26.4px;
   height: 28px;
-  /* width: 26.4px;
-  height: auto; */
+
   border-radius: 50%;
   border: 2px solid #fff;
   object-fit: cover;
@@ -174,6 +173,12 @@
   letter-spacing: -0.01em;
   color: #323F47;
   text-align: center;
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+  margin-top: 10px;
 }
 
 @media screen and (min-resolution: 192dpi),
