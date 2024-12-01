@@ -5,9 +5,7 @@ export const getWaterByDay = createAsyncThunk(
   'water/getWaterByDay',
   async (date, thunkAPI) => {
     try {
-      const { data } = await instance.get('/api/water/day/2024-11-25');
-
-      console.log('WATER!!!', data);
+      const { data } = await instance.get(`/api/water/day/${date}`);
 
       return data.data;
     } catch (error) {
@@ -20,9 +18,7 @@ export const getWaterByMonth = createAsyncThunk(
   'water/getWaterByMonth',
   async (date, thunkAPI) => {
     try {
-      const { data } = await instance.get('/api/water/month/2024-11-25');
-
-      console.log('WATER!!!', data);
+      const { data } = await instance.get(`/api/water/month/${date}`);
 
       return data.data;
     } catch (error) {
@@ -47,13 +43,9 @@ export const updateWater = createAsyncThunk(
   'water/updateWater',
   async ({ id, updatedWater }, thunkAPI) => {
     try {
-      console.log('WATER', updatedWater);
-
       const { data } = await instance.patch(`api/water/${id}`, {
         ...updatedWater,
       });
-
-      console.log('PATCHH', data.data);
 
       return data.data;
     } catch (error) {
@@ -66,8 +58,6 @@ export const deleteWater = createAsyncThunk(
   'water/deleteWater',
   async (id, thunkAPI) => {
     try {
-      console.log(id);
-
       await instance.delete(`api/water/${id}`);
 
       return id;
