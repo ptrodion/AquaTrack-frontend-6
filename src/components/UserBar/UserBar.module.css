@@ -1,18 +1,12 @@
 @media screen and (max-width: 767px) {
     .user_button_container {
-        /* position: relative;
-
-        border-radius: 30px;
-        max-width: 343px;
-        height: 770px;
-        background: #f0eff4;
-        margin: 0 auto; */
     }
 
     .user_button {
         position: absolute;
-        top: 92px;
-        left: 20px;
+        /* top: 92px; */
+        /* left: 20px; */
+        margin-top: 20px;
 
         display: flex;
         align-items: center;
@@ -43,10 +37,8 @@
     }
 
     .avatar {
-
         width: 38px;
         height: 38px;
-        /* margin-left: 53px; */
     }
 
     .popover {
@@ -57,8 +49,8 @@
         text-align: center;
         gap: 8px;
         position: absolute;
-        top: 146px;
-        left: 22px;
+        top: 108px;
+        /* left: 2px; */
 
         border-radius: 15px;
         padding-top: 14px;
@@ -96,7 +88,6 @@
         display: flex;
         justify-content: flex-start;
         align-items: center;
-        /* flex-direction: row; */
         gap: 8px;
         
         width: 77px;
@@ -124,15 +115,12 @@
     .iconArrow {
         width: 16px;
         height: 16px;
-        /* margin-left: 8px; */
+        
         color: #fff;
-        /* position: absolute;
-        top: 16px;
-        right: 12px; */
+        
     }
 
     .buttonLogOut {
-
         font-family: "Poppins", sans-serif;
         font-weight: 700;
         font-size: 14px;
@@ -140,8 +128,6 @@
         color: rgba(50, 63, 71, 0.4);
 
         width: 77px;
-        /* margin-right: 9px; */
-
     }
 
     .icon_setting{
@@ -165,20 +151,11 @@
 
 @media screen and (min-width: 768px) {
     .user_button_container {
-        /* position: relative;
-        border-radius: 30px;
-        width: 704px;
-        height: 738px;
-        background: #f0eff4;
-
-        margin: 16px 32px 32px 32px; */
-        /* display: inline-block; */
-        /* min-width: 768px; */
     }
 
     .user_button {
         position: absolute;
-        top: 32px;
+        top: 25px;
         right: 32px;
 
         display: flex;
@@ -203,17 +180,11 @@
         letter-spacing: -0.01em;
         text-align: center;
         color: #fff;
-
-        /* position: absolute;
-        top: 15px;
-        right: 100px; */
     }
 
     .avatar {
         width: 44px;
         height: 44px;
-
-        /* margin-left: 25px; */
     }
 
     .popover {
@@ -234,8 +205,6 @@
 
         box-shadow: 0 4px 50px 0 rgba(0, 0, 0, 0.1);
 
-        /* right: 1px; */
-
         background: #fff;
         color: #fff;
         z-index: 10;
@@ -250,12 +219,10 @@
 
         width: 80px;
         height: 23px;
-        /* margin-right: 32px; */
+
         border: none;
 
         background-color: transparent;
-
-        /* margin-left: 2px; */
 
         border: none;
         background-color: transparent;
@@ -268,14 +235,11 @@
         display: flex;
         justify-content: flex-start;
         align-items: center;
-        /* flex-direction: row; */
         gap: 8px;
     
         width: 80px;
         height: 23px;
 
-        /* margin-left: 3px; */
-    
         border: none;
         background-color: transparent;
         cursor: pointer;
@@ -305,13 +269,8 @@
     .iconArrow {
         width: 20px;
         height: 20px;
-        /* margin-left: 10px; */
+        
         color: #fff;
-        /* position: absolute;
-        top: 18px;
-        right: 14px; */
-
-        /* margin-left: 10px; */
     }
 
     .icon_setting {
@@ -335,27 +294,21 @@
 
 @media screen and (min-width: 1440px) {
     .user_button_container {
-        /* width: 672px;
-        height: 736px;
-        margin: 32px 32px 32px 32px; */
+        
     }
 
     .user_button {
+        top: 32px;
         right: 34px;
 
     }
 
     .avatar {
-        /* margin-left: 15px;
-        width: 44px;
-        height: 44px; */
+       
     }
 
     .username {
         
-        /* position:absolute;
-        top: 15px;
-        right: 100px; */
     }
 
     .popover {
@@ -397,9 +350,6 @@
         height: 20px;
         
         color: #fff;
-        /* position: absolute;
-        top: 19px;
-        right: 14px; */
     }
 
     .icon_setting{
