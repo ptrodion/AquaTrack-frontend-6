@@ -37,11 +37,11 @@ function App() {
           <Route element={<RestrictedRoute />}>
             <Route path="/signup" element={<SignUpPage />} />
             <Route path="/signin" element={<SignInPage />} />
-          </Route>
-          <Route element={<PrivateRoute />}>
             <Route path="/tracker" element={<TrackerPage />} />
           </Route>
-          <Route path="/test" element={<TestPage />} />
+          <Route element={<PrivateRoute />}>
+            <Route path="/test" element={<TestPage />} />
+          </Route>
         </Routes>
       </SharedLayout>
     </>
