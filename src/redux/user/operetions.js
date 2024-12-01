@@ -1,34 +1,27 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+import { instance } from '../auth/operations';
 
-export const BaseURL = axios.create({
-  baseURL: 'https://warettrack.onrender.com',
+export const getUser = createAsyncThunk('user/getUser', async (_, thunkAPI) => {
+  try {
+    const response = await instance.get('/api/auth/current');
+
+    console.log(response.data.data);
+
+    return response.data.data;
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error.message);
+  }
 });
 
-const setAuthHeader = token => {
-  BaseURL.defaults.headers.common.Authorization = `Bearer ${token}`;
-};
-
-export const getUser = createAsyncThunk(
-  '/api/auth/current',
-  async ({ user }, thunkAPI) => {
-    try {
-      const response = await BaseURL.post('/api/auth/current', { user });
-      setAuthHeader(response.data.token);
-      return response.data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
-    }
-  }
-);
-
 export const updateUser = createAsyncThunk(
-  '/api/auth/update-current-user',
-  async ({ id, updatedData }, thunkAPI) => {
+  'user/updateUser',
+  async (updatedUser, thunkAPI) => {
     try {
-      const response = await BaseURL.post('/api/auth/update-current-user', { id, updatedData });
-      setAuthHeader(response.data.token);
-      return response.data;
+      const response = await instance.patch('/api/auth/update-current-user', {
+        ...updatedUser,
+      });
+
+      return response.data.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
