@@ -14,9 +14,12 @@ export const register = createAsyncThunk(
   'auth/register',
   async (formData, thunkAPI) => {
     try {
-      const { data } = await instance.post('api/auth/register', formData);
+      await instance.post('api/auth/register', formData);
+
+      const { data } = await instance.post('api/auth/login', formData);
+
       setAuthToken(data.data.accessToken);
-      return data;
+      return data.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
