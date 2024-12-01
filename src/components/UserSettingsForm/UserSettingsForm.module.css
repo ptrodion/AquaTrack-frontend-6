@@ -215,7 +215,7 @@ letter-spacing: -0.01em;
 
 .buttonSubmit {
   border-radius: 30px;
-  padding: 14px 40px;
+  padding: auto 40px;
   width: 116px;
   height: 46px;
   background: #9be1a0;
@@ -293,7 +293,7 @@ text-align: center;
   }
 
   .buttonSubmit {
-    padding: 16px 50px;
+    padding: auto 50px;
     width: 141px;
     height: 56px;
   }

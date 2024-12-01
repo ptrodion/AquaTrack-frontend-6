@@ -5,7 +5,6 @@ import { UploadOutlined } from '@ant-design/icons';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useState } from 'react';
-import json from './userSettingsForm.json';
 import { useTranslation } from 'react-i18next';
 // import { instance } from 'redux/auth/operations.js';
 import { useDispatch, useSelector } from 'react-redux';
@@ -17,14 +16,20 @@ const initialAvatar =
 
 export const UserSettingsForm = ({ onSettingModalClose }) => {
   const dispatch = useDispatch();
-  // const selector = ;
   const user = useSelector(selectUser);
-  // dispatch(getUser());
-  // console.log(user);
-
   const { t } = useTranslation();
-  const [avatar, setAvatar] = useState(json.avatarUrlCloudinary);
-  // const [error, setError] = useState(null);
+  const [avatar, setAvatar] = useState(null);
+  console.log(user.avatarUrlLocal);
+
+
+  // if (user.avatarUrlLocal){
+  //   setAvatar(user.avatarUrlLocal)
+  // }
+  if (avatar) {
+    const urlAvatar = URL.createObjectURL(avatar);
+    const newUrlAvatar = urlAvatar.replace('blob:', '');
+}
+
 
   const validationSchema = Yup.object().shape({
     gender: Yup.string().required(t('settingsForm.ValidationGender')),
@@ -52,15 +57,29 @@ export const UserSettingsForm = ({ onSettingModalClose }) => {
 
   const onSubmit = async data => {
     console.log('data', data);
+
+    let newUrlAvatar;
+    if (avatar) {
+      const urlAvatar = URL.createObjectURL(avatar);
+      newUrlAvatar = urlAvatar.replace('blob:', '');
+  }
     try {
-      const formData = new FormData();
-      Object.keys(data).forEach(key => formData.append(key, data[key]));
+      const newUser ={
+      gender:data.gender,
+      name:data.name,
+      email:data.email,
+      weight:data.weight,
+     activeTime:data.activeTime,
+     currentDailyNorm:data.currentDailyNorm,
+     avatarUrlLocal:newUrlAvatar
+    }
 
-      if (avatar) formData.append('avatarUrlLocal', avatar);
 
-      dispatch(updateUser({
-        name: "Inna"
-      }));
+
+      console.log("formData before dispatch", newUser);
+
+
+      dispatch(updateUser(newUser));
     } catch (error) {
       alert(
         `Error: ${error.response?.data?.message || 'Something went wrong'}`
@@ -77,14 +96,23 @@ export const UserSettingsForm = ({ onSettingModalClose }) => {
       {/* {error && ( */}
       <form className="user-settings-form" onSubmit={handleSubmit(onSubmit)}>
         <div className={css.formGroup}>
-          {!avatar && (
+          {!user.avatarUrlLocal && !avatar && (
             <img
               src={initialAvatar}
               alt="Avatar Preview"
               className={css.image}
             />
           )}
-          {avatar && (
+          {user.avatarUrlLocal && !avatar && (
+            <img
+              src= {user.avatarUrlLocal}
+              alt="Avatar Preview"
+              className={css.image}
+            />
+          )
+
+          }
+          {user.avatarUrlLocal && avatar && (
             <img
               src={URL.createObjectURL(avatar)}
               alt="Avatar Preview"
