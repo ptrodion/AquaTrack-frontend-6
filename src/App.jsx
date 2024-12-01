@@ -6,8 +6,9 @@ import { lazy, useEffect } from 'react';
 import { Toaster } from 'react-hot-toast';
 import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
-import { refreshUser } from '../../operations.js';
-import { selectAuthIsRefreshing } from '../../selector.js';
+
+import { refreshUser } from './redux/auth/operations.js';
+import { selectAuthIsRefreshing } from './redux/auth/selector.js';
 
 const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
 const SignInPage = lazy(() => import('./pages/SignInPage/SignInPage'));

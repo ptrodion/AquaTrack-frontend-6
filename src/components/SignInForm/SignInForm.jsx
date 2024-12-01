@@ -8,7 +8,7 @@ import { useTranslation } from 'react-i18next';
 import Section from 'components/Section/Section.jsx';
 import { Link } from 'react-router';
 import { useDispatch } from 'react-redux';
-import { login } from '../../redux/auth/operations';
+import { register } from '../../redux/auth/operations';
 
 const SignInForm = () => {
   const { t } = useTranslation();
@@ -40,7 +40,7 @@ const SignInForm = () => {
 
   const onSubmit = data => {
     console.log(data);
-    dispatch(login(data));
+    dispatch(register(data));
   };
   return (
     <Section>
