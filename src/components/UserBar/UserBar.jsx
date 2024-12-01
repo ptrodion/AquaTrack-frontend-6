@@ -5,29 +5,29 @@ import { MdLogout } from 'react-icons/md';
 import { BsChevronUp, BsChevronDown } from 'react-icons/bs';
 import { useTranslation } from 'react-i18next';
 
-// import { UserSettingsModal } from 'components/UserSettingsModal/UserSettingsModal.jsx';
-// import ModalBackdrop from 'components/ModalBackdrop/ModalBackdrop';
+import { UserSettingsModal } from 'components/UserSettingsModal/UserSettingsModal.jsx';
+import ModalBackdrop from 'components/ModalBackdrop/ModalBackdrop';
 
 
 const UserBar = ({ name, avatarUrl }) => {
   const { t } = useTranslation();
   const [showPopoverOpen, setShowPopoverOpen] = useState(false);
   const buttonRef = useRef(null);
-  // const [isSettingModalOpen, setSettingModalOpen] = useState(false);
+  const [isSettingModalOpen, setSettingModalOpen] = useState(false);
   // const [showLogOutModal, setShowLogOutmodal] = useState(false);
 
   const togglePopover = () => {
     setShowPopoverOpen(!showPopoverOpen);
   };
 
-  // const onSettingModalOpen = () => {
-  //   setSettingModalOpen(true);
-  //   setShowPopoverOpen(false);
-  // };
+  const onSettingModalOpen = () => {
+    setSettingModalOpen(true);
+    setShowPopoverOpen(false);
+  };
 
-  // const onSettingModalClose = () => {
-  //   setSettingModalOpen(false);
-  // };
+  const onSettingModalClose = () => {
+    setSettingModalOpen(false);
+  };
 
   // const handleLogOut = () => {
   //   setShowLogOutmodal(true);
@@ -60,7 +60,7 @@ const UserBar = ({ name, avatarUrl }) => {
           <button
             type="button"
               className={css.inPopover}
-              // onClick={onSettingModalOpen}
+              onClick={onSettingModalOpen}
           >
             <div className={css.icon_setting}>
               <TbSettings />
@@ -86,20 +86,19 @@ const UserBar = ({ name, avatarUrl }) => {
       )}
 
       {/* Модальное окно настроек */}
-      {/* {isSettingModalOpen && (
+      {isSettingModalOpen && (
         <ModalBackdrop>
           <UserSettingsModal
-        isOpen={onSettingModalOpen}
-        onClose={onSettingModalClose}
+        onSettingModalClose={onSettingModalClose}
       /></ModalBackdrop>
-       )} */}
+       )}
 
       {/* Модальное окно выхода
       <UserLogOutModal
         isOpen={showLogOutModal}
         onClose={handleLogOutModalClose}
       /> */}
-      
+
     </div>
   );
 };

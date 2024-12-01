@@ -8,6 +8,7 @@ export const getUser = createAsyncThunk('user/getUser', async (_, thunkAPI) => {
 
     return response.data.data;
 
+
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);
   }
