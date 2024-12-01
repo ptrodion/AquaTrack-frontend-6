@@ -194,7 +194,7 @@ export const UserSettingsForm = ({ onSettingModalClose }) => {
 
           <div className={css.text}>
             <p>
-              {t('settingsForm.WaterAmount')}:{' '}
+              {t('settingsForm.WaterAmount')}{' '}
               <span className={css.span}>1.8 {t('chooseDate.l')}:</span>{' '}
             </p>
           </div>
