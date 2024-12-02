@@ -17,7 +17,7 @@ const UserBar = ({ user }) => {
   const [showPopoverOpen, setShowPopoverOpen] = useState(false);
   const buttonRef = useRef(null);
   const [isSettingModalOpen, setSettingModalOpen] = useState(false);
-  // const [isLogOutModalOpen, setLogOutModalClose] = useState(false);
+  // const [isLogOutModalOpen, setLogOutModalOpen] = useState(false);
 
 
   const togglePopover = () => {
@@ -39,7 +39,7 @@ const UserBar = ({ user }) => {
   // };
 
   // const onLogOutModalClose = () => {
-  //   isLogOutModalOpen(false);
+  //   setLogOutModalOpen(false);
   // }
 
 
@@ -94,7 +94,7 @@ const UserBar = ({ user }) => {
           <button
             type="button"
             className={css.inPopoverLogOut}
-          // onClick={isLogOutModalOpen}
+          // onClick={onLogOutModalOpen}
           >
             <div className={css.icon_logout}>
               <MdLogout />
@@ -116,22 +116,16 @@ const UserBar = ({ user }) => {
         </ModalBackdrop>
         )}
 
-      {/* Модальное окно выхода
-      <UserLogOutModal
-        isOpen={showLogOutModal}
-        onClose={handleLogOutModalClose}
-      /> */}
-
       {/* Модальное окно выхода */}
       {/* {isLogOutModalOpen &&
         (<ModalBackdrop>
           <LogOutModal
-            isOpen={true}
-            onClose={handleLogOutModalClose}
+            isOpen={onLogOutModalOpen}
+            onClose={onLogOutModalClose}
           />
         </ModalBackdrop>
         )} */}
-
+      
     </div>
   );
 }
