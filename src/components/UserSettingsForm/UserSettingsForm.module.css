@@ -1,23 +1,31 @@
-body.no-scroll {
+/* body.no-scroll {
   overflow: hidden;
-}
-.container{
-  position: relative;
-  width: 100vb;
-  height: 100vb;
-}
+} */
+/* .container{
+  width: 100vh;
+  height: 100vh;
+
+} */
 .modal {
   position: absolute;
-  left:0;
-  /* top: 50%; */
-  /* left: 16px;*/
-  top: 80px;
-  /* transform: translate(-50%, -50%); */
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  /* padding-top: ; */
+  /* padding: 80px auto 40px; */
+
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+.modalBox{
+  /* height: 1302px; */
+  width: 343px;
   border-radius: 15px;
   padding: 40px 20px;
   box-shadow: 0 4px 50px 0 rgba(0, 0, 0, 0.1);
   background: #fff;
-  width: 343px;
+  margin: 80px auto 40px;
 }
 
 .box {
@@ -25,6 +33,7 @@ body.no-scroll {
   align-items: center;
   justify-content: space-between;
   margin-bottom: 20px;
+
 }
 
 .title {
@@ -90,6 +99,7 @@ input[type="file"] {
   text-align: center;
   display: inline-block;
   margin-bottom: 14px;
+
 }
 
 .genderGroup {
@@ -116,6 +126,10 @@ input[type="file"] {
   padding-bottom: 14px;
   width: 303px;
   height: 46px;
+  font-weight: 400;
+font-size: 16px;
+line-height: 1.5;
+letter-spacing: -0.01em;
 }
 
 .list {
@@ -146,11 +160,19 @@ input[type="file"] {
   width: 303px;
   margin-bottom: 14px;
   color: rgba(47, 47, 47, 0.6);
+  font-weight: 400;
+font-size: 16px;
+line-height: 1.5;
+letter-spacing: -0.01em;
 }
 
 .textActive {
   display: inline-block;
   margin-bottom: 24px;
+  font-weight: 400;
+font-size: 16px;
+line-height: 1.5;
+letter-spacing: -0.01em;
 }
 
 .nameGroup {
@@ -179,6 +201,10 @@ input[type="file"] {
 
 .text {
   margin-bottom: 14px;
+  font-weight: 400;
+font-size: 16px;
+line-height: 1.5;
+letter-spacing: -0.01em;
 }
 .span {
   font-weight: 700;
@@ -189,19 +215,32 @@ input[type="file"] {
 
 .buttonSubmit {
   border-radius: 30px;
-  padding: 14px 40px;
+  padding: auto 40px;
   width: 116px;
   height: 46px;
   background: #9be1a0;
+  font-weight: 700;
+font-size: 16px;
+line-height: 1.5;
+letter-spacing: -0.01em;
+text-align: center;
 }
 
-@media only screen and (min-width: 768px) {
-  .modal {
-    padding: 40px;
+.error{
+  font-size: 14px;
+  line-height: 1.28571;
+  color: #db686e;
+}
+
+ @media only screen and (min-width: 768px) {
+
+  .modalBox{
+    /* height: 1302px; */
     width: 648px;
-    left: -32px;
-    top: 64x;
+    margin: 64px auto;
+    padding: 40px 40px;
   }
+
   .title {
     font-size: 28px;
     line-height: 1.14286;
@@ -221,6 +260,8 @@ input[type="file"] {
   }
 
   .radioInput {
+    display: flex;
+    gap: 10px;
     font-size: 16px;
     line-height: 1.5;
   }
@@ -252,28 +293,32 @@ input[type="file"] {
   }
 
   .buttonSubmit {
-    padding: 16px 50px;
+    padding: auto 50px;
     width: 141px;
     height: 56px;
   }
 }
 
 @media only screen and (min-width: 1440px) {
-  .modal {
-    width: 920px;
-    left: -50%;
+  .modalBox{
+    min-width: 920px;
+    margin: 64px auto;
   }
+
   .box {
     margin-bottom: 24px;
   }
 
   .flexGroup {
-    height: 508px;
-    width: 840px;
+    height: 594px;
+   /*  width: 840px; */
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     column-gap: 40px;
+  }
+  .item{
+    width: 400px;
   }
 
   .input {

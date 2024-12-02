@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getUser, updateUser } from './operetions.js';
+import { getUser, updateUser } from './operations.js';
 
 const initialState = {
   user: null,

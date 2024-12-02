@@ -52,7 +52,7 @@ const UserBar = ({ user }) => {
       >
         <span className={css.username}>
           {(user?.name || user?.email)?.slice(0, 6)}</span>
-        
+
         {/* проверка аватара */}
         {user.avatarUrlCloudinary ? (
       <img
@@ -63,8 +63,8 @@ const UserBar = ({ user }) => {
     ) : (
       <LuUserCircle2 className={css.avatarIcon} />
     )}
-          
-        
+
+
         {/* Popover */}
         {showPopoverOpen ? (
           <BsChevronDown className={css.iconArrow} />
@@ -73,7 +73,7 @@ const UserBar = ({ user }) => {
         )}
       </button>
           )}
-      
+
 
       {/* Всплывающее окно (popover) */}
       {showPopoverOpen && (
@@ -116,6 +116,12 @@ const UserBar = ({ user }) => {
         </ModalBackdrop>
         )}
 
+      {/* Модальное окно выхода
+      <UserLogOutModal
+        isOpen={showLogOutModal}
+        onClose={handleLogOutModalClose}
+      /> */}
+
       {/* Модальное окно выхода */}
       {/* {isLogOutModalOpen &&
         (<ModalBackdrop>
@@ -125,7 +131,7 @@ const UserBar = ({ user }) => {
           />
         </ModalBackdrop>
         )} */}
-      
+
     </div>
   );
 }

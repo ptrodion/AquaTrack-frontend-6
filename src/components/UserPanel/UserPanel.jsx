@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import UserBar from 'components/UserBar/UserBar';
 import { useDispatch, useSelector } from "react-redux";
 import { selectUser } from '../../redux/user/selector';
-import { getUser } from '../../redux/user/operetions';
+import { getUser } from '../../redux/user/operations.js';
 import { useEffect } from 'react';
 
 
