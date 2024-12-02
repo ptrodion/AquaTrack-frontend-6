@@ -4,7 +4,7 @@ import { format } from 'date-fns';
 import { useState } from 'react';
 import DeleteWaterModal from '../DeleteWaterModal/DeleteWaterModal';
 import WaterModal from '../WaterModal/WaterModal';
-import Icon from '../Icon/Icon';
+import Icon from '../Icon/icon';
 import Loader from '../Loader/Loader';
 
 const WaterItem = ({ water }) => {
