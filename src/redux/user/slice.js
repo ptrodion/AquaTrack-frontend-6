@@ -3,7 +3,7 @@ import { getUser, updateUser } from './operations.js';
 
 const initialState = {
   user: null,
-  loading: false,
+  isLoading: false,
   error: null,
 };
 
@@ -18,27 +18,27 @@ const userSlice = createSlice({
   extraReducers: builder => {
     builder
       .addCase(getUser.pending, state => {
-        state.loading = true;
+        state.isLoading = true;
         state.error = null;
       })
       .addCase(getUser.fulfilled, (state, action) => {
-        state.loading = false;
+        state.isLoading = false;
         state.user = action.payload;
       })
       .addCase(getUser.rejected, (state, action) => {
-        state.loading = false;
+        state.isLoading = false;
         state.error = action.payload;
       })
       .addCase(updateUser.pending, state => {
-        state.loading = true;
+        state.isLoading = true;
         state.error = null;
       })
       .addCase(updateUser.fulfilled, (state, action) => {
-        state.loading = false;
+        state.isLoading = false;
         state.user = { ...state.user, ...action.payload };
       })
       .addCase(updateUser.rejected, (state, action) => {
-        state.loading = false;
+        state.isLoading = false;
         state.error = action.payload;
       });
   },
