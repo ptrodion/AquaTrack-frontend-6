@@ -78,7 +78,7 @@ const ModalLogout = ({ onClose }) => {
       </button>
       <div className={css.modalTextBox}>
         <h2 className={css.modalTitle}>{t("logout")}</h2>
-        <p className={css.modalText}>{t("confirmLogout")}</p>
+        <p className={css.modalText}>{t("Do you really want to leave?")}</p>
       </div>
       <div className={css.modalBtnBox}>
         {isLoading ? (
