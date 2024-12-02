@@ -10,7 +10,7 @@ import { useTranslation } from 'react-i18next';
 // import  LogOutModal  from '../LogOutModal/LogOutModal.jsx';
 import { UserSettingsModal } from 'components/UserSettingsModal/UserSettingsModal.jsx';
 import ModalBackdrop from 'components/ModalBackdrop/ModalBackdrop';
-import ModalWindow from '../ModalWindow/ModalWindow';
+// import ModalWindow from '../ModalWindow/ModalWindow';
 
 
 const UserBar = ({ user }) => {
@@ -18,7 +18,7 @@ const UserBar = ({ user }) => {
   const [showPopoverOpen, setShowPopoverOpen] = useState(false);
   const buttonRef = useRef(null);
   const [isSettingModalOpen, setSettingModalOpen] = useState(false);
-  const [isLogOutModalOpen, setLogOutModalOpen] = useState(false);
+  // const [isLogOutModalOpen, setLogOutModalOpen] = useState(false);
 
 
   const togglePopover = () => {
