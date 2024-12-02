@@ -7,10 +7,10 @@ import { BsChevronUp, BsChevronDown } from 'react-icons/bs';
 import { useTranslation } from 'react-i18next';
 
 
-// import  LogOutModal  from '../LogOutModal/LogOutModal.jsx';
+import  LogOutModal  from '../LogOutModal/LogOutModal.jsx';
 import { UserSettingsModal } from 'components/UserSettingsModal/UserSettingsModal.jsx';
 import ModalBackdrop from 'components/ModalBackdrop/ModalBackdrop';
-// import ModalWindow from '../ModalWindow/ModalWindow';
+import ModalWindow from '../ModalWindow/ModalWindow';
 
 
 const UserBar = ({ user }) => {
@@ -18,7 +18,7 @@ const UserBar = ({ user }) => {
   const [showPopoverOpen, setShowPopoverOpen] = useState(false);
   const buttonRef = useRef(null);
   const [isSettingModalOpen, setSettingModalOpen] = useState(false);
-  // const [isLogOutModalOpen, setLogOutModalOpen] = useState(false);
+  const [isLogOutModalOpen, setLogOutModalOpen] = useState(false);
 
 
   const togglePopover = () => {
@@ -34,14 +34,14 @@ const UserBar = ({ user }) => {
     setSettingModalOpen(false);
   };
 
-  // const onLogOutModalOpen = () => {
-  //   setLogOutModalOpen(true);
-  //   setShowPopoverOpen(false);
-  // };
+  const onLogOutModalOpen = () => {
+    setLogOutModalOpen(true);
+    setShowPopoverOpen(false);
+  };
 
-  // const onLogOutModalClose = () => {
-  //   setLogOutModalOpen(false);
-  // }
+  const onLogOutModalClose = () => {
+    setLogOutModalOpen(false);
+  }
 
 
   return (
@@ -95,7 +95,7 @@ const UserBar = ({ user }) => {
           <button
             type="button"
             className={css.inPopoverLogOut}
-          // onClick={onLogOutModalOpen}
+          onClick={onLogOutModalOpen}
           >
             <div className={css.icon_logout}>
               <MdLogout />
@@ -118,14 +118,14 @@ const UserBar = ({ user }) => {
         )}
 
       {/* Модальное окно выхода */}
-      {/* {isLogOutModalOpen &&
+      {isLogOutModalOpen &&
         (<ModalWindow>
           <LogOutModal
             isOpen={onLogOutModalOpen}
             onClose={onLogOutModalClose}
           />
         </ModalWindow>
-        )} */}
+        )}
       
     </div>
   );
