@@ -1,14 +1,14 @@
 import ModalWindow from "../ModalWindow/ModalWindow";
 import { useDispatch } from "react-redux";
 import styles from './LogOutModal.module.css';
-import { logOut } from "redux/auth/operations";
+import { logout } from "../../redux/auth/operations";
 
 const LogOutModal = ({ isOpen, closeModal }) => {
     const dispatch = useDispatch();
 
 
 const handleLogOut = async () => {
-    dispatch(logOut());
+    dispatch(logout());
     closeModal();
 };
 
