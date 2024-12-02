@@ -42,6 +42,22 @@ const SignUpForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const loggedIn = useSelector(selectAuthIsLoggedIn);
+  const error = useSelector(state => state.auth.error);
+
+  const getErrorMessage = () => {
+    if (!error) return null;
+
+    switch (error.status) {
+      case 400:
+        return error.message || 'Invalid registration details.';
+      case 409:
+        return 'Email already in use.';
+      case 500:
+        return 'Server error. Please try again later.';
+      default:
+        return error.message || 'Something went wrong.';
+    }
+  };
 
   useEffect(() => {
     if (loggedIn) {
@@ -116,7 +132,11 @@ const SignUpForm = () => {
               {errors.repeatPassword.message}
             </p>
           )}
-
+          {error && (
+            <p className={`${css.error} ${css.lastError}`}>
+              {getErrorMessage()}
+            </p>
+          )}
           <button type="submit" className={css.btn}>
             {t('signUp.title')}
           </button>

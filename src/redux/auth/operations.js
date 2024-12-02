@@ -90,7 +90,16 @@ export const register = createAsyncThunk(
 
       return data.data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      if (error.response) {
+        const status = error.response.status;
+        const message = error.response.data.message || 'Registration failed.';
+        return thunkAPI.rejectWithValue({ status, message });
+      } else {
+        return thunkAPI.rejectWithValue({
+          status: 0,
+          message: 'Network error. Please try again.',
+        });
+      }
     }
   }
 );
@@ -110,7 +119,17 @@ export const login = createAsyncThunk(
 
       return data.data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      if (error.response) {
+        const status = error.response.status;
+        const message =
+          error.response.data.message || 'Unexpected error occurred';
+        return thunkAPI.rejectWithValue({ status, message });
+      } else {
+        return thunkAPI.rejectWithValue({
+          status: 0,
+          message: 'Network error. Please try again.',
+        });
+      }
     }
   }
 );
