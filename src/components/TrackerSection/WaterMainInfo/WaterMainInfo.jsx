@@ -6,7 +6,7 @@ import WaterProgressBar from '../WaterProgressBar/WaterProgressBar';
 import AddWaterBtn from '../AddWaterBtn/AddWaterBtn';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { getUser } from '../../../redux/user/operetions';
+import { getUser } from '../../../redux/user/operations';
 
 const WaterMainInfo = () => {
   const dispatch = useDispatch();
