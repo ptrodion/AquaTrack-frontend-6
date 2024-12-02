@@ -1,35 +1,21 @@
 import * as Yup from 'yup';
 import css from './UserSettingsForm.module.css';
 import { UploadOutlined } from '@ant-design/icons';
-// import { Button, Upload } from 'antd';
-import { useForm } from 'react-hook-form';
+import { LuUserCircle2 } from "react-icons/lu";
+import { Controller, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-// import { instance } from 'redux/auth/operations.js';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateUser } from '../../redux/user/operations.js';
 import { selectUser } from '../../redux/user/selector.js';
 
-const initialAvatar =
-  'src/assets/img/settings_avatar/settings_avatar_mob_1x.webp';
 
 export const UserSettingsForm = ({ onSettingModalClose }) => {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
   const { t } = useTranslation();
   const [avatar, setAvatar] = useState(null);
-  console.log(user.avatarUrlLocal);
-
-
-  // if (user.avatarUrlLocal){
-  //   setAvatar(user.avatarUrlLocal)
-  // }
-  if (avatar) {
-    const urlAvatar = URL.createObjectURL(avatar);
-    const newUrlAvatar = urlAvatar.replace('blob:', '');
-}
-
 
   const validationSchema = Yup.object().shape({
     gender: Yup.string().required(t('settingsForm.ValidationGender')),
@@ -37,8 +23,10 @@ export const UserSettingsForm = ({ onSettingModalClose }) => {
     email: Yup.string()
       .email(t('settingsForm.ValidationEmail'))
       .required(t('settingsForm.ValidationEmailRequired')),
-    weight: Yup.number().positive(t('settingsForm.ValidationWeightPositiv')),
-    activeTime: Yup.number().min(0, t('settingsForm.ValidationTimeTypeError')),
+    weight: Yup.number().default(0),
+    activeTime: Yup.number()
+      .min(0, t('settingsForm.ValidationTimeTypeError'))
+      .default(0),
     currentDailyNorm: Yup.number()
       .positive(t('settingsForm.ValidationDailyRequirementMin'))
       .required(t('settingsForm.ValidationDailyRequirementMin')),
@@ -47,8 +35,8 @@ export const UserSettingsForm = ({ onSettingModalClose }) => {
   const {
     register,
     handleSubmit,
-    // control,
-    // watch,
+    control,
+    watch,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(validationSchema),
@@ -58,26 +46,23 @@ export const UserSettingsForm = ({ onSettingModalClose }) => {
   const onSubmit = async data => {
     console.log('data', data);
 
-    let newUrlAvatar;
+    let avatarUrlLocal;
     if (avatar) {
-      const urlAvatar = URL.createObjectURL(avatar);
-      newUrlAvatar = urlAvatar.replace('blob:', '');
-  }
-    try {
-      const newUser ={
-      gender:data.gender,
-      name:data.name,
-      email:data.email,
-      weight:data.weight,
-     activeTime:data.activeTime,
-     currentDailyNorm:data.currentDailyNorm,
-     avatarUrlLocal:newUrlAvatar
+      avatarUrlLocal = avatar;
     }
 
+    try {
+      const newUser = {
+        gender: data.gender,
+        name: data.name,
+        email: data.email,
+        weight: data.weight,
+        activeTime: data.activeTime,
+        currentDailyNorm: data.currentDailyNorm,
+        avatarUrlLocal: avatarUrlLocal,
+      };
 
-
-      console.log("formData before dispatch", newUser);
-
+      console.log('newUser', newUser);
 
       dispatch(updateUser(newUser));
     } catch (error) {
@@ -91,28 +76,31 @@ export const UserSettingsForm = ({ onSettingModalClose }) => {
     setAvatar(e.target.files[0]);
   };
 
+  const gender = watch('gender');
+  const weight = watch('weight') || 0;
+  const activeTime = watch('activeTime') || 0;
+
+  const calculateDailyWaterIntake = () => {
+    const weightFactor = gender === 'Woman' ? 0.03 : 0.04;
+    const activityFactor = gender === 'Woman' ? 0.4 : 0.6;
+    return (weight * weightFactor + activeTime * activityFactor).toFixed(2);
+  };
+
   return (
     <>
-      {/* {error && ( */}
       <form className="user-settings-form" onSubmit={handleSubmit(onSubmit)}>
         <div className={css.formGroup}>
-          {!user.avatarUrlLocal && !avatar && (
+          {!user.avatarUrlCloudinary && !avatar && (
+            <LuUserCircle2 className={css.image} />
+          )}
+          {user.avatarUrlCloudinary && !avatar && (
             <img
-              src={initialAvatar}
+              src={user.avatarUrlCloudinary}
               alt="Avatar Preview"
               className={css.image}
             />
           )}
-          {user.avatarUrlLocal && !avatar && (
-            <img
-              src= {user.avatarUrlLocal}
-              alt="Avatar Preview"
-              className={css.image}
-            />
-          )
-
-          }
-          {user.avatarUrlLocal && avatar && (
+          {avatar && (
             <img
               src={URL.createObjectURL(avatar)}
               alt="Avatar Preview"
@@ -207,9 +195,7 @@ export const UserSettingsForm = ({ onSettingModalClose }) => {
             </div>
 
             <div className={css.emailGroup}>
-              <label className={css.label}>
-                {t('settingsForm.userTime')}
-              </label>
+              <label className={css.label}>{t('settingsForm.userTime')}</label>
               <input
                 type="number"
                 {...register('activeTime')}
@@ -221,10 +207,26 @@ export const UserSettingsForm = ({ onSettingModalClose }) => {
             </div>
 
             <div className={css.text}>
-              <p className={css.text}>
+              <label className={css.text}>
                 {t('settingsForm.WaterAmount')}{' '}
-                <span className={css.span}>1.8 {t('chooseDate.l')}:</span>{' '}
-              </p>
+              </label>
+              <Controller
+                name="waterIntake"
+                control={control}
+                render={({ field }) => (
+                  <input
+                    type="number"
+                    className={css.span}
+                    {...field}
+                    value={calculateDailyWaterIntake()}
+                    readOnly
+                  />
+                )}
+              />{' '}
+              <span className={css.span}>{t('chooseDate.l')}:</span>{' '}
+              {errors.waterIntake && (
+                <p className="error">{errors.waterIntake.message}</p>
+              )}
             </div>
 
             <div className={css.emailGroup}>
@@ -242,7 +244,6 @@ export const UserSettingsForm = ({ onSettingModalClose }) => {
                 <p className="error">{errors.currentDailyNorm.message}</p>
               )}
             </div>
-
           </div>
         </div>
 
@@ -250,7 +251,6 @@ export const UserSettingsForm = ({ onSettingModalClose }) => {
           {t('settingsForm.subButton')}
         </button>
       </form>
-      {/* )} */}
     </>
   );
 };
