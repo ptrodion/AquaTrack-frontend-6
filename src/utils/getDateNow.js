@@ -7,7 +7,7 @@ export const getDateNow = () => {
   let minutes = dateNow.getMinutes().toString().padStart(2, '0');
   let seconds = dateNow.getSeconds().toString().padStart(2, '0');
 
-  let date = `${year}-${month}-${day}T${hours}:${minutes}:${seconds}`;
+  let date = `${year}-${month}-${day}`;
 
   return date;
 };

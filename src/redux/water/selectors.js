@@ -3,8 +3,8 @@ import { selectUser } from '../user/selector';
 
 export const selectMonthWater = state => state.water.monthWater;
 export const selectDailyWater = state => state.water.dailyWater;
-export const selectIsLoading = state => state.water.isLoading;
-export const selectError = state => state.water.error;
+export const selectWaterIsLoading = state => state.water.isLoading;
+export const selectWaterError = state => state.water.error;
 
 export const selectPercentOfDrinkingWater = createSelector(
   [selectDailyWater, selectUser],
