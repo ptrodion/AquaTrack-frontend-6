@@ -7,14 +7,10 @@ import {
 import css from './WaterProgressBar.module.css';
 import clsx from 'clsx';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectUser } from '../../../redux/user/selector';
 import { useEffect } from 'react';
 import { getWaterByDay } from '../../../redux/water/operations';
 import { getDateNow } from '../../../utils/getDateNow';
-import {
-  selectDailyWater,
-  selectPercentOfDrinkingWater,
-} from '../../../redux/water/selectors';
+import { selectPercentOfDrinkingWater } from '../../../redux/water/selectors';
 
 const WaterProgressBar = () => {
   const { t } = useTranslation();

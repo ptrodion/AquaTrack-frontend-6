@@ -1,8 +1,8 @@
 .waterMainInfo {
-  /* margin: 0 auto; */
+  margin: 0 auto;
   position: relative;
   background-color: #9be1a0;
-  max-width: 343px;
+  width: 343px;
   height: 415px;
   border-radius: 30px;
   box-sizing: border-box;
@@ -10,7 +10,7 @@
 }
 @media screen and (min-width: 767px) {
   .waterMainInfo {
-    max-width: 704px;
+    width: 704px;
     height: 578px;
     padding: 32px;
   }
