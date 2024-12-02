@@ -9,10 +9,7 @@ import Section from 'components/Section/Section.jsx';
 import { Link, useNavigate } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../../redux/auth/operations';
-import {
-  selectAuthError,
-  selectAuthIsLoggedIn,
-} from '../../redux/auth/selector';
+import { selectAuthIsLoggedIn } from '../../redux/auth/selector';
 import { useEffect } from 'react';
 
 const SignInForm = () => {
@@ -42,7 +39,7 @@ const SignInForm = () => {
   const navigate = useNavigate();
 
   const loggedIn = useSelector(selectAuthIsLoggedIn);
-  const error = useSelector(selectAuthError);
+  const error = useSelector(state => state.auth.error);
 
   useEffect(() => {
     if (loggedIn) {
@@ -54,6 +51,20 @@ const SignInForm = () => {
     dispatch(login(data));
   };
 
+  const getErrorMessage = () => {
+    if (!error) return null;
+
+    switch (error.status) {
+      case 400:
+        return error.message || 'Invalid request';
+      case 401:
+        return 'Invalid credentials';
+      case 500:
+        return 'Server error. Please try again later';
+      default:
+        return error.message || 'Something went wrong';
+    }
+  };
   return (
     <Section>
       <div className={css.backgroundContainer}>
@@ -99,7 +110,7 @@ const SignInForm = () => {
           )}
           {error && (
             <p className={`${css.error} ${css.lastError}`}>
-              Wrong password or email
+              {getErrorMessage()}
             </p>
           )}
           <button type="submit" className={css.btn}>
