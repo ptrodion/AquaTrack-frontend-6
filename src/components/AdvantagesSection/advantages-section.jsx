@@ -1,10 +1,7 @@
-import { useEffect } from 'react';
+import { useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getUsersCount } from '../../redux/common/operations';
-import {
-  selectCountUsers,
-  selectCommonError,
-} from '../../redux/common/selectors';
+import { getUsersCount} from '../../redux/common/operations';
+import {selectCountUsers, selectCommonError} from '../../redux/common/selectors';
 import styles from './advantages-section.module.css';
 import { FaCircle } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
@@ -16,9 +13,13 @@ const AdvantagesSection = () => {
   const userCount = useSelector(selectCountUsers);
   const error = useSelector(selectCommonError);
 
+
+
+
   useEffect(() => {
     dispatch(getUsersCount());
   }, [dispatch]);
+
 
   return (
     <Section>
@@ -83,6 +84,7 @@ const AdvantagesSection = () => {
                               src/assets/img/customers/customer_3_mob_1x.webp 1x,
                               src/assets/img/customers/customer_3_mob_2x.webp 2x
                               "
+
                     media="(max-width: 768px)"
                   />
                   <img
@@ -93,12 +95,9 @@ const AdvantagesSection = () => {
               </div>
               <h3 className={styles.textCustomers}>
                 {userCount !== null
-                  ? t(
-                      'homepage.advantages.customers',
-                      { counter: userCount },
-                      { accent: t('homepage.advantages.happy') }
-                    )
+                  ? t('homepage.advantages.customers', { counter: userCount })
                   : t('homepage.advantages.customers', { counter: 0 })}
+
               </h3>
             </button>
           </div>
