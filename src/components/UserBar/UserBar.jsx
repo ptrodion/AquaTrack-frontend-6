@@ -39,7 +39,7 @@ const UserBar = ({ user }) => {
   };
 
   const onLogOutModalClose = () => {
-    isLogOutModalOpen(false);
+    setLogOutModalOpen(false);
   }
 
 
