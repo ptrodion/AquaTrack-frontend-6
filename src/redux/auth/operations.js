@@ -14,14 +14,22 @@ export const register = createAsyncThunk(
   'auth/register',
   async (formData, thunkAPI) => {
     try {
-      await instance.post('api/auth/register', formData);
-
-      const { data } = await instance.post('api/auth/login', formData);
-
-      setAuthToken(data.data.accessToken);
-      return data.data;
+      const { data } = await axios.post(
+        'https://warettrack.onrender.com/api/auth/register',
+        formData
+      );
+      return data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      if (error.response) {
+        const status = error.response.status;
+        const message = error.response.data.message || 'Registration failed.';
+        return thunkAPI.rejectWithValue({ status, message });
+      } else {
+        return thunkAPI.rejectWithValue({
+          status: 0,
+          message: 'Network error. Please try again.',
+        });
+      }
     }
   }
 );
@@ -36,7 +44,17 @@ export const login = createAsyncThunk(
 
       return data.data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      if (error.response) {
+        const status = error.response.status;
+        const message =
+          error.response.data.message || 'Unexpected error occurred';
+        return thunkAPI.rejectWithValue({ status, message });
+      } else {
+        return thunkAPI.rejectWithValue({
+          status: 0,
+          message: 'Network error. Please try again.',
+        });
+      }
     }
   }
 );
