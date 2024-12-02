@@ -17,11 +17,10 @@ import { waterReducer } from './water/slice';
 import { commonReducer } from './common/slice';
 import { userReducer } from './user/slice';
 
-
 const authConfig = {
   key: 'auth',
   storage,
-  whitelist: ['token'],
+  whitelist: ['accessToken', 'refreshToken'],
 };
 
 export const store = configureStore({
@@ -30,7 +29,6 @@ export const store = configureStore({
     user: userReducer,
     common: commonReducer,
     auth: persistReducer(authConfig, authReducer),
-    user: userReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
