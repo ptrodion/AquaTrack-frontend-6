@@ -116,12 +116,6 @@ const UserBar = ({ user }) => {
         </ModalBackdrop>
         )}
 
-      {/* Модальное окно выхода
-      <UserLogOutModal
-        isOpen={showLogOutModal}
-        onClose={handleLogOutModalClose}
-      /> */}
-
       {/* Модальное окно выхода */}
       {isLogOutModalOpen &&
         (<ModalBackdrop>
