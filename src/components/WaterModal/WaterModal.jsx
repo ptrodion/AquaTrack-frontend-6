@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 import css from "./WaterModal.module.css";
 import WaterForm from "../WaterForm/WaterForm";
 import { ANIMATION } from "../../constants";
-import svg from "../../assets/icons/sprite.svg";
+import svgSprite from "../../assets/icons/sprite.svg";
 
 const WaterModal = ({
   operationType,
@@ -81,7 +81,7 @@ const WaterModal = ({
         className={css.WaterModalCloseBtn}
       >
         <svg>
-          <use xlinkHref={svg + "#icon-clear"}></use>
+          <use xlinkHref={svgSprite + "#icon-clear"}></use>
         </svg>
       </button>
     </div>

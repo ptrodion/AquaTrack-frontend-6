@@ -5,7 +5,10 @@ const DailyInfo = () => {
   return (
     <div>
       <h4>Daily Info</h4>
-       <AddWaterBtn />
+      <div>
+        <AddWaterBtn />
+      </div> 
+      
       <WaterList />
      
     </div>

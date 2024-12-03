@@ -1,28 +1,24 @@
-import { createContext, useCallback, useState } from "react";
-import { createPortal } from "react-dom";
-import ModalBackdrop from "../components/ModalBackdrop/ModalBackdrop.jsx";
-import { ANIMATION } from "../constants.js";
+import React, { createContext, useContext } from "react";
+import { useModal } from "../hooks/useModal";
 
-export const ModalContext = createContext();
-const modalRoot = document.querySelector("#modal-root");
+const ModalContext = createContext();
 
 export const ModalProvider = ({ children }) => {
-  const [modal, setModal] = useState(null);
-  const handleSetModal = useCallback((modal = null) => {
-    const id = setTimeout(() => {
-      setModal(modal);
-      clearTimeout(id);
-    }, ANIMATION.DURATION);
-  }, []);
+  const modal = useModal();
+
   return (
-    <ModalContext.Provider value={handleSetModal}>
+    <ModalContext.Provider value={modal}>
       {children}
-      {modal &&
-        createPortal(
-          <ModalBackdrop onClose={handleSetModal}>{modal}</ModalBackdrop>,
-          modalRoot
-        )}
+      {modal.modalContent && (
+        <div className="modal-overlay">
+          <div className="modal-content">
+            {modal.modalContent}
+            <button onClick={modal.closeModal}>Close</button>
+          </div>
+        </div>
+      )}
     </ModalContext.Provider>
   );
 };
 
+export const useModalContext = () => useContext(ModalContext);
