@@ -20,7 +20,9 @@ const WaterProgressBar = () => {
   const formatedPercentOfDrinkedWater =
     percentOfDrinkedWater > 100 ? 100 : Math.round(percentOfDrinkedWater);
 
+
   const date = getFormattedDate();
+
 
   useEffect(() => {
     dispatch(getWaterByDay(date));
