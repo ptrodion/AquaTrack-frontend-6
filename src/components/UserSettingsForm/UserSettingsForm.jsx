@@ -18,7 +18,6 @@ export const UserSettingsForm = ({ onSettingModalClose }) => {
   const [avatar, setAvatar] = useState(null);
   const [language, setLanguage] = useState(null);
 
-
   const changeLanguage = lng => {
     i18n.changeLanguage(lng);
   };
@@ -26,7 +25,6 @@ export const UserSettingsForm = ({ onSettingModalClose }) => {
   const storedLanguage = localStorage.getItem('language');
 
   useEffect(() => {
-
     if (!storedLanguage) {
       localStorage.setItem('language', user.language);
       setLanguage(user.language);
@@ -34,12 +32,9 @@ export const UserSettingsForm = ({ onSettingModalClose }) => {
   }, [storedLanguage, user.language]);
 
   useEffect(() => {
-
     i18n.changeLanguage(language);
 
-    console.log("changeLanguage", i18n.changeLanguage(language));
-
-
+    console.log('changeLanguage', i18n.changeLanguage(language));
   }, [language, i18n]);
 
   const validationSchema = Yup.object().shape({
@@ -85,7 +80,7 @@ export const UserSettingsForm = ({ onSettingModalClose }) => {
         activeTime: data.activeTime,
         currentDailyNorm: data.currentDailyNorm,
         avatarUrlLocal: avatarUrlLocal,
-        language: data.language
+        language: data.language,
       };
 
       console.log('newUser', newUser);
@@ -148,25 +143,35 @@ export const UserSettingsForm = ({ onSettingModalClose }) => {
             <label className={css.label}>{t('settingsForm.userGender')}:</label>
             <div className={css.radioBox}>
               <label className={css.radioInput}>
-                <input type="radio" value="woman" {...register('gender')} className={css.inputGreen} />
+                <input
+                  type="radio"
+                  value="woman"
+                  {...register('gender')}
+                  className={css.inputGreen}
+                />
                 {t('settingsForm.genderWoman')}
               </label>
               <label className={css.radioInput}>
-                <input type="radio" value="man" {...register('gender')} className={css.inputGreen} />
+                <input
+                  type="radio"
+                  value="man"
+                  {...register('gender')}
+                  className={css.inputGreen}
+                />
                 {t('settingsForm.genderMan')}
               </label>
             </div>
             {errors.gender && <p className="error">{errors.gender.message}</p>}
-          </div >
+          </div>
 
           <div className={css.langGroup}>
-            <label className={css.label}>Language:</label>
+            <label className={css.label}>{t('settingsForm.language')}</label>
             <div className={css.radioBox} ref={dropdownRef}>
               <label className={css.radioInput}>
                 <input
                   type="radio"
                   value="en"
-                  name='en'
+                  name="en"
                   className={css.inputGreen}
                   {...register('language')}
                   onClick={() => changeLanguage('en')}
@@ -177,7 +182,7 @@ export const UserSettingsForm = ({ onSettingModalClose }) => {
                 <input
                   type="radio"
                   value="de"
-                  name='de'
+                  name="de"
                   className={css.inputGreen}
                   {...register('language')}
                   onClick={() => changeLanguage('de')}
@@ -188,7 +193,7 @@ export const UserSettingsForm = ({ onSettingModalClose }) => {
                 <input
                   type="radio"
                   value="uk"
-                  name='uk'
+                  name="uk"
                   className={css.inputGreen}
                   {...register('language')}
                   onClick={() => changeLanguage('uk')}

@@ -157,7 +157,8 @@
     "ValidationDailyRequirementMin": "Die tägliche Wasseraufnahme muss positiv sein",
     "ValidationDailyRequirementRequired": "Die tägliche Wasseraufnahme ist erforderlich",
     "propssuccess": "Datei erfolgreich hochgeladen",
-    "propserror": "Datei hochladen fehlgeschlagen"
+    "propserror": "Datei hochladen fehlgeschlagen",
+    "language": "Sprache:"
   },
 
   "resetPwd": {
