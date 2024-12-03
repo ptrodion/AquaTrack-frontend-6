@@ -1,36 +1,61 @@
 import { Calendar } from 'components/Calendar/Calendar';
 import { CalendarPagination } from 'components/CalendarPagination/CalendarPagination';
 import css from './MonthInfo.module.css';
-import { useState } from 'react';
-import { getDaysInMonth, startOfWeek, addDays } from 'date-fns';
+import { useEffect, useState } from 'react';
+import { getDaysInMonth, startOfWeek, addDays, format } from 'date-fns';
 import { useTranslation } from 'react-i18next';
 import WaterConsumptionChart from 'components/WaterConsumptionChart/WaterConsumptionChart';
 import { FiPieChart } from 'react-icons/fi';
+import { useDispatch, useSelector } from 'react-redux';
+import { getWaterByMonth } from '../../redux/water/operations.js';
+import { selectMonthWater } from '../../redux/water/selectors.js';
 
 const MonthInfo = () => {
   const [date, setDate] = useState(new Date());
   const [view, setView] = useState('calendar');
+  const monthWater = useSelector(selectMonthWater);
   const { t } = useTranslation();
 
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const formattedDate = format(date, 'yyyy-MM-dd');
+    dispatch(getWaterByMonth(formattedDate));
+  }, [dispatch, date]);
+
   const toggleView = () => {
-    setView((prev) => (prev === 'calendar' ? 'chart' : 'calendar'));
+    setView(prev => (prev === 'calendar' ? 'chart' : 'calendar'));
   };
 
   const onSetDate = selectedDate => {
     setDate(selectedDate);
   };
 
-  const days = Array.from({ length: getDaysInMonth(date) }, (_, index) => ({
-    //[{day:number, progress:number}, {day:number, progress:number}, ...]
-    // day: index + 1,
-    day: new Date(date.getFullYear(), date.getMonth(), index + 1),
-    progress: Math.floor(Math.random() * 102), // Випадковий прогрес від 0 до 100
-  }));
+  const days = Array.from({ length: getDaysInMonth(date) }, (_, index) => {
+    const day = new Date(date.getFullYear(), date.getMonth(), index + 1);
+    const waterEntriesByDay = monthWater.filter(
+      item => item.date.split('T')[0] === day.toISOString().split('T')[0]
+    );
+
+    const dailyNormaWater = waterEntriesByDay[0]?.currentDailyNorm ?? null;
+    const sumWaterOfDay = waterEntriesByDay.reduce((accumulator, dailyItem) => {
+      return accumulator + dailyItem.amount;
+    }, 0);
+
+    const dailyPercent = dailyNormaWater
+      ? Math.min((sumWaterOfDay / dailyNormaWater) * 100, 100)
+      : 0;
+
+    return {
+      day,
+      progress: dailyPercent,
+    };
+  });
 
   const startOfCurrentWeek = startOfWeek(new Date(), { weekStartsOn: 1 });
   const currentWeekDays = Array.from({ length: 7 }, (_, i) => {
     const day = addDays(startOfCurrentWeek, i);
-    const calendarDay = days.find((d) => d.day.getDate() === day.getDate());
+    const calendarDay = days.find(d => d.day.getDate() === day.getDate());
     return {
       day,
       consumption: calendarDay ? (calendarDay.progress / 100) * 3 : 0,
@@ -46,7 +71,7 @@ const MonthInfo = () => {
         <div className={css.paginationWrap}>
           <CalendarPagination initialDate={date} onSetDate={onSetDate} />
           <button onClick={toggleView} className={css.statsToggleBtn}>
-          <FiPieChart size={24} className={css.statsToggleIcon} />
+            <FiPieChart size={24} className={css.statsToggleIcon} />
           </button>
         </div>
       </div>
