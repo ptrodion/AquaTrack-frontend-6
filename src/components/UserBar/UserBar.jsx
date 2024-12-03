@@ -118,13 +118,22 @@ const UserBar = ({ user }) => {
         )}
 
       {/* Модальное окно выхода */}
-      {isLogOutModalOpen &&
+      {/* {isLogOutModalOpen &&
         (<ModalWindow>
           <ModalLogOut
             isOpen={onLogOutModalOpen}
             onClose={onLogOutModalClose}
           />
          </ModalWindow>
+        )} */}
+      
+       {isLogOutModalOpen &&
+        (
+          <ModalLogOut
+            isOpen={onLogOutModalOpen}
+            onClose={onLogOutModalClose}
+          />
+         
         )}
       
     </div>
