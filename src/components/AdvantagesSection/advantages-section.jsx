@@ -101,7 +101,7 @@ const AdvantagesSection = () => {
               </h3>
             </button>
           </div>
-          <div className={styles.buttonsBenefits}>
+          {/* <div className={styles.buttonsBenefits}>
             <button className={styles.buttonHabitDrive}>
               <FaCircle className={styles.icon} />
               <a href="#" className={styles.habitDrive}>
@@ -118,7 +118,25 @@ const AdvantagesSection = () => {
                 {t('homepage.advantages.personalSetting')}
               </a>
             </button>
-          </div>
+          </div> */}
+          <ul className={styles.buttonsBenefits}>
+            <li className={styles.buttonHabitDrive}>
+              <FaCircle className={styles.icon} />
+              <p  className={styles.habitDrive}>
+                {t('homepage.advantages.habitDrive')}
+              </p>
+            </li>
+            <li className={styles.buttonViewStatistics}>
+              <p className={styles.viewStatistics}>
+                {t('homepage.advantages.viewStatistic')}
+              </p>
+            </li>
+            <li className={styles.buttonPersonalRateSetting}>
+              <p className={styles.personalRateSetting}>
+                {t('homepage.advantages.personalSetting')}
+              </p>
+            </li>
+          </ul>
           {error && <p className={styles.error}>Error: {error}</p>}
         </div>
       </section>

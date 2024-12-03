@@ -41,7 +41,7 @@
   flex-direction: column;
   gap: 32px;
   align-self: flex-start;
-  min-width: 100%;
+  max-width: 100%;
 }
 
 .textWrapper {
@@ -55,9 +55,10 @@
 
 .links {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   gap: 10px;
   align-self: flex-start;
+  /* min-width: 100%; */
 }
 
 .subtitle {
@@ -77,24 +78,31 @@
 .title {
   font-family: 'Poppins';
   font-weight: 700;
-  font-size: 38px;
+  font-size: 36px;
   line-height: 1;
-  letter-spacing: 0.06em;
+  letter-spacing:  -0.01em;
   color: #323f47;
   max-width: 311px;
   /* font-size: 2rem; */
 }
 
-.button {
+/* .button {
   display: flex;
   justify-content: center;
-}
+  align-items: center;
+
+} */
 
 
 
 .tryTracker {
+  display: flex;
+    justify-content: center;
+    align-items: center;
   background-color: #9be1a0;
-  padding: 14px 19px;
+  width: 116px;
+  height: 46px;
+  /* padding: 14px 19px; */
   border-radius: 30px;
   font-family: 'Poppins';
   font-size: 14px;
@@ -112,8 +120,13 @@
 
 
 .signIn {
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 104px;
+      height: 46px;
   border: #323f47 1px solid;
-  padding: 14px 28px;
+  /* padding: 14px 28px; */
   border-radius: 30px;
   font-family: 'Poppins';
   font-size: 14px;
@@ -150,16 +163,25 @@
     letter-spacing: -0.01em;
   }
 
+    .links {
+      width: 320px;
+    }
+
   .tryTracker {
     font-size: 16px;
     line-height: 1.5;
-    padding: 18px 40px;
+    /* padding: 18px 40px; */
+    width: 164px;
+    height: 60px;
   }
 
   .signIn {
     font-size: 16px;
     line-height: 1.5;
-    padding: 18px 40px;
+    /* padding: 18px 40px; */
+    width: 135px;
+    height: 60px;
+
   }
 }
 
