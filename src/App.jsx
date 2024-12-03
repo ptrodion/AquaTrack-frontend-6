@@ -1,3 +1,4 @@
+import RestrictedRoute from 'components/RestrictedRoute/RestrictedRoute';
 import SharedLayout from 'components/SharedLayout/SharedLayout.jsx';
 import { lazy } from 'react';
 import { Toaster } from 'react-hot-toast';
@@ -19,8 +20,24 @@ function App() {
       <SharedLayout>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/signup" element={<SignUpPage />} />
-          <Route path="/signin" element={<SignInPage />} />
+          <Route
+            path="/signup"
+            element={
+              <RestrictedRoute
+                component={<SignUpPage />}
+                redirectTo="/tracker"
+              />
+            }
+          />
+          <Route
+            path="/signin"
+            element={
+              <RestrictedRoute
+                component={<SignInPage />}
+                redirectTo="/tracker"
+              />
+            }
+          />
           <Route path="/tracker" element={<TrackerPage />} />
         </Routes>
       </SharedLayout>

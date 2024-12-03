@@ -2,15 +2,13 @@ import css from './UserBar.module.css';
 import { useState, useRef } from 'react';
 import { TbSettings } from 'react-icons/tb';
 import { MdLogout } from 'react-icons/md';
-import { LuUserCircle2 } from "react-icons/lu";
+import { LuUserCircle2 } from 'react-icons/lu';
 import { BsChevronUp, BsChevronDown } from 'react-icons/bs';
 import { useTranslation } from 'react-i18next';
 
-
-import  LogOutModal  from '../LogOutModal/LogOutModal.jsx';
+// import  LogOutModal  from '../LogOutModal/LogOutModal.jsx';
 import { UserSettingsModal } from 'components/UserSettingsModal/UserSettingsModal.jsx';
 import ModalBackdrop from 'components/ModalBackdrop/ModalBackdrop';
-
 
 const UserBar = ({ user }) => {
   const { t } = useTranslation();
@@ -18,7 +16,6 @@ const UserBar = ({ user }) => {
   const buttonRef = useRef(null);
   const [isSettingModalOpen, setSettingModalOpen] = useState(false);
   const [isLogOutModalOpen, setLogOutModalOpen] = useState(false);
-
 
   const togglePopover = () => {
     setShowPopoverOpen(!showPopoverOpen);
@@ -40,40 +37,40 @@ const UserBar = ({ user }) => {
 
   const onLogOutModalClose = () => {
     setLogOutModalOpen(false);
-  }
-
+  };
 
   return (
     <div className={css.user_button_container}>
-      {user && (<button
-        className={css.user_button}
-        onClick={togglePopover}
-        ref={buttonRef}
-      >
-        <span className={css.username}>
-          {(user?.name || user?.email)?.slice(0, 6)}</span>
+      {user && (
+        <button
+          className={css.user_button}
+          onClick={togglePopover}
+          ref={buttonRef}
+        >
+          <span className={css.username}>
+            {(user?.name || user?.email)?.slice(0, 6).charAt(0).toUpperCase() +
+              (user?.name || user?.email)?.slice(1, 6)}
+          </span>
 
-        {/* проверка аватара */}
-        {user.avatarUrlCloudinary ? (
-      <img
-        src={user.avatarUrlCloudinary}
-        alt="Photo"
-        className={css.avatar}
-      />
-    ) : (
-      <LuUserCircle2 className={css.avatarIcon} />
-    )}
-
-
-        {/* Popover */}
-        {showPopoverOpen ? (
-          <BsChevronDown className={css.iconArrow} />
-        ) : (
-          <BsChevronUp className={css.iconArrow} />
-        )}
-      </button>
+          {/* проверка аватара */}
+          {user.avatarUrlCloudinary ? (
+            <img
+              src={user.avatarUrlCloudinary}
+              alt="Photo"
+              className={css.avatar}
+            />
+          ) : (
+            <LuUserCircle2 className={css.avatarIcon} />
           )}
 
+          {/* Popover */}
+          {showPopoverOpen ? (
+            <BsChevronDown className={css.iconArrow} />
+          ) : (
+            <BsChevronUp className={css.iconArrow} />
+          )}
+        </button>
+      )}
 
       {/* Всплывающее окно (popover) */}
       {showPopoverOpen && (
@@ -94,7 +91,7 @@ const UserBar = ({ user }) => {
           <button
             type="button"
             className={css.inPopoverLogOut}
-          onClick={onLogOutModalOpen}
+            onClick={onLogOutModalOpen}
           >
             <div className={css.icon_logout}>
               <MdLogout />
@@ -106,28 +103,28 @@ const UserBar = ({ user }) => {
         </div>
       )}
 
-
       {/* Модальное окно настроек */}
-      {isSettingModalOpen &&
-        (<ModalBackdrop>
-          <UserSettingsModal
-            onSettingModalClose={onSettingModalClose}
-          />
+      {isSettingModalOpen && (
+        <ModalBackdrop>
+          <UserSettingsModal onSettingModalClose={onSettingModalClose} />
         </ModalBackdrop>
-        )}
+      )}
 
       {/* Модальное окно выхода */}
-      {isLogOutModalOpen &&
-        (<ModalBackdrop>
+      {/* {isLogOutModalOpen &&
+        (<ModalWindow>
           <LogOutModal
             isOpen={onLogOutModalOpen}
             onClose={onLogOutModalClose}
           />
-        </ModalBackdrop>
-        )}
-      
+        </ModalWindow>
+        )} */}
+
+      {isLogOutModalOpen && (
+        <ModalLogOut isOpen={onLogOutModalOpen} onClose={onLogOutModalClose} />
+      )}
     </div>
   );
-}
+};
 
 export default UserBar;
