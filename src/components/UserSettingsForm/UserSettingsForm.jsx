@@ -1,21 +1,46 @@
 import * as Yup from 'yup';
 import css from './UserSettingsForm.module.css';
 import { UploadOutlined } from '@ant-design/icons';
-import { LuUserCircle2 } from "react-icons/lu";
+import { LuUserCircle2 } from 'react-icons/lu';
 import { Controller, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateUser } from '../../redux/user/operations.js';
 import { selectUser } from '../../redux/user/selector.js';
 
-
 export const UserSettingsForm = ({ onSettingModalClose }) => {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
-  const { t } = useTranslation();
+  const dropdownRef = useRef(null);
+  const { t, i18n } = useTranslation();
   const [avatar, setAvatar] = useState(null);
+  const [language, setLanguage] = useState(null);
+
+
+  const changeLanguage = lng => {
+    i18n.changeLanguage(lng);
+  };
+
+  const storedLanguage = localStorage.getItem('language');
+
+  useEffect(() => {
+
+    if (!storedLanguage) {
+      localStorage.setItem('language', user.language);
+      setLanguage(user.language);
+    }
+  }, [storedLanguage, user.language]);
+
+  useEffect(() => {
+
+    i18n.changeLanguage(language);
+
+    console.log("changeLanguage", i18n.changeLanguage(language));
+
+
+  }, [language, i18n]);
 
   const validationSchema = Yup.object().shape({
     gender: Yup.string().required(t('settingsForm.ValidationGender')),
@@ -60,6 +85,7 @@ export const UserSettingsForm = ({ onSettingModalClose }) => {
         activeTime: data.activeTime,
         currentDailyNorm: data.currentDailyNorm,
         avatarUrlLocal: avatarUrlLocal,
+        language: data.language
       };
 
       console.log('newUser', newUser);
@@ -117,19 +143,60 @@ export const UserSettingsForm = ({ onSettingModalClose }) => {
           </label>
         </div>
 
-        <div className={css.genderGroup}>
-          <label className={css.label}>{t('settingsForm.userGender')}:</label>
-          <div className={css.radioBox}>
-            <label className={css.radioInput}>
-              <input type="radio" value="woman" {...register('gender')} />
-              {t('settingsForm.genderWoman')}
-            </label>
-            <label className={css.radioInput}>
-              <input type="radio" value="man" {...register('gender')} />
-              {t('settingsForm.genderMan')}
-            </label>
+        <div className={css.boxRadio}>
+          <div className={css.genderGroup}>
+            <label className={css.label}>{t('settingsForm.userGender')}:</label>
+            <div className={css.radioBox}>
+              <label className={css.radioInput}>
+                <input type="radio" value="woman" {...register('gender')} className={css.inputGreen} />
+                {t('settingsForm.genderWoman')}
+              </label>
+              <label className={css.radioInput}>
+                <input type="radio" value="man" {...register('gender')} className={css.inputGreen} />
+                {t('settingsForm.genderMan')}
+              </label>
+            </div>
+            {errors.gender && <p className="error">{errors.gender.message}</p>}
+          </div >
+
+          <div className={css.langGroup}>
+            <label className={css.label}>Language:</label>
+            <div className={css.radioBox} ref={dropdownRef}>
+              <label className={css.radioInput}>
+                <input
+                  type="radio"
+                  value="en"
+                  name='en'
+                  className={css.inputGreen}
+                  {...register('language')}
+                  onClick={() => changeLanguage('en')}
+                />
+                English
+              </label>
+              <label className={css.radioInput}>
+                <input
+                  type="radio"
+                  value="de"
+                  name='de'
+                  className={css.inputGreen}
+                  {...register('language')}
+                  onClick={() => changeLanguage('de')}
+                />
+                German
+              </label>
+              <label className={css.radioInput}>
+                <input
+                  type="radio"
+                  value="uk"
+                  name='uk'
+                  className={css.inputGreen}
+                  {...register('language')}
+                  onClick={() => changeLanguage('uk')}
+                />
+                Ukrainian
+              </label>
+            </div>
           </div>
-          {errors.gender && <p className="error">{errors.gender.message}</p>}
         </div>
 
         <div className={css.flexGroup}>

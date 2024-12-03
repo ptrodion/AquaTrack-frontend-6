@@ -18,7 +18,7 @@
   height: 100%;
   overflow-x: hidden;
 }
-.modalBox{
+.modalBox {
   /* height: 1302px; */
   width: 343px;
   border-radius: 15px;
@@ -33,7 +33,6 @@
   align-items: center;
   justify-content: space-between;
   margin-bottom: 20px;
-
 }
 
 .title {
@@ -60,16 +59,10 @@
   margin-bottom: 10px;
 }
 
-/* .button {
-  border: none;
-  padding: 0;
-  background-color: transparent;
-} */
-input[type="file"] {
+input[type='file'] {
   display: none;
 }
 
-/* Custom label styling */
 .customFileLabel {
   display: inline-block;
   padding: 10px 20px;
@@ -81,9 +74,12 @@ input[type="file"] {
   transition: background-color 0.3s;
 }
 
-/* Hover effect */
 .customFileLabel:hover {
   background-color: #45a049;
+}
+
+.lang {
+  position: relative;
 }
 
 .flexGroup {
@@ -99,11 +95,54 @@ input[type="file"] {
   text-align: center;
   display: inline-block;
   margin-bottom: 14px;
-
 }
 
 .genderGroup {
   margin-bottom: 24px;
+}
+
+.langGroup {
+  margin-bottom: 24px;
+}
+
+.inputGreen {
+  display: none; /* Сховати оригінальні radio-кнопки */
+}
+.inputGreen, .radioInput {
+  display: inline-block;
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+  color: #2f2f2f; /* Темно-зелений колір тексту */
+}
+.inputGreen, .radioInput:before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #9be1a0; /* Зелений колір рамки */
+  border-radius: 50%;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #fff /* Білий фон */
+}
+.inputGreen:checked, .radioInput:before {
+  background-color: #9be1a0; /* Зелений фон для обраного елемента */
+}
+
+.inputGreen:checked, .radioInput:after {
+  content: '';
+  display: block;
+  width: 10px;
+  height: 10px;
+  background-color: #fff; /* Білий колір */
+  border-radius: 50%;
+  position: absolute;
+  left: 5px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .radioBox {
@@ -127,9 +166,9 @@ input[type="file"] {
   width: 303px;
   height: 46px;
   font-weight: 400;
-font-size: 16px;
-line-height: 1.5;
-letter-spacing: -0.01em;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
 }
 
 .list {
@@ -161,18 +200,18 @@ letter-spacing: -0.01em;
   margin-bottom: 14px;
   color: rgba(47, 47, 47, 0.6);
   font-weight: 400;
-font-size: 16px;
-line-height: 1.5;
-letter-spacing: -0.01em;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
 }
 
 .textActive {
   display: inline-block;
   margin-bottom: 24px;
   font-weight: 400;
-font-size: 16px;
-line-height: 1.5;
-letter-spacing: -0.01em;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
 }
 
 .nameGroup {
@@ -202,9 +241,9 @@ letter-spacing: -0.01em;
 .text {
   margin-bottom: 14px;
   font-weight: 400;
-font-size: 16px;
-line-height: 1.5;
-letter-spacing: -0.01em;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
 }
 .span {
   font-weight: 700;
@@ -220,21 +259,20 @@ letter-spacing: -0.01em;
   height: 46px;
   background: #9be1a0;
   font-weight: 700;
-font-size: 16px;
-line-height: 1.5;
-letter-spacing: -0.01em;
-text-align: center;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  text-align: center;
 }
 
-.error{
+.error {
   font-size: 14px;
   line-height: 1.28571;
   color: #db686e;
 }
 
- @media only screen and (min-width: 768px) {
-
-  .modalBox{
+@media only screen and (min-width: 768px) {
+  .modalBox {
     /* height: 1302px; */
     width: 648px;
     margin: 64px auto;
@@ -248,6 +286,12 @@ text-align: center;
   .image {
     width: 100px;
     height: 100px;
+  }
+
+  .boxRadio {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 
   .flexGroup {
@@ -302,7 +346,7 @@ text-align: center;
 }
 
 @media only screen and (min-width: 1440px) {
-  .modalBox{
+  .modalBox {
     min-width: 920px;
     margin: 64px auto;
   }
@@ -311,15 +355,24 @@ text-align: center;
     margin-bottom: 24px;
   }
 
+  .boxRadio {
+    justify-content: flex-start;
+    gap: 40px;
+  }
+  .genderGroup,
+  .langGroup {
+    width: 400px;
+  }
+
   .flexGroup {
     height: 594px;
-   /*  width: 840px; */
+    /*  width: 840px; */
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     column-gap: 40px;
   }
-  .item{
+  .item {
     width: 400px;
   }
 
