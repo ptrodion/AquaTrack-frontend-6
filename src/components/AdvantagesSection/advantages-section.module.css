@@ -30,14 +30,16 @@
   padding: 10px 14px;
   border-radius: 30px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 700;
   line-height: 1.29;
   letter-spacing: 0.01em;
   color: #323F47;
   position: absolute;
-  bottom: 96px;
-  left: 16px;
+  bottom: 104px;
+  left: 8px;
+  width: 160px;
+  height: 48px;
 }
 
 .imageContainer {
@@ -98,7 +100,7 @@
   gap: 4px;
   width: 112px;
   position: absolute;
-  bottom: 20px;
+  bottom: 10px;
   right: 16px;
 }
 
@@ -198,6 +200,8 @@ background-image: url(src/assets/img/woman_aqua_track/woman_aqua_track_tablet_1x
 .button{
   padding: 10px 20px;
   left: 32px;
+  width: 237px;
+  height: 67px;
 }
 .textCustomers{
   font-size: 15px;
