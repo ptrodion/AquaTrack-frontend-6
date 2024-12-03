@@ -19,6 +19,7 @@ const WaterProgressBar = () => {
   const percentOfDrinkingWater = useSelector(selectPercentOfDrinkingWater);
 
   const date = getDateNow();
+  
 
   useEffect(() => {
     dispatch(getWaterByDay(date));
