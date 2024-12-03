@@ -9,16 +9,20 @@ import clsx from 'clsx';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { getWaterByDay } from '../../../redux/water/operations';
-import { getDateNow } from '../../../utils/getDateNow';
+import { getFormattedDate } from '../../../utils/getDateNow';
 import { selectPercentOfDrinkingWater } from '../../../redux/water/selectors';
 
 const WaterProgressBar = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
 
-  const percentOfDrinkingWater = useSelector(selectPercentOfDrinkingWater);
+  const percentOfDrinkedWater = useSelector(selectPercentOfDrinkingWater);
+  const formatedPercentOfDrinkedWater =
+    percentOfDrinkedWater > 100 ? 100 : Math.round(percentOfDrinkedWater);
 
-  const date = getDateNow();
+
+  const date = getFormattedDate();
+
 
   useEffect(() => {
     dispatch(getWaterByDay(date));
@@ -31,12 +35,12 @@ const WaterProgressBar = () => {
         <div className={css.progressLine}>
           <span className={css.progressBarBackground}></span>
 
-          <StyledProgressBarSpan $percent={percentOfDrinkingWater}>
+          <StyledProgressBarSpan $percent={formatedPercentOfDrinkedWater}>
             <StyledPercentOfDrinkingWater>
-              {percentOfDrinkingWater}%
+              {formatedPercentOfDrinkedWater}%
             </StyledPercentOfDrinkingWater>
           </StyledProgressBarSpan>
-          <StyledProgressDot $percent={percentOfDrinkingWater} />
+          <StyledProgressDot $percent={formatedPercentOfDrinkedWater} />
         </div>
         <div className={css.progressBarPercentageWrapper}>
           <p className={css.progressBarPercentage}>0%</p>

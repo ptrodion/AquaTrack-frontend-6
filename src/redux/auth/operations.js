@@ -4,7 +4,6 @@ import axios from 'axios';
 
 export const instance = axios.create({
   baseURL: 'https://warettrack.onrender.com/',
-  // withCredentials: true,
 });
 
 const setAuthToken = token => {
@@ -14,6 +13,7 @@ const setAuthToken = token => {
 instance.interceptors.request.use(
   request => {
     const accessToken = localStorage.getItem('accessToken');
+
     if (accessToken) {
       request.headers['Authorization'] = `Bearer ${accessToken}`;
     }
@@ -25,22 +25,18 @@ instance.interceptors.request.use(
 );
 
 instance.interceptors.response.use(
-  response => response, // Directly return successful responses.
+  response => response,
   async error => {
     const originalRequest = error.config;
 
     if (error.response.status === 401 && !originalRequest._retry) {
-      originalRequest._retry = true; // Mark the request as retried to avoid infinite loops.
+      originalRequest._retry = true;
       try {
         const refreshToken = localStorage.getItem('refreshToken');
-        // const persistedData = localStorage.getItem('persist:auth');
 
-        // const parsedPersistedData = JSON.parse(persistedData);
-
-        // const refreshToken = parsedPersistedData.refreshToken;
-        // const fromated = refreshToken.substring(1, refreshToken.length - 1);
-
-        console.log('refreshTokenDSfsdfSDFsdf', refreshToken);
+        if (refreshToken === null) {
+          throw error();
+        }
 
         const response = await instance.post('api/auth/refresh', {
           refreshToken,
@@ -49,29 +45,24 @@ instance.interceptors.response.use(
         const { accessToken, refreshToken: newRefreshToken } =
           response.data.data;
 
-        console.log('token', accessToken, 'reff', refreshToken);
-        console.log(newRefreshToken);
-
-        // Store the new access and refresh tokens.
         localStorage.setItem('accessToken', accessToken);
-
         localStorage.setItem('refreshToken', newRefreshToken);
-        // Update the authorization header with the new access token.
 
         setAuthToken(accessToken);
 
-        return instance(originalRequest); // Retry the original request with the new access token.
+        return instance(originalRequest);
       } catch (refreshError) {
-        // Handle refresh token errors by clearing stored tokens and redirecting to the login page.
-        console.log('tatatta', error.response.status);
         console.error('Token refresh failed:', refreshError);
+
         localStorage.removeItem('accessToken');
         localStorage.removeItem('refreshToken');
+
         window.location.href = '/signin';
+
         return Promise.reject(refreshError);
       }
     }
-    return Promise.reject(error); // For all other errors, return the error as is.
+    return Promise.reject(error);
   }
 );
 
@@ -109,8 +100,6 @@ export const login = createAsyncThunk(
   async (formData, thunkAPI) => {
     try {
       const { data } = await instance.post('api/auth/login', formData);
-
-      console.log(data.data);
 
       setAuthToken(data.data.accessToken);
 

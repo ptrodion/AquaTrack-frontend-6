@@ -24,6 +24,6 @@ i18n.use(initReactI18next).init({
   lng: savedLanguage,
   ns: ['translation'],
   defaultNS: 'translation',
-  debug: true,
+  debug: false,
 });
 export default i18n;

@@ -1,4 +1,4 @@
-import { useCallback } from "react";
+/* import { useCallback } from "react";
 import WaterModal from "../../components/WaterModal/WaterModal";
 import css from "../WaterItem/WaterItem.module.css";
 import DeleteWaterModal from "../DeleteWaterModal/DeleteWaterModal.jsx";
@@ -60,4 +60,6 @@ const WaterItem = ({ water }) => {
   );
 };
 
-export default WaterItem;
+export default WaterItem; */
+
+

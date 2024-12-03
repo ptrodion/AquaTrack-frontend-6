@@ -1,3 +1,9 @@
+.test{
+  width: 250px;
+  display: flex;
+  justify-content: space-between;
+
+}
 .calendarWrap {
   width: 100%;
   margin-top: 40px;

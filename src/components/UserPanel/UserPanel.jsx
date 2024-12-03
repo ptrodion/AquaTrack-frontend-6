@@ -42,7 +42,10 @@ const UserPanel = () => {
       {user && (
         <div className={css.welcome}>
           {t('userPanel.greeting')}
-          <span className={css.userName}>, {(user.name || user.email)?.slice(0, 6)}</span>
+          <span className={css.userName}>, {(user.name || user.email)
+            ?.slice(0, 6)
+            .charAt(0).toUpperCase() + ((user.name || user.email)?.slice(1, 6))}
+          </span>
           <UserBar user={user} />
         </div>
       )}
