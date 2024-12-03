@@ -3,6 +3,7 @@ import { GoX } from 'react-icons/go';
 import css from '../UserSettingsForm/UserSettingsForm.module.css';
 import { UserSettingsForm } from 'components/UserSettingsForm/UserSettingsForm.jsx';
 import { useTranslation } from 'react-i18next';
+import LanguageSwitcher from 'components/LanguageSwitcher/LanguageSwitcher.jsx';
 
 export const UserSettingsModal = ({ onSettingModalClose }) => {
   const { t } = useTranslation();
@@ -21,6 +22,11 @@ export const UserSettingsModal = ({ onSettingModalClose }) => {
               <GoX />
             </button>
           </div>
+
+          {/* <div className={css.lang}>
+           <LanguageSwitcher />
+          </div> */}
+
           <UserSettingsForm onSettingModalClose={onSettingModalClose} />
         </div>
       </div>
