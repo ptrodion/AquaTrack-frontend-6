@@ -7,10 +7,10 @@ import { BsChevronUp, BsChevronDown } from 'react-icons/bs';
 import { useTranslation } from 'react-i18next';
 
 
-import  LogOutModal  from '../LogOutModal/LogOutModal.jsx';
+import  ModalLogOut  from '../LogOutModal/LogOutModal.jsx';
 import { UserSettingsModal } from 'components/UserSettingsModal/UserSettingsModal.jsx';
 import ModalBackdrop from 'components/ModalBackdrop/ModalBackdrop';
-import ModalWindow from '../ModalWindow/ModalWindow';
+// import ModalWindow from '../ModalWindow/ModalWindow';
 
 
 const UserBar = ({ user }) => {
@@ -120,11 +120,11 @@ const UserBar = ({ user }) => {
       {/* Модальное окно выхода */}
       {isLogOutModalOpen &&
         (<ModalWindow>
-          <LogOutModal
+          <ModalLogOut
             isOpen={onLogOutModalOpen}
             onClose={onLogOutModalClose}
           />
-        </ModalWindow>
+         </ModalWindow>
         )}
       
     </div>
