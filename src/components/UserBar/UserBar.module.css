@@ -118,6 +118,14 @@
         line-height: 1.28571;
         color: #323f47;
 
+        display: inline-block;
+        max-width: 7ch;
+        /* Обрезка по количеству символов */
+        white-space: nowrap;
+        overflow: hidden;
+        /* Добавляет многоточие */
+        text-overflow: ellipsis;
+
     }
 
     .iconArrow {
@@ -271,6 +279,13 @@
 
         color: #323f47;
 
+        display: inline-block;
+        max-width: 7ch;
+        /* Обрезка по количеству символов */
+        white-space: nowrap;
+        overflow: hidden;
+        /* Добавляет многоточие */
+        text-overflow: ellipsis;
     }
 
     .buttonLogOut {
