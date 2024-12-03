@@ -1,7 +1,10 @@
-import { useEffect} from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getUsersCount} from '../../redux/common/operations';
-import {selectCountUsers, selectCommonError} from '../../redux/common/selectors';
+import { getUsersCount } from '../../redux/common/operations';
+import {
+  selectCountUsers,
+  selectCommonError,
+} from '../../redux/common/selectors';
 import styles from './advantages-section.module.css';
 import { FaCircle } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
@@ -13,13 +16,9 @@ const AdvantagesSection = () => {
   const userCount = useSelector(selectCountUsers);
   const error = useSelector(selectCommonError);
 
-
-
-
   useEffect(() => {
     dispatch(getUsersCount());
   }, [dispatch]);
-
 
   return (
     <Section>
@@ -84,7 +83,6 @@ const AdvantagesSection = () => {
                               src/assets/img/customers/customer_3_mob_1x.webp 1x,
                               src/assets/img/customers/customer_3_mob_2x.webp 2x
                               "
-
                     media="(max-width: 768px)"
                   />
                   <img
@@ -97,32 +95,13 @@ const AdvantagesSection = () => {
                 {userCount !== null
                   ? t('homepage.advantages.customers', { counter: userCount })
                   : t('homepage.advantages.customers', { counter: 0 })}
-
               </h3>
             </button>
           </div>
-          {/* <div className={styles.buttonsBenefits}>
-            <button className={styles.buttonHabitDrive}>
-              <FaCircle className={styles.icon} />
-              <a href="#" className={styles.habitDrive}>
-                {t('homepage.advantages.habitDrive')}
-              </a>
-            </button>
-            <button className={styles.buttonViewStatistics}>
-              <a href="#" className={styles.viewStatistics}>
-                {t('homepage.advantages.viewStatistic')}
-              </a>
-            </button>
-            <button className={styles.buttonPersonalRateSetting}>
-              <a href="#" className={styles.personalRateSetting}>
-                {t('homepage.advantages.personalSetting')}
-              </a>
-            </button>
-          </div> */}
           <ul className={styles.buttonsBenefits}>
             <li className={styles.buttonHabitDrive}>
               <FaCircle className={styles.icon} />
-              <p  className={styles.habitDrive}>
+              <p className={styles.habitDrive}>
                 {t('homepage.advantages.habitDrive')}
               </p>
             </li>
