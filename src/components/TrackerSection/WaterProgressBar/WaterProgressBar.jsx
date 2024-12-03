@@ -16,7 +16,9 @@ const WaterProgressBar = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
 
-  const percentOfDrinkingWater = useSelector(selectPercentOfDrinkingWater);
+  const percentOfDrinkedWater = useSelector(selectPercentOfDrinkingWater);
+  const formatedPercentOfDrinkedWater =
+    percentOfDrinkedWater > 100 ? 100 : Math.round(percentOfDrinkedWater);
 
   const date = getDateNow();
 
@@ -31,12 +33,12 @@ const WaterProgressBar = () => {
         <div className={css.progressLine}>
           <span className={css.progressBarBackground}></span>
 
-          <StyledProgressBarSpan $percent={percentOfDrinkingWater}>
+          <StyledProgressBarSpan $percent={formatedPercentOfDrinkedWater}>
             <StyledPercentOfDrinkingWater>
-              {percentOfDrinkingWater}%
+              {formatedPercentOfDrinkedWater}%
             </StyledPercentOfDrinkingWater>
           </StyledProgressBarSpan>
-          <StyledProgressDot $percent={percentOfDrinkingWater} />
+          <StyledProgressDot $percent={formatedPercentOfDrinkedWater} />
         </div>
         <div className={css.progressBarPercentageWrapper}>
           <p className={css.progressBarPercentage}>0%</p>
