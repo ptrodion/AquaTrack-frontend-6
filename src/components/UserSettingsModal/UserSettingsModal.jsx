@@ -21,7 +21,7 @@ export const UserSettingsModal = ({ onSettingModalClose }) => {
               <GoX />
             </button>
           </div>
-          <UserSettingsForm onCloseSettingModal={onSettingModalClose} />
+          <UserSettingsForm onSettingModalClose={onSettingModalClose} />
         </div>
       </div>
     </div>

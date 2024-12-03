@@ -1,4 +1,4 @@
-import css from './AddWaterBtn.module.css';
+/* import css from './AddWaterBtn.module.css';
 import { useTranslation } from 'react-i18next';
 
 const AddWaterBtn = () => {
@@ -11,3 +11,4 @@ const AddWaterBtn = () => {
 };
 
 export default AddWaterBtn;
+ */

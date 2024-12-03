@@ -1,78 +1,62 @@
-import css from './WaterItem.module.css';
-
-import { format } from 'date-fns';
-import { useState } from 'react';
-import DeleteWaterModal from '../DeleteWaterModal/DeleteWaterModal';
-import WaterModal from '../WaterModal/WaterModal';
-import Icon from '../Icon/Icon';
-import Loader from '../Loader/Loader';
+import { useCallback } from "react";
+import WaterModal from "../../components/WaterModal/WaterModal";
+import css from "../WaterItem/WaterItem.module.css";
+import DeleteWaterModal from "../DeleteWaterModal/DeleteWaterModal.jsx";
+import { formatTime } from "../../helpers/formatTime.js";
+import { convertToLiters } from "../../helpers/convertToLiters.js";
+import { useModal } from "../../hooks/useModal.js";
+import { useTranslation } from "react-i18next";
+import svg from "../../assets/icons/sprite.svg";
 
 const WaterItem = ({ water }) => {
-  const [isLoading, setIsLoading] = useState(false);
+  const setModal = useModal();
+  const { t } = useTranslation();
+  const closeModal = useCallback(() => {
+    setModal();
+  }, [setModal]);
+  const openModalDelete = useCallback(() => {
+    setModal(<DeleteWaterModal id={water.id} onClose={closeModal} />);
+  }, [setModal, closeModal, water]);
 
-  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
-  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const openModalEdit = useCallback(() => {
+    setModal(
+      <WaterModal water={water} onClose={closeModal} operationType={"edit"} />
+    );
+  }, [setModal, closeModal, water]);
 
-  const handleEdit = () => {
-    setIsEditModalOpen(true);
-  };
-
-  const handleDelete = () => {
-    setIsDeleteModalOpen(true);
-  };
-
-  const handleCloseEditModal = () => {
-    setIsEditModalOpen(false);
-  };
-
-  const handleCloseDeleteModal = () => {
-    setIsDeleteModalOpen(false);
-  };
-
+  const volume = convertToLiters(water.amount);
   return (
-    <>
-      {isLoading && <Loader type="blue" />}
-
-      <div className={css.item}>
-        <Icon id="water-glass" className={css.iconGlass} />
-        <div className={css.water}>
-          <p className={css.volume}>{`${water.amount}ml`}</p>
-          <p className={css.time}>{`${format(
-            new Date(water?.time.slice(0, -1)),
-            'hh:mm a'
-          )}`}</p>
-        </div>
-        <div className={css.edit}>
-          <button type="button" onClick={handleEdit} className={css.btnEdit}>
-            <Icon id="edit" width="16" height="16" />
-          </button>
-          <button type="button" onClick={handleDelete} className={css.btnTrash}>
-            <Icon id="trash" width="16" height="16" />
-          </button>
-        </div>
-
-        <DeleteWaterModal
-          isLoading={isLoading}
-          setIsLoading={setIsLoading}
-          isOpen={isDeleteModalOpen}
-          closeModal={handleCloseDeleteModal}
-          id={water._id}
-        />
-
-        <WaterModal
-          isLoading={isLoading}
-          setIsLoading={setIsLoading}
-          id={water._id}
-          isOpen={isEditModalOpen}
-          closeModal={handleCloseEditModal}
-          type="edit"
-          initialData={{
-            amount: water.amount,
-            time: format(new Date(water?.time.slice(0, -1)), 'HH:mm'),
-          }}
-        />
+    <div className={css.water_item_content}>
+      <svg className={css.icon_water_glass} width="44" height="45">
+        <use xlinkHref={svg + "#icon-water-glass"}></use>
+      </svg>
+      <div className={css.water_info}>
+        <p className={css.water_amount}>
+          {`${volume.value} ${t(volume.text)}`}
+        </p>
+        <p className={css.water_date}>{formatTime(water.date)}</p>
       </div>
-    </>
+      <div className={css.container_buttons}>
+        <button
+          className={css.editButton}
+          onClick={openModalEdit}
+          aria-label="Edit the entered amount of water"
+        >
+          <svg className={css.icon_action} width="14" height="14">
+            <use xlinkHref={svg + "#icon-edit"}></use>
+          </svg>
+        </button>
+        <button
+          className={css.deleteButton}
+          onClick={openModalDelete}
+          aria-label="Delete the entered amount of water"
+        >
+          <svg className={css.icon_action} width="14" height="14">
+            <use xlinkHref={svg + "#icon-trash"}></use>
+          </svg>
+        </button>
+      </div>
+    </div>
   );
 };
 
