@@ -1,42 +1,91 @@
-import React from "react";
-import WaterForm from '../WaterForm/WaterForm';
-import ModalWindow from "../ModalWindow/ModalWindow";
-import styles from '../WaterModal/WaterModal.module.css';
+import { useTranslation } from "react-i18next";
+import css from "./WaterModal.module.css";
+import WaterForm from "../WaterForm/WaterForm";
+import { ANIMATION } from "../../constants";
+import svg from "../../assets/icons/sprite.svg";
 
 const WaterModal = ({
-    type,
-    initialData,
-    isOpen,
-    closeModal,
-    id,
-    isLoading,
-    setIsLoading,
+  operationType,
+  onClose,
+  water = {},
+  timestampFromUrl = "",
 }) => {
-    const title =
-        type === 'add' ? 'Add Water' : `Edit the entered amount <br /> of water`;
-    const subtitle = type === 'add' ? 'Choose a value' : 'Correct entered data:';
+  const { t } = useTranslation();
 
-    return (
-        <ModalWindow modalIsOpen={isOpen} onCloseModal={closeModal}>
-            <div className={styles.WaterModalContainer}>
-                <div className={styles.WaterModalHeader}>
-                    <h2
-                        className={styles.WaterModalTitle}
-                        dangerouslySetInnerHTML={{ _html: title }}
-                    ></h2>
-                    <h3 className={styles.WaterModalSubtitle}>{subtitle}</h3>
-                </div>
-                <WaterForm
-                    isLoading={isLoading}
-                    setIsLoading={setIsLoading}
-                    type={type}
-                    initialData={initialData}
-                    closeModal={closeModal}
-                    id={id}
-                />
-            </div>
-        </ModalWindow>
-    );
+  const handleClose = () => {
+    const id = setTimeout(() => {
+      onClose();
+      clearTimeout(id);
+    }, ANIMATION.DURATION);
+  };
+
+  const modalHeader = (operationType) => {
+    switch (operationType) {
+      case "add":
+        return t("addWaterTitle");
+      case "edit":
+        return t("editWaterAmount");
+      default:
+        return t("addWaterTitle");
+    }
+  };
+
+  const curentTimestamp = Number(timestampFromUrl);
+  const recordTimestamp = Number(water.date);
+
+  const editTime = (operationType) => {
+    switch (operationType) {
+      case "add":
+        return curentTimestamp;
+      case "edit":
+        return recordTimestamp;
+    }
+  };
+
+  const waterPortion = (operationType) => {
+    switch (operationType) {
+      case "add":
+        return 50;
+      case "edit":
+        return water.amount;
+      default:
+        return 50;
+    }
+  };
+
+  const waterID = (operationType) => {
+    switch (operationType) {
+      case "add":
+        return null;
+      case "edit":
+        return water.id;
+      default:
+        return null;
+    }
+  };
+
+  return (
+    <div className={css.WaterModal}>
+      <h1>{modalHeader(operationType)}</h1>
+      <WaterForm
+        operationType={operationType}
+        editTime={editTime(operationType)} // Передаємо мілісекунди
+        waterPortion={waterPortion(operationType)} // Передаємо порцію води
+        waterID={waterID(operationType)} // Передаємо ID води
+        handleClose={handleClose}
+      />
+      <button
+        type="button"
+        onClick={handleClose}
+        aria-label={t("closeWaterModal")}
+        className={css.WaterModalCloseBtn}
+      >
+        <svg>
+          <use xlinkHref={svg + "#icon-clear"}></use>
+        </svg>
+      </button>
+    </div>
+  );
 };
 
 export default WaterModal;
