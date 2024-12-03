@@ -52,7 +52,9 @@ const UserBar = ({ user }) => {
         ref={buttonRef}
       >
         <span className={css.username}>
-          {(user?.name || user?.email)?.slice(0, 6)}</span>
+          {(user?.name || user?.email)?.slice(0, 6)
+            .charAt(0).toUpperCase() + (user?.name || user?.email)?.slice(1, 6)}
+        </span>
 
         {/* проверка аватара */}
         {user.avatarUrlCloudinary ? (
