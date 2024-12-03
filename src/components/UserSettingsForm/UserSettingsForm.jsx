@@ -176,7 +176,7 @@ export const UserSettingsForm = ({ onSettingModalClose }) => {
                   {...register('language')}
                   onClick={() => changeLanguage('en')}
                 />
-                English
+                {t('settingsForm.langEn')}
               </label>
               <label className={css.radioInput}>
                 <input
@@ -187,7 +187,7 @@ export const UserSettingsForm = ({ onSettingModalClose }) => {
                   {...register('language')}
                   onClick={() => changeLanguage('de')}
                 />
-                German
+                {t('settingsForm.langDe')}
               </label>
               <label className={css.radioInput}>
                 <input
@@ -198,7 +198,7 @@ export const UserSettingsForm = ({ onSettingModalClose }) => {
                   {...register('language')}
                   onClick={() => changeLanguage('uk')}
                 />
-                Ukrainian
+                {t('settingsForm.langUk')}
               </label>
             </div>
           </div>

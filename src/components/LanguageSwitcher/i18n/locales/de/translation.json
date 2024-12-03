@@ -158,7 +158,10 @@
     "ValidationDailyRequirementRequired": "Die tägliche Wasseraufnahme ist erforderlich",
     "propssuccess": "Datei erfolgreich hochgeladen",
     "propserror": "Datei hochladen fehlgeschlagen",
-    "language": "Sprache:"
+    "language": "Sprache:",
+    "langEn": "English",
+    "langUk": "Ukrainian",
+    "langDe": "Deutsch"
   },
 
   "resetPwd": {

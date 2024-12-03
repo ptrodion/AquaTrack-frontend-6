@@ -158,7 +158,10 @@
     "ValidationDailyRequirementRequired": "Денна норма води є обов'язковою",
     "propssuccess": "файл успішно завантажено",
     "propserror": "завантаження файлу не вдалося",
-    "language": "Мова:"
+    "language": "Мова:",
+    "langEn": "Англійська",
+    "langUk": "Українська",
+    "langUk": "Німецька"
   },
 
   "resetPwd": {

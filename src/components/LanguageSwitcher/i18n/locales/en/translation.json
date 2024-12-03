@@ -158,7 +158,10 @@
     "ValidationDailyRequirementRequired": "Daily water intake is required",
     "propssuccess": "file uploaded successfully",
     "propserror": "file upload failed",
-    "language": "Language:"
+    "language": "Language:",
+    "langEn": "English",
+    "langUk": "Ukrainian",
+    "langDe": "German"
   },
 
   "resetPwd": {
