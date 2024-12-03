@@ -280,7 +280,7 @@ export const UserSettingsForm = ({ onSettingModalClose }) => {
 
             <div className={css.text}>
               <label className={css.text}>
-                {t('settingsForm.WaterAmount')}{' '}
+                {t('settingsForm.WaterAmount')}
               </label>
               <Controller
                 name="waterIntake"
@@ -295,7 +295,7 @@ export const UserSettingsForm = ({ onSettingModalClose }) => {
                   />
                 )}
               />{' '}
-              <span className={css.span}>{t('chooseDate.l')}:</span>{' '}
+              <span className={css.span}>{t('chooseDate.l')}</span>
               {errors.waterIntake && (
                 <p className="error">{errors.waterIntake.message}</p>
               )}
