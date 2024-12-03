@@ -11,7 +11,7 @@ import { HelmetProvider } from 'react-helmet-async';
 import { PersistGate } from 'redux-persist/integration/react';
 
 import { ModalProvider } from './context/ModalProvider';
-import AddWaterBtn from './components/AddWaterBtn/AddWaterBtn';
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   // <React.StrictMode>
@@ -20,7 +20,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <BrowserRouter>
         <ModalProvider>
           <HelmetProvider>
-            <AddWaterBtn />
           <App />
           </HelmetProvider>
           </ModalProvider>
