@@ -157,7 +157,8 @@
     "ValidationDailyRequirementMin": "Daily water intake must be positive",
     "ValidationDailyRequirementRequired": "Daily water intake is required",
     "propssuccess": "file uploaded successfully",
-    "propserror": "file upload failed"
+    "propserror": "file upload failed",
+    "language": "Language:"
   },
 
   "resetPwd": {
