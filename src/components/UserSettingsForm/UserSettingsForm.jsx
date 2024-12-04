@@ -25,6 +25,7 @@ export const UserSettingsForm = ({ onSettingModalClose }) => {
   const storedLanguage = localStorage.getItem('language');
 
   useEffect(() => {
+    setLanguage(user.language)
     if (!storedLanguage) {
       localStorage.setItem('language', user.language);
       setLanguage(user.language);
@@ -43,13 +44,15 @@ export const UserSettingsForm = ({ onSettingModalClose }) => {
     email: Yup.string()
       .email(t('settingsForm.ValidationEmail'))
       .required(t('settingsForm.ValidationEmailRequired')),
-    weight: Yup.number().default(0),
+    weight: Yup.number().positive().default(0).min(0),
     activeTime: Yup.number()
+      .positive()
       .min(0, t('settingsForm.ValidationTimeTypeError'))
       .default(0),
     currentDailyNorm: Yup.number()
       .positive(t('settingsForm.ValidationDailyRequirementMin'))
-      .required(t('settingsForm.ValidationDailyRequirementMin')),
+      .required(t('settingsForm.ValidationDailyRequirementMin'))
+      .min(50),
   });
 
   const {
@@ -104,7 +107,7 @@ export const UserSettingsForm = ({ onSettingModalClose }) => {
   const calculateDailyWaterIntake = () => {
     const weightFactor = gender === 'Woman' ? 0.03 : 0.04;
     const activityFactor = gender === 'Woman' ? 0.4 : 0.6;
-    return (weight * weightFactor + activeTime * activityFactor).toFixed(2);
+    return (weight * weightFactor + activeTime * activityFactor).toFixed(1);
   };
 
   return (
@@ -161,7 +164,9 @@ export const UserSettingsForm = ({ onSettingModalClose }) => {
                 {t('settingsForm.genderMan')}
               </label>
             </div>
-            {errors.gender && <p className="error">{errors.gender.message}</p>}
+            {errors.gender && (
+              <p className={css.error}>{errors.gender.message}</p>
+            )}
           </div>
 
           <div className={css.langGroup}>
@@ -210,8 +215,10 @@ export const UserSettingsForm = ({ onSettingModalClose }) => {
               <label className={css.label}>
                 {t('settingsForm.userNameLabel')}:
               </label>
-              <input type="text" {...register('name')} className={css.input} />
-              {errors.name && <p className="error">{errors.name.message}</p>}
+              <input type="text" placeholder="name" {...register('name')} className={css.input} />
+              {errors.name && (
+                <p className={css.error}>{errors.name.message}</p>
+              )}
             </div>
 
             <div className={css.emailGroup}>
@@ -221,10 +228,13 @@ export const UserSettingsForm = ({ onSettingModalClose }) => {
               </label>
               <input
                 type="email"
+                placeholder="clients@gmail.com"
                 {...register('email')}
                 className={css.input}
               />
-              {errors.email && <p className="error">{errors.email.message}</p>}
+              {errors.email && (
+                <p className={css.error}>{errors.email.message}</p>
+              )}
             </div>
 
             <div>
@@ -258,11 +268,13 @@ export const UserSettingsForm = ({ onSettingModalClose }) => {
               </label>
               <input
                 type="number"
+                step="0.1"
+                min="0"
                 {...register('weight')}
                 className={css.input}
               />
               {errors.weight && (
-                <p className="error">{errors.weight.message}</p>
+                <p className={css.error}>{errors.weight.message}</p>
               )}
             </div>
 
@@ -270,11 +282,13 @@ export const UserSettingsForm = ({ onSettingModalClose }) => {
               <label className={css.label}>{t('settingsForm.userTime')}</label>
               <input
                 type="number"
+                step="0.1"
+                min="0"
                 {...register('activeTime')}
                 className={css.input}
               />
               {errors.activeTime && (
-                <p className="error">{errors.activeTime.message}</p>
+                <p className={css.error}>{errors.activeTime.message}</p>
               )}
             </div>
 
@@ -297,7 +311,7 @@ export const UserSettingsForm = ({ onSettingModalClose }) => {
               />{' '}
               <span className={css.span}>{t('chooseDate.l')}</span>
               {errors.waterIntake && (
-                <p className="error">{errors.waterIntake.message}</p>
+                <p className={css.error}>{errors.waterIntake.message}</p>
               )}
             </div>
 
@@ -313,7 +327,7 @@ export const UserSettingsForm = ({ onSettingModalClose }) => {
                 className={css.input}
               />
               {errors.currentDailyNorm && (
-                <p className="error">{errors.currentDailyNorm.message}</p>
+                <p className={css.error}>{errors.currentDailyNorm.message}</p>
               )}
             </div>
           </div>
