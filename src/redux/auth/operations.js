@@ -57,7 +57,7 @@ instance.interceptors.response.use(
         localStorage.removeItem('accessToken');
         localStorage.removeItem('refreshToken');
 
-        window.location.href = '/signin';
+        // window.location.href = '/signin';
 
         return Promise.reject(refreshError);
       }
@@ -153,13 +153,11 @@ export const refreshUser = createAsyncThunk(
 
 export const logout = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   try {
-    const { data } = await instance.post('api/auth/logout');
+    await instance.post('api/auth/logout');
 
     setAuthToken('');
     localStorage.removeItem('accessToken');
     localStorage.removeItem('refreshToken');
-
-    return data;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);
   }
