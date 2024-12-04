@@ -3,7 +3,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 export const instance = axios.create({
-  baseURL: 'https://warettrack.onrender.com/',
+  baseURL: 'https://watertrack.onrender.com/',
 });
 
 const setAuthToken = token => {
