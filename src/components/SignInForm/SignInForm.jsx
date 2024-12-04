@@ -11,9 +11,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../../redux/auth/operations';
 import { selectAuthIsLoggedIn } from '../../redux/auth/selector';
 import { useEffect } from 'react';
+import { clearError } from '../../redux/auth/slice';
 
 const SignInForm = () => {
   const { t } = useTranslation();
+
   const validationSchema = Yup.object().shape({
     email: Yup.string()
       .required(t('validation.requiredEmail'))
@@ -22,6 +24,7 @@ const SignInForm = () => {
       .required(t('validation.requiredPassword'))
       .min(6, t('validation.passwordMessage')),
   });
+
   const {
     handleSubmit,
     control,
@@ -45,7 +48,10 @@ const SignInForm = () => {
     if (loggedIn) {
       navigate('/tracker');
     }
-  });
+
+    console.log('Clearing error...');
+    dispatch(clearError());
+  }, [loggedIn, dispatch, clearError]);
 
   const onSubmit = data => {
     dispatch(login(data));
@@ -65,6 +71,9 @@ const SignInForm = () => {
         return error.message || 'Something went wrong';
     }
   };
+
+  const serverErrorMessage = getErrorMessage();
+
   return (
     <Section>
       <div className={css.backgroundContainer}>
@@ -108,14 +117,17 @@ const SignInForm = () => {
               {errors.password.message}
             </p>
           )}
-          {error && (
+
+          {!errors.email && !errors.password && error && (
             <p className={`${css.error} ${css.lastError}`}>
-              {getErrorMessage()}
+              {serverErrorMessage}
             </p>
           )}
+
           <button type="submit" className={css.btn}>
             {t('signIn.title')}
           </button>
+
           <div className={css.linkContainer}>
             <p className={css.text}>
               {t('signIn.account')}
