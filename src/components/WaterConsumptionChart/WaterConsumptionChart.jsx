@@ -1,4 +1,4 @@
-import React from "react";
+import { useTranslation } from 'react-i18next';
 import {
   AreaChart,
   Area,
@@ -7,19 +7,55 @@ import {
   CartesianGrid,
   Tooltip,
   ResponsiveContainer,
-} from "recharts";
+} from 'recharts';
 
 const WaterConsumptionChart = ({ weekData }) => {
+  const { t } = useTranslation();
+  const formatDate = date => {
+    const weekday = t(
+      `weekdays.${
+        [
+          'sunday',
+          'monday',
+          'tuesday',
+          'wednesday',
+          'thursday',
+          'friday',
+          'saturday',
+        ][date.getDay()]
+      }`
+    );
+    const month = t(
+      `months.${
+        [
+          'January',
+          'February',
+          'March',
+          'April',
+          'May',
+          'June',
+          'July',
+          'August',
+          'September',
+          'October',
+          'November',
+          'December',
+        ][date.getMonth()]
+      }`
+    );
+    const day = date.getDate();
+    return `${weekday}, ${month.substring(0, 3)} ${day}`; // Отображение краткой формы месяца
+  };
   return (
     <ResponsiveContainer width="100%" height={300}>
       <AreaChart
         data={weekData}
         margin={{ top: 20, right: 20, bottom: 20, left: 20 }}
       >
-        <CartesianGrid opacity={0}/>
+        <CartesianGrid opacity={0} />
         <XAxis
           dataKey="day"
-          tickFormatter={(date) => date.getDate()}
+          tickFormatter={date => formatDate(date)}
           tick={{ fontSize: 12 }}
           axisLine={false}
           tickLine={false}
@@ -31,7 +67,7 @@ const WaterConsumptionChart = ({ weekData }) => {
         <YAxis
           ticks={[0, 0.5, 1, 1.5, 2, 2.5]}
           domain={[0, 2.5]}
-          tickFormatter={(tick) => (tick === 0 ? "0 %" : `${tick} L`)}
+          tickFormatter={tick => (tick === 0 ? '0 %' : `${tick} L`)}
           tick={{ fontSize: 12 }}
           axisLine={false}
           tickLine={false}
@@ -41,23 +77,20 @@ const WaterConsumptionChart = ({ weekData }) => {
           tickMargin={20}
         />
         <Tooltip
-          labelFormatter={(label) =>
-            label instanceof Date
-              ? label.toLocaleDateString("en-US", {
-                  weekday: "long",
-                  month: "short",
-                  day: "numeric",
-                })
-              : "Unknown Date"
+          labelFormatter={label =>
+            label instanceof Date ? formatDate(label) : 'Unknown Date'
           }
-          formatter={(value) => [`${value.toFixed(2)} L`, "Consumption"]}
+          formatter={value => [
+            `${value.toFixed(2)} ${t('waterDailyNorma.liters')}`,
+            t('calendar.consumption'),
+          ]}
           contentStyle={{
-            backgroundColor: "#fff",
-            borderRadius: "5px",
-            border: "1px solid #ccc",
-            padding: "10px",
+            backgroundColor: '#fff',
+            borderRadius: '5px',
+            border: '1px solid #ccc',
+            padding: '10px',
           }}
-          itemStyle={{ color: "#9be1a0" }}
+          itemStyle={{ color: '#9be1a0' }}
         />
         <Area
           type="monotone"
