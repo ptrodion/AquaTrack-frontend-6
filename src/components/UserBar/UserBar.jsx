@@ -2,7 +2,7 @@ import css from './UserBar.module.css';
 import { useState, useRef } from 'react';
 import { TbSettings } from 'react-icons/tb';
 import { MdLogout } from 'react-icons/md';
-import { LuUserCircle2 } from "react-icons/lu";
+import { FaRegCircleUser } from "react-icons/fa6";
 import { BsChevronUp, BsChevronDown } from 'react-icons/bs';
 import { useTranslation } from 'react-i18next';
 
@@ -63,7 +63,7 @@ const UserBar = ({ user }) => {
         className={css.avatar}
       />
     ) : (
-      <LuUserCircle2 className={css.avatarIcon} />
+      <FaRegCircleUser className={css.avatarIcon} />
     )}
 
 
