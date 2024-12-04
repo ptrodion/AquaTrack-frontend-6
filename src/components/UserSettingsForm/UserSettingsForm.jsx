@@ -1,7 +1,7 @@
 import * as Yup from 'yup';
 import css from './UserSettingsForm.module.css';
 import { UploadOutlined } from '@ant-design/icons';
-import { LuUserCircle2 } from 'react-icons/lu';
+import { FaRegCircleUser } from 'react-icons/fa6'
 import { Controller, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useEffect, useRef, useState } from 'react';
@@ -115,7 +115,7 @@ export const UserSettingsForm = ({ onSettingModalClose }) => {
       <form className="user-settings-form" onSubmit={handleSubmit(onSubmit)}>
         <div className={css.formGroup}>
           {!user.avatarUrlCloudinary && !avatar && (
-            <LuUserCircle2 className={css.image} />
+            <FaRegCircleUser className={css.image} />
           )}
           {user.avatarUrlCloudinary && !avatar && (
             <img
