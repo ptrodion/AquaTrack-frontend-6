@@ -13,28 +13,9 @@ const UserPanel = () => {
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
 
-  //  useEffect(() => {
-  //   const savedUser = localStorage.getItem('user');
-    
-  //   if (savedUser) {
-  //     dispatch({ type: 'SET_USER', payload: JSON.parse(savedUser) });
-  //   } else {
-  //     dispatch(getUser());
-  //   }
-  //  }, [dispatch]);
-  
-  // useEffect(() => {
-  //   if (user) {
-  //     localStorage.setItem('user', JSON.stringify(user));
-  //   }
-  // }, [user]);
-
   useEffect(() => {
     dispatch(getUser());
   }, [dispatch]);
-
-
-
 
 
   return (

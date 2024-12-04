@@ -10,7 +10,6 @@ import { useTranslation } from 'react-i18next';
 import  ModalLogOut  from '../LogOutModal/LogOutModal.jsx';
 import { UserSettingsModal } from 'components/UserSettingsModal/UserSettingsModal.jsx';
 import ModalBackdrop from 'components/ModalBackdrop/ModalBackdrop';
-// import ModalWindow from '../ModalWindow/ModalWindow';
 
 
 const UserBar = ({ user }) => {
@@ -120,15 +119,6 @@ const UserBar = ({ user }) => {
         )}
 
       {/* Модальное окно выхода */}
-      {/* {isLogOutModalOpen &&
-        (<ModalWindow>
-          <ModalLogOut
-            isOpen={onLogOutModalOpen}
-            onClose={onLogOutModalClose}
-          />
-         </ModalWindow>
-        )} */}
-      
        {isLogOutModalOpen &&
         (
           <ModalLogOut
