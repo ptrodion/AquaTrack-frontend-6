@@ -4,7 +4,7 @@ import clsx from "clsx";
 import { ANIMATION } from "../../constants.js";
 
 const ModalBackdrop = ({ children, onClose }) => {
-    const [active, setActive] = useState(false);
+    const [active, setActive] = useState(true);
 
     const dynamicStyle = clsx(s.backdrop, active && s.active);
 
@@ -17,13 +17,6 @@ const ModalBackdrop = ({ children, onClose }) => {
         },
         [onClose]
     );
-
-    useEffect(() => {
-        const id = setTimeout(() => {
-            setActive(true);
-            clearTimeout(id);
-        }, ANIMATION.DURATION)
-    }, []);
 
     useEffect(() => {
         window.addEventListener('keydown', handleCloseModal);

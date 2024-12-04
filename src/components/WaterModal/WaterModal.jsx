@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 import css from "./WaterModal.module.css";
 import WaterForm from "../WaterForm/WaterForm";
 import { ANIMATION } from "../../constants";
-import svgSprite from "../../assets/icons/sprite.svg";
+import svg from "../../assets/icons/sprite.svg";
 
 const WaterModal = ({
   operationType,
@@ -22,7 +22,7 @@ const WaterModal = ({
   const modalHeader = (operationType) => {
     switch (operationType) {
       case "add":
-        return t("addWaterTitle");
+        return t("waterModal.add");
       case "edit":
         return t("editWaterAmount");
       default:
@@ -81,7 +81,7 @@ const WaterModal = ({
         className={css.WaterModalCloseBtn}
       >
         <svg>
-          <use xlinkHref={svgSprite + "#icon-clear"}></use>
+          <use xlinkHref={svg + "#icon-clear"}></use>
         </svg>
       </button>
     </div>

@@ -47,9 +47,9 @@ const WaterList = () => {
 
   return (
     <div className={css.waterListContainer}>
-      <button onClick={addItem} className={css.addBtn}>
+  {/*     <button onClick={addItem} className={css.addBtn}>
         {t('waterModal.add')}
-      </button>
+      </button> */}
       <svg
         xmlns="http://www.w3.org/2000/svg"
         aria-hidden="true"

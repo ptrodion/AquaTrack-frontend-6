@@ -65,7 +65,7 @@ const WaterForm = ({
     const combinedDateTime = new Date(
       `${year}-${month}-${day}T${formHours}:${formMinutes}:00`
     );
-    const timeToSend = combinedDateTime.getTime().toString(); // Unix timestamp у мілісекундах
+    const timeToSend = combinedDateTime.getTime().toString(); 
 
     const addWaterValue = {
       amount: data.waterValue,
@@ -111,11 +111,11 @@ const WaterForm = ({
   const FormHeader = (operationType) => {
     switch (operationType) {
       case "add":
-        return <p className={css.FormHeader}>{t("chooseValue")}</p>;
+        return <p className={css.FormHeader}>{t("waterForm.titleAdd")}</p>;
       case "edit":
-        return <p className={css.FormHeader}>{t("correctData")}</p>;
+        return <p className={css.FormHeader}>{t("waterForm.titleEdit")}</p>;
       default:
-        return <p className={css.FormHeader}>{t("addWater")}</p>;
+        return <p className={css.FormHeader}>{t("waterModal.add")}</p>;
     }
   };
 
@@ -130,7 +130,7 @@ const WaterForm = ({
   return (
     <form className={css.WaterForm} onSubmit={handleSubmit(onSubmit)}>
       {FormHeader(operationType)}
-      <p className={css.AmountOfWater}>{t("waterAmount")}</p>
+      <p className={css.AmountOfWater}>{t("waterForm.secondTitle")}</p>
       <div className={css.TapAddWaterWrapper}>
         <button
           type="button"
@@ -143,7 +143,7 @@ const WaterForm = ({
           </svg>
         </button>
         <p className={css.TapAddWaterValue}>
-          {waterAmount} {t("ml")}
+          {waterAmount} {t("chooseDate.ml")}
         </p>
         <button
           type="button"
@@ -158,7 +158,7 @@ const WaterForm = ({
       </div>
 
       <label className={css.RecordingTimeLabel}>
-        {t("recordTime")}
+        {t("waterForm.time")}
         <Controller
           name="recordingTime"
           control={control}
@@ -182,7 +182,7 @@ const WaterForm = ({
         )}
       </label>
       <label className={css.WaterValueLabel}>
-        {t("enterWaterValue")}
+        {t("waterForm.waterUsed")}
         <Controller
           name="waterValue"
           control={control}
@@ -201,7 +201,7 @@ const WaterForm = ({
         )}
       </label>
       <button type="submit" className={css.SaveBtn} disabled={isLoading}>
-        {isLoading ? <LoaderComponent height={44} width={44} /> : t("save")}
+        {isLoading ? <LoaderComponent height={44} width={44} /> : t("waterForm.button")}
       </button>
     </form>
   );

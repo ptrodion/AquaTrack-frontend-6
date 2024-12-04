@@ -1,8 +1,8 @@
 import { useModal } from "../../hooks/useModal.js";
 import { useCallback } from 'react';
-import WaterModal from "../WaterModal/WaterModal.jsx";
+import WaterModal from "../WaterModal/WaterModal";
 
-const SomeComponent = () => {
+const WrapperWaterModal = () => {
   const setModal = useModal();
 
   const closeModal = useCallback(() => {
@@ -16,14 +16,14 @@ const SomeComponent = () => {
 
   return (
     <div>
-      <h2>Component Title</h2>
-      <p>Some component content</p>
+      <h2>Water Consumption</h2>
+      <p>Track and manage your daily water intake</p>
 
       <button type="button" onClick={openModal}>
-        OpenModal
+        Add Water Entry
       </button>
     </div>
   );
 };
 
-export default SomeComponent
+export default WrapperWaterModal

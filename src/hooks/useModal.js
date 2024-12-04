@@ -13,3 +13,8 @@ export const useModal = () => {
 
   return { setModal, closeModal, modalContent };
 };
+
+/* import { useContext } from 'react';
+import { ModalContext } from '../context/ModalProvider.jsx';
+
+export const useModal = () => useContext(ModalContext); */

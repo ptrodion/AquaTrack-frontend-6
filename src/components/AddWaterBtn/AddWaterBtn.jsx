@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import { useCallback } from "react";
 import css from "./AddWaterBtn.module.css";
 import { useModalContext } from "../../context/ModalProvider";
 import svg from "../../assets/icons/sprite.svg";
@@ -32,7 +32,7 @@ const AddWaterBtn = () => {
       <svg className={css.plus}>
         <use xlinkHref={svg + "#icon-plus"} />
       </svg>
-      <h2 className={css.btnText}>{t("add Water")}</h2>
+      <h2 className={css.btnText}>{t("addWaterBtn.addWater")}</h2>
     </button>
   );
 };
