@@ -25,6 +25,7 @@ const SignUpForm = () => {
       .required(t('validation.repeatPasswordMessage'))
       .oneOf([Yup.ref('password')], t('validation.oneOf')),
   });
+
   const {
     handleSubmit,
     control,
@@ -69,6 +70,9 @@ const SignUpForm = () => {
     const { email, password } = data;
     dispatch(register({ email, password }));
   };
+
+  const serverErrorMessage = getErrorMessage();
+
   return (
     <Section>
       <div className={css.backgroundContainer}>
@@ -132,11 +136,14 @@ const SignUpForm = () => {
               {errors.repeatPassword.message}
             </p>
           )}
-          {error && (
+
+          {/* Отображение только одной ошибки */}
+          {!errors.repeatPassword && !errors.password && error && (
             <p className={`${css.error} ${css.lastError}`}>
-              {getErrorMessage()}
+              {serverErrorMessage}
             </p>
           )}
+
           <button type="submit" className={css.btn}>
             {t('signUp.title')}
           </button>

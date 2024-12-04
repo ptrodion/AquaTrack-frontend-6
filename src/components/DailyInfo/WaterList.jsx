@@ -20,13 +20,13 @@ const WaterList = () => {
   const [selectedId, setSelectedId] = useState(null);
 
   // Відкрити модальне вікно видалення
-  const openDeleteModal = (id) => {
+  const openDeleteModal = id => {
     setSelectedId(id);
     setIsDeleteModalOpen(true);
   };
 
   // Відкрити модальне вікно редагування
-  const openEditModal = (id) => {
+  const openEditModal = id => {
     setSelectedId(id);
     setIsEditModalOpen(true);
   };
@@ -39,19 +39,17 @@ const WaterList = () => {
   };
 
   // Видалити елемент після підтвердження
-  const confirmDelete = (id) => {
+  const confirmDelete = id => {
     setWaterItems(waterItems.filter(item => item.id !== id));
     closeModal();
   };
 
   // Оновити елемент після редагування
-  const handleEdit = (updatedItem) => {
+  const handleEdit = updatedItem => {
     setWaterItems(
-      waterItems.map(item => 
-        item.id === updatedItem.id ? updatedItem : item
-      )
+      waterItems.map(item => (item.id === updatedItem.id ? updatedItem : item))
     );
-    closeModal(); 
+    closeModal();
   };
 
   return (
