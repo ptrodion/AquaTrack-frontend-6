@@ -64,7 +64,7 @@ const SignInForm = () => {
       case 400:
         return error.message || 'Invalid request';
       case 401:
-        return 'Invalid credentials';
+        return t('signIn.unauthorized');
       case 500:
         return 'Server error. Please try again later';
       default:
@@ -73,6 +73,12 @@ const SignInForm = () => {
   };
 
   const serverErrorMessage = getErrorMessage();
+
+  {
+    !errors.email && !errors.password && error && (
+      <p className={`${css.error} ${css.lastError}`}>{serverErrorMessage}</p>
+    );
+  }
 
   return (
     <Section>
@@ -93,10 +99,16 @@ const SignInForm = () => {
                 placeholder={t('signIn.placeholderEmail')}
                 variant="borderless"
                 autoComplete="off"
+                onChange={e => {
+                  field.onChange(e);
+                  dispatch(clearError());
+                }}
               />
             )}
           />
+
           {errors.email && <p className={css.error}>{errors.email.message}</p>}
+          {error && <p className={css.error}>{serverErrorMessage}</p>}
 
           <label className={css.label}>{t('signIn.password')}</label>
           <Controller
@@ -109,6 +121,10 @@ const SignInForm = () => {
                 type="password"
                 placeholder={t('signIn.placeholderPassword')}
                 variant="borderless"
+                onChange={e => {
+                  field.onChange(e);
+                  dispatch(clearError());
+                }}
               />
             )}
           />
@@ -117,8 +133,7 @@ const SignInForm = () => {
               {errors.password.message}
             </p>
           )}
-
-          {!errors.email && !errors.password && error && (
+          {error && (
             <p className={`${css.error} ${css.lastError}`}>
               {serverErrorMessage}
             </p>

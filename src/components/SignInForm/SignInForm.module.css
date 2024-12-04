@@ -13,7 +13,11 @@
   margin-left: auto;
   margin-right: auto;
   flex-direction: column;
-  width: 100%;
+  width: calc(100% - 32px);
+  position: absolute;
+  top: 172px;
+  left: 16px;
+  right: 16px;
 }
 
 @media (max-width: 320px) {
@@ -23,6 +27,16 @@
     top: 172px;
     left: 16px;
     right: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .formContainer {
+    width: calc(100% - 32px);
+    position: absolute;
+    top: 185px;
+    left: 134px;
+    right: 134px;
   }
 }
 
