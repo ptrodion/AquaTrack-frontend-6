@@ -1,20 +1,18 @@
-import { useState } from "react";
-import { useForm, Controller } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as Yup from "yup";
-import { useTranslation } from "react-i18next";
-import css from "./WaterForm.module.css";
-import clsx from "clsx";
-import svg from "../../assets/icons/sprite.svg";
-import { useDispatch } from "react-redux";
-import {
-  addWater,
-  updateWater,
-} from "../../redux/water/operations";
-import LoaderComponent from "../LoaderComponent/LoaderComponent";
+import { useState } from 'react';
+import { useForm, Controller } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as Yup from 'yup';
+import { useTranslation } from 'react-i18next';
+import css from './WaterForm.module.css';
+import clsx from 'clsx';
+import svg from '../../assets/icons/sprite.svg';
+import { useDispatch } from 'react-redux';
+import { addWater, updateWater } from '../../redux/water/operations';
+import LoaderComponent from '../LoaderComponent/LoaderComponent';
+import { getFullFormattedDate } from '../../utils/getDateNow';
 
 const WaterForm = ({
-  operationType = "add",
+  operationType = 'add',
   editTime,
   waterPortion,
   waterID,
@@ -27,25 +25,21 @@ const WaterForm = ({
 
   const dateFromUrl = new Date(editTime);
 
-  const year = dateFromUrl.getFullYear();
-  const month = String(dateFromUrl.getMonth() + 1).padStart(2, "0");
-  const day = String(dateFromUrl.getDate()).padStart(2, "0");
-
-  const currentTime = operationType === "add" ? new Date() : dateFromUrl;
-  const hours = String(currentTime.getHours()).padStart(2, "0");
-  const minutes = String(currentTime.getMinutes()).padStart(2, "0");
+  const currentTime = operationType === 'add' ? new Date() : dateFromUrl;
+  const hours = String(currentTime.getHours()).padStart(2, '0');
+  const minutes = String(currentTime.getMinutes()).padStart(2, '0');
 
   const [formHours, setFormHours] = useState(hours);
   const [formMinutes, setFormMinutes] = useState(minutes);
 
   const validationSchema = Yup.object().shape({
     recordingTime: Yup.string()
-      .required(t("recordTimeRequired"))
-      .matches(/^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$/, t("invalidTimeFormat")),
+      .required(t('recordTimeRequired'))
+      .matches(/^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$/, t('invalidTimeFormat')),
     waterValue: Yup.number()
-      .required(t("waterValueRequired"))
-      .min(50, t("waterValueGreater"))
-      .max(5000, t("waterValueLess")),
+      .required(t('waterValueRequired'))
+      .min(50, t('waterValueGreater'))
+      .max(5000, t('waterValueLess')),
   });
 
   const {
@@ -61,11 +55,8 @@ const WaterForm = ({
     },
   });
 
-  const onSubmit = (data) => {
-    const combinedDateTime = new Date(
-      `${year}-${month}-${day}T${formHours}:${formMinutes}:00`
-    );
-    const timeToSend = combinedDateTime.getTime().toString(); 
+  const onSubmit = data => {
+    const timeToSend = getFullFormattedDate({ formHours, formMinutes });
 
     const addWaterValue = {
       amount: data.waterValue,
@@ -80,7 +71,7 @@ const WaterForm = ({
     setIsLoading(true);
 
     switch (operationType) {
-      case "add":
+      case 'add':
         dispatch(addWater(addWaterValue)).then(({ error }) => {
           if (!error) {
             setIsLoading(false);
@@ -90,17 +81,17 @@ const WaterForm = ({
           }
         });
         break;
-      case "edit":
-        dispatch(
-          updateWater({ id: waterID, formData: editWaterValue })
-        ).then(({ error }) => {
-          if (!error) {
-            setIsLoading(false);
-            handleClose();
-          } else {
-            setIsLoading(false);
+      case 'edit':
+        dispatch(updateWater({ id: waterID, formData: editWaterValue })).then(
+          ({ error }) => {
+            if (!error) {
+              setIsLoading(false);
+              handleClose();
+            } else {
+              setIsLoading(false);
+            }
           }
-        });
+        );
         break;
       default:
         setIsLoading(false);
@@ -108,20 +99,20 @@ const WaterForm = ({
     }
   };
 
-  const FormHeader = (operationType) => {
+  const FormHeader = operationType => {
     switch (operationType) {
-      case "add":
-        return <p className={css.FormHeader}>{t("waterForm.titleAdd")}</p>;
-      case "edit":
-        return <p className={css.FormHeader}>{t("waterForm.titleEdit")}</p>;
+      case 'add':
+        return <p className={css.FormHeader}>{t('waterForm.titleAdd')}</p>;
+      case 'edit':
+        return <p className={css.FormHeader}>{t('waterForm.titleEdit')}</p>;
       default:
-        return <p className={css.FormHeader}>{t("waterModal.add")}</p>;
+        return <p className={css.FormHeader}>{t('waterModal.add')}</p>;
     }
   };
 
-  const handleWaterAmountChange = (amount) => {
+  const handleWaterAmountChange = amount => {
     setWaterAmount(amount);
-    setValue("waterValue", amount.toString());
+    setValue('waterValue', amount.toString());
   };
 
   const isMinusButtonDisabled = waterAmount === 50;
@@ -130,7 +121,7 @@ const WaterForm = ({
   return (
     <form className={css.WaterForm} onSubmit={handleSubmit(onSubmit)}>
       {FormHeader(operationType)}
-      <p className={css.AmountOfWater}>{t("waterForm.secondTitle")}</p>
+      <p className={css.AmountOfWater}>{t('waterForm.secondTitle')}</p>
       <div className={css.TapAddWaterWrapper}>
         <button
           type="button"
@@ -139,11 +130,11 @@ const WaterForm = ({
           disabled={isMinusButtonDisabled}
         >
           <svg>
-            <use xlinkHref={svg + "#icon-remove"}></use>
+            <use xlinkHref={svg + '#icon-remove'}></use>
           </svg>
         </button>
         <p className={css.TapAddWaterValue}>
-          {waterAmount} {t("chooseDate.ml")}
+          {waterAmount} {t('chooseDate.ml')}
         </p>
         <button
           type="button"
@@ -152,13 +143,13 @@ const WaterForm = ({
           disabled={isPlusButtonDisabled}
         >
           <svg>
-            <use xlinkHref={svg + "#icon-add"}></use>
+            <use xlinkHref={svg + '#icon-add'}></use>
           </svg>
         </button>
       </div>
 
       <label className={css.RecordingTimeLabel}>
-        {t("waterForm.time")}
+        {t('waterForm.time')}
         <Controller
           name="recordingTime"
           control={control}
@@ -168,8 +159,8 @@ const WaterForm = ({
               type="text"
               className={clsx(css.RecordingTime)}
               placeholder="HH:MM"
-              onChange={(e) => {
-                const [newHours, newMinutes] = e.target.value.split(":");
+              onChange={e => {
+                const [newHours, newMinutes] = e.target.value.split(':');
                 setFormHours(newHours);
                 setFormMinutes(newMinutes);
                 field.onChange(e);
@@ -182,7 +173,7 @@ const WaterForm = ({
         )}
       </label>
       <label className={css.WaterValueLabel}>
-        {t("waterForm.waterUsed")}
+        {t('waterForm.waterUsed')}
         <Controller
           name="waterValue"
           control={control}
@@ -190,8 +181,8 @@ const WaterForm = ({
             <input
               {...field}
               type="number"
-              value={waterAmount || ""}
-              onChange={(e) => handleWaterAmountChange(Number(e.target.value))}
+              value={waterAmount || ''}
+              onChange={e => handleWaterAmountChange(Number(e.target.value))}
               className={css.WaterValue}
             />
           )}
@@ -201,7 +192,11 @@ const WaterForm = ({
         )}
       </label>
       <button type="submit" className={css.SaveBtn} disabled={isLoading}>
-        {isLoading ? <LoaderComponent height={44} width={44} /> : t("waterForm.button")}
+        {isLoading ? (
+          <LoaderComponent height={44} width={44} />
+        ) : (
+          t('waterForm.button')
+        )}
       </button>
     </form>
   );
