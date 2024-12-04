@@ -1,0 +1,39 @@
+.addWaterContainer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  width: 100%;
+  padding-right: 16px;
+}
+
+.addWaterText {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333333;
+}
+
+.addBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #a6dba6;
+  color: #455a64;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-size: 24px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.addBtn:hover {
+  background-color: #8cc48c;
+  transform: scale(1.1);
+}
+
+.addBtn:active {
+  transform: scale(0.95);
+}

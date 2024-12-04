@@ -1,32 +1,37 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 import { SlPencil } from 'react-icons/sl';
 import { SlTrash } from 'react-icons/sl';
+// import AddWaterButton from './AddWaterButton';
 import css from './WaterList.module.css';
 import { useTranslation } from 'react-i18next';
 
-const WaterList = () => {
+const WaterList = ({ waterItems, setWaterItems }) => {
   const { t } = useTranslation();
+
+  // if (!Array.isArray(waterItems)) {
+  //   return <div>{t('chooseDate.noItems')}</div>;
+  // }
   // useState
-  const [waterItems, setWaterItems] = useState([
-    { id: 1, amount: 250, time: '7:00 AM' },
-    { id: 2, amount: 250, time: '11:00 AM' },
-    { id: 3, amount: 250, time: '2:00 PM' },
-    { id: 4, amount: 300, time: '4:00 PM' },
-    { id: 5, amount: 200, time: '6:00 PM' },
-  ]);
+  // const [waterItems, setWaterItems] = useState([
+  //   { id: 1, amount: 250, time: '7:00 AM' },
+  //   { id: 2, amount: 250, time: '11:00 AM' },
+  //   { id: 3, amount: 250, time: '2:00 PM' },
+  //   { id: 4, amount: 300, time: '4:00 PM' },
+  //   { id: 5, amount: 200, time: '6:00 PM' },
+  // ]);
 
   // add
-  const addItem = () => {
-    const newItem = {
-      id: Date.now(),
-      amount: Math.floor(Math.random() * 500 + 100),
-      time: new Date().toLocaleTimeString([], {
-        hour: '2-digit',
-        minute: '2-digit',
-      }),
-    };
-    setWaterItems([...waterItems, newItem]);
-  };
+  // const addItem = () => {
+  //   const newItem = {
+  //     id: Date.now(),
+  //     amount: Math.floor(Math.random() * 500 + 100),
+  //     time: new Date().toLocaleTimeString([], {
+  //       hour: '2-digit',
+  //       minute: '2-digit',
+  //     }),
+  //   };
+  //   setWaterItems([...waterItems, newItem]);
+  // };
 
   // delete
   const deleteItem = id => {
@@ -47,9 +52,9 @@ const WaterList = () => {
 
   return (
     <div className={css.waterListContainer}>
-      <button onClick={addItem} className={css.addBtn}>
+      {/* <button onClick={addItem} className={css.addBtn}>
         {t('waterModal.add')}
-      </button>
+      </button> */}
       <svg
         xmlns="http://www.w3.org/2000/svg"
         aria-hidden="true"
@@ -72,7 +77,7 @@ const WaterList = () => {
             <div className={css.waterList}>
               {waterItems.map(item => (
                 <div key={item.id} className={css.waterItem}>
-                  <svg width="64" height="64" className={css.waterIcon}>
+                  <svg width="36" height="36" className={css.waterIcon}>
                     <use href="#icon-water-glass" />
                   </svg>
                   <div className={css.waterDetails}>
