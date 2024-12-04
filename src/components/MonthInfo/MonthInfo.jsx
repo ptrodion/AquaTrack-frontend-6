@@ -5,7 +5,6 @@ import { useEffect, useState } from 'react';
 import { getDaysInMonth, startOfWeek, addDays, isSameDay } from 'date-fns';
 import { useTranslation } from 'react-i18next';
 import WaterConsumptionChart from 'components/WaterConsumptionChart/WaterConsumptionChart';
-import { FiPieChart } from 'react-icons/fi';
 import { useDispatch, useSelector } from 'react-redux';
 import { getWaterByMonth } from '../../redux/water/operations.js';
 import { selectMonthWater } from '../../redux/water/selectors.js';
@@ -73,7 +72,9 @@ const MonthInfo = () => {
         <div className={css.paginationWrap}>
           <CalendarPagination initialDate={date} onSetDate={onSetDate} />
           <button onClick={toggleView} className={css.statsToggleBtn}>
-            <FiPieChart size={24} className={css.statsToggleIcon} />
+            <svg width={20} height={20} className={css.toggleIcon}>
+              <use href='/src/assets/icons/sprite.svg#icon-pie-chart'></use>
+            </svg>
           </button>
         </div>
       </div>
