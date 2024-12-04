@@ -18,7 +18,7 @@ export const ModalProvider = ({ children }) => {
           <ModalBackdrop onClose={modal.closeModal}>
             <div className="modal-content">
               {modal.modalContent}
-              <button onClick={modal.closeModal}>Close</button>
+              {/* <button onClick={modal.closeModal}>Close</button> */}
             </div>
           </ModalBackdrop>,
           modalRoot
