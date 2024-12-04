@@ -46,7 +46,8 @@
     "password": "Passwort",
     "placeholderPassword": "Geben Sie Ihr Passwort ein",
     "forgotPassword": "Passwort vergessen?",
-    "googleBtn": "Weiter mit"
+    "googleBtn": "Weiter mit",
+    "unauthorized": "Ungültige E-Mail-Adresse oder ungültiges Passwort"
   },
 
   "signUp": {

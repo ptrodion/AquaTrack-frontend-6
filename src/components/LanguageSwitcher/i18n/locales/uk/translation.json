@@ -46,7 +46,8 @@
     "password": "Пароль",
     "placeholderPassword": "Введіть пароль",
     "forgotPassword": "Забули ваш пароль?",
-    "googleBtn": "Вхід з акаунтом"
+    "googleBtn": "Вхід з акаунтом",
+    "unauthorized": "Неправильна адреса електронної пошти або пароль"
   },
 
   "signUp": {

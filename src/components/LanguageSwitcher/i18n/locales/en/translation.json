@@ -46,6 +46,7 @@
     "password": "Password",
     "placeholderPassword": "Enter your password",
     "forgotPassword": "Forgot your password?",
+    "unauthorized": "Invalid email or password",
     "googleBtn": "Continue with"
   },
 
