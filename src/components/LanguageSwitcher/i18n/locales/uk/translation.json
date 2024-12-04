@@ -30,7 +30,8 @@
     },
 
     "advantages": {
-      "customers": "Наші {{counter}} щасливі клієнти",
+      "customers": "Наші {{counter}} {{accent}} клієнти",
+      "accent": "щасливі",
       "habitDrive": "Сприяння звичкам",
       "viewStatistic": "Переглянути статистику",
       "personalSetting": "Налаштування особистого рейтингу"
