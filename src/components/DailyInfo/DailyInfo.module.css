@@ -1,13 +1,19 @@
 .info {
-  margin-top: 40px;
+  /* margin-top: 162px; */
   display: flex;
   flex-direction: column;
   border-radius: 30px;
+}
+@media screen and (max-width: 767px) {
+  .info {
+    margin-top: 162px;
+  }
 }
 
 @media screen and (min-width: 768px) {
   .info {
     min-height: 174px;
+    margin-top: 47px;
   }
 }
 
