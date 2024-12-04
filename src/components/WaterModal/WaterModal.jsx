@@ -24,7 +24,7 @@ const WaterModal = ({
       case "add":
         return t("waterModal.add");
       case "edit":
-        return t("editWaterAmount");
+        return t("waterModal.edit");
       default:
         return t("addWaterTitle");
     }
