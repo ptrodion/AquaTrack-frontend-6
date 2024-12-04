@@ -4,6 +4,7 @@ import Container from 'components/Container/Container.jsx';
 import { useDispatch } from 'react-redux';
 import { getUser } from '../../redux/user/operations.js';
 
+
 function TrackerPage() {
   const dispatch = useDispatch();
   dispatch(getUser());

@@ -1,4 +1,4 @@
-import svg from "../../assets/icons.svg";
+import svg from "../../assets/icons/sprite.svg";
 import css from "./DeleteWaterModal.module.css";
 import BtnDelete from "../BtnDelete/BtnDelete.jsx";
 import { ANIMATION } from "../../constants.js";

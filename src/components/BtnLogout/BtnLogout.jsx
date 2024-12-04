@@ -21,7 +21,7 @@ const BtnLogout = ({ handleClose }) => {
   return (
     <>
       <button type="button" onClick={handleLogout} className={css.btnLogout}>
-        {t("logout")}
+        {t("logOutModal.logOut")}
       </button>
     </>
   );

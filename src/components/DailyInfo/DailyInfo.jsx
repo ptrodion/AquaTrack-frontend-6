@@ -1,12 +1,14 @@
-import WaterList from './WaterList';
-
-// import AddWaterBtn from '../AddWaterSecond/AddWaterSecond';
+// import WaterList from './WaterList';
+import ChooseDate from './ChooseDate.jsx';
+import AddWaterBtn from './AddWaterBtn.jsx';
+import WaterList from './WaterList.jsx';
+import css from "./DailyInfo.module.css";
 const DailyInfo = () => {
   return (
-    <div>
-      <h4>Daily Info</h4>
-      <div>
-        {/* <AddWaterBtn /> */}
+    <div className={css.info}>
+      <div className={`${css.header} five-step`}>
+        <ChooseDate />
+        <AddWaterBtn />
       </div> 
       
       <WaterList />
