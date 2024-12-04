@@ -18,3 +18,13 @@ export const getFullFormattedDate = ({ formHours, formMinutes }) => {
 
   return `${year}-${month}-${day}T${formHours}:${formMinutes}:${seconds}`;
 };
+
+export const getFormattedDateForWaterList = date => {
+  const formatedDate = new Date(date);
+  const hours = formatedDate.getHours();
+  const minutes = formatedDate.getMinutes();
+  const timeString = `${hours.toString().padStart(2, '0')}:${minutes
+    .toString()
+    .padStart(2, '0')}`;
+  return timeString;
+};

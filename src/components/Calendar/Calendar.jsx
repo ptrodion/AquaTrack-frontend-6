@@ -4,13 +4,12 @@ import CalendarItem from 'components/CalendarItem/CalendarItem';
 import { useState } from 'react';
 
 export const Calendar = ({ days }) => {
-  const [selectedDate , setSelectedDate] = useState(null)
+  const [selectedDate, setSelectedDate] = useState(null);
 
-  const handleDaySelect = (day) =>{
-    setSelectedDate(day)
-    
-  }
-  
+  const handleDaySelect = day => {
+    setSelectedDate(day);
+  };
+
   return (
     <div className={css.calendar}>
       {days.map(({ day, progress }) => {

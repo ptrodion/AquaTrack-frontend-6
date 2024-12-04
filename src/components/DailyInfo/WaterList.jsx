@@ -7,6 +7,7 @@ import WaterModal from '../WaterModal/WaterModal.jsx';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectDailyWater } from '../../redux/water/selectors';
 import { deleteWater, updateWater } from '../../redux/water/operations';
+import { getFormattedDateForWaterList } from '../../utils/getDateNow';
 
 const WaterList = () => {
   const { t } = useTranslation();
@@ -38,14 +39,14 @@ const WaterList = () => {
 
   // Видалити елемент після підтвердження
   const confirmDelete = id => {
-    console.log(id);
-
     dispatch(deleteWater(id));
     closeModal();
   };
 
   // Оновити елемент після редагування
   const handleEdit = updatedItem => {
+    console.log('edit');
+
     console.log(updatedItem);
 
     // dispatch(updateWater({updatedItem}));
@@ -79,7 +80,9 @@ const WaterList = () => {
               </svg>
               <div className={css.waterDetails}>
                 <p className={css.waterAmount}>{item.amount} ml</p>
-                <p className={css.waterTime}>{item.time}</p>
+                <p className={css.waterTime}>
+                  {getFormattedDateForWaterList(item.date)}
+                </p>
               </div>
               <div className={css.waterActions}>
                 <button
