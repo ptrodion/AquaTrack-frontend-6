@@ -39,7 +39,7 @@ const WaterForm = ({
     waterValue: Yup.number()
       .required(t('waterValueRequired'))
       .min(50, t('waterValueGreater'))
-      .max(5000, t('waterValueLess')), 
+      .max(5000, t('waterValueLess')),
   });
 
   const {
@@ -82,16 +82,16 @@ const WaterForm = ({
         });
         break;
       case 'edit':
-        dispatch(updateWater({ id: waterID, formData: editWaterValue })).then(
-          ({ error }) => {
-            if (!error) {
-              setIsLoading(false);
-              handleClose();
-            } else {
-              setIsLoading(false);
-            }
+        dispatch(
+          updateWater({ id: waterID, updatedWater: editWaterValue })
+        ).then(({ error }) => {
+          if (!error) {
+            setIsLoading(false);
+            handleClose();
+          } else {
+            setIsLoading(false);
           }
-        );
+        });
         break;
       default:
         setIsLoading(false);
