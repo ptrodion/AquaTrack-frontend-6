@@ -16,7 +16,7 @@ export const UserSettingsModal = ({ onSettingModalClose }) => {
         <div className={css.modalBox}>
           <div className={css.box}>
             <h2 className={css.title}>{t('settingsModal.titleModal')}</h2>
-            <button onClick={handleClick}>
+            <button onClick={handleClick} className={css.button}>
               <GoX />
             </button>
           </div>
