@@ -197,7 +197,17 @@
     "previousMonth": "letzter Monat",
     "nextMonth": "nächster Monat",
     "hideChart": "Diagramm verbergen",
-    "showChart": "Diagramm anzeigen"
+    "showChart": "Diagramm anzeigen",
+    "consumption": "Verbrauch"
+  },
+  "weekdays": {
+    "monday": "Montag",
+    "tuesday": "Dienstag",
+    "wednesday": "Mittwoch",
+    "thursday": "Donnerstag",
+    "friday": "Freitag",
+    "saturday": "Samstag",
+    "sunday": "Sonntag"
   },
 
   "months": {

@@ -197,9 +197,18 @@
     "previousMonth": "попередній місяць",
     "nextMonth": "наступний місяць",
     "hideChart": "приховати діаграму",
-    "showChart": "показати діаграму"
+    "showChart": "показати діаграму",
+    "consumption": "Споживання"
   },
-
+  "weekdays": {
+    "monday": "Понеділок",
+    "tuesday": "Вівторок",
+    "wednesday": "Середа",
+    "thursday": "Четвер",
+    "friday": "П'ятниця",
+    "saturday": "Субота",
+    "sunday": "Неділя"
+  },
   "months": {
     "January": "Січень",
     "February": "Лютий",

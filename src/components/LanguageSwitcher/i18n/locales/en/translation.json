@@ -197,7 +197,17 @@
     "previousMonth": "previous month",
     "nextMonth": "next month",
     "hideChart": "hide chart",
-    "showChart": "show chart"
+    "showChart": "show chart",
+    "consumption": "Consumption"
+  },
+  "weekdays": {
+    "monday": "Monday",
+    "tuesday": "Tuesday",
+    "wednesday": "Wednesday",
+    "thursday": "Thursday",
+    "friday": "Friday",
+    "saturday": "Saturday",
+    "sunday": "Sunday"
   },
 
   "months": {
