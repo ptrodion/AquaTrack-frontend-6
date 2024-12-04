@@ -2,17 +2,19 @@ import { Calendar } from 'components/Calendar/Calendar';
 import { CalendarPagination } from 'components/CalendarPagination/CalendarPagination';
 import css from './MonthInfo.module.css';
 import { useEffect, useState } from 'react';
-import { getDaysInMonth, startOfWeek, addDays, isSameDay,} from 'date-fns';
+import { getDaysInMonth, startOfWeek, addDays, isSameDay } from 'date-fns';
 import { useTranslation } from 'react-i18next';
 import WaterConsumptionChart from 'components/WaterConsumptionChart/WaterConsumptionChart';
 import { FiPieChart } from 'react-icons/fi';
 import { useDispatch, useSelector } from 'react-redux';
 import { getWaterByMonth } from '../../redux/water/operations.js';
 import { selectMonthWater } from '../../redux/water/selectors.js';
+import { selectUser } from '../../redux/user/selector';
 
 const MonthInfo = () => {
   const [date, setDate] = useState(new Date());
   const [view, setView] = useState('calendar');
+  const user = useSelector(selectUser);
   const monthWater = useSelector(selectMonthWater);
   const { t } = useTranslation();
 
@@ -33,12 +35,11 @@ const MonthInfo = () => {
 
   const days = Array.from({ length: getDaysInMonth(date) }, (_, index) => {
     const day = new Date(date.getFullYear(), date.getMonth(), index + 1);
-    const waterEntriesByDay = monthWater.filter(
-      item => isSameDay(new Date(item.date), day)
+    const waterEntriesByDay = monthWater.filter(item =>
+      isSameDay(new Date(item.date), day)
     );
-    
 
-    const dailyNormaWater = waterEntriesByDay[0]?.currentDailyNorm ?? null;
+    const dailyNormaWater = user?.currentDailyNorm ?? 0;
     const sumWaterOfDay = waterEntriesByDay.reduce((accumulator, dailyItem) => {
       return accumulator + dailyItem.amount;
     }, 0);

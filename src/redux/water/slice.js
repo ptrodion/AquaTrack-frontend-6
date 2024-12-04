@@ -84,6 +84,9 @@ export const waterSlice = createSlice({
         state.monthWater = state.monthWater.filter(
           water => water.id !== action.payload
         );
+        state.dailyWater = state.dailyWater.filter(
+          water => water.id !== action.payload
+        );
       })
       .addCase(deleteWater.rejected, (state, action) => {
         state.isLoading = false;
