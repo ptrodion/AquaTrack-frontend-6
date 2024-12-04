@@ -39,6 +39,8 @@
     .avatar {
         width: 38px;
         height: 38px;
+
+        border-radius: 50%;
     }
 
     .avatarIcon {
@@ -201,6 +203,8 @@
     .avatar {
         width: 44px;
         height: 44px;
+
+        border-radius: 50%;
     }
 
     .avatarIcon {
@@ -256,6 +260,11 @@
         cursor: pointer;
     }
 
+    .inPopover:hover,
+    .inPopover:focus {
+        color: rgba(50, 63, 71, 0.4);
+    }
+
     .inPopoverLogOut {
         display: flex;
         justify-content: flex-start;
@@ -268,7 +277,12 @@
         border: none;
         background-color: transparent;
         cursor: pointer;
-        }
+    }
+
+    .inPopoverLogOut:hover,
+    .inPopoverLogOut:focus {
+        color: rgba(50, 63, 71, 0.4);
+    }
 
     .buttonSetting {
         font-family: "Poppins", sans-serif;
@@ -288,14 +302,24 @@
         text-overflow: ellipsis;
     }
 
+    .buttonSetting.buttonSetting:hover,
+    .buttonSetting.buttonSetting:hover {
+        color: rgba(50, 63, 71, 0.4);
+    }
+
     .buttonLogOut {
         font-family: "Poppins", sans-serif;
         font-weight: 700;
         font-size: 14px;
         line-height: 1.28571;
-        color: rgba(50, 63, 71, 0.4);
+        color: #323f47;
 
         width: 80px;
+    }
+
+    .buttonLogOut.buttonLogOut:hover,
+    .buttonLogOut.buttonLogOut:focus {
+        color: rgba(50, 63, 71, 0.4);
     }
 
     .iconArrow {
@@ -319,7 +343,6 @@
 
         width: 16px;
         height: 16px;
-        color: rgba(50, 63, 71, 0.4);
     }
 
 }
@@ -374,6 +397,8 @@
         line-height: 1.49333;
         text-align: center;
     }
+
+
 
     .buttonLogOut {
         font-size: 15px;
