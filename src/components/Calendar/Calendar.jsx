@@ -10,6 +10,7 @@ export const Calendar = ({ days }) => {
     setSelectedDate(day)
     
   }
+  
   return (
     <div className={css.calendar}>
       {days.map(({ day, progress }) => {

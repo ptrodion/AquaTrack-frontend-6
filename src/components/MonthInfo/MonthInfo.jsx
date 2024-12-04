@@ -2,7 +2,7 @@ import { Calendar } from 'components/Calendar/Calendar';
 import { CalendarPagination } from 'components/CalendarPagination/CalendarPagination';
 import css from './MonthInfo.module.css';
 import { useEffect, useState } from 'react';
-import { getDaysInMonth, startOfWeek, addDays, format } from 'date-fns';
+import { getDaysInMonth, startOfWeek, addDays, isSameDay,} from 'date-fns';
 import { useTranslation } from 'react-i18next';
 import WaterConsumptionChart from 'components/WaterConsumptionChart/WaterConsumptionChart';
 import { FiPieChart } from 'react-icons/fi';
@@ -19,7 +19,7 @@ const MonthInfo = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const formattedDate = format(date, 'yyyy-MM-dd');
+    const formattedDate = date.toISOString().split('T')[0];
     dispatch(getWaterByMonth(formattedDate));
   }, [dispatch, date]);
 
@@ -34,8 +34,9 @@ const MonthInfo = () => {
   const days = Array.from({ length: getDaysInMonth(date) }, (_, index) => {
     const day = new Date(date.getFullYear(), date.getMonth(), index + 1);
     const waterEntriesByDay = monthWater.filter(
-      item => item.date.split('T')[0] === day.toISOString().split('T')[0]
+      item => isSameDay(new Date(item.date), day)
     );
+    
 
     const dailyNormaWater = waterEntriesByDay[0]?.currentDailyNorm ?? null;
     const sumWaterOfDay = waterEntriesByDay.reduce((accumulator, dailyItem) => {
