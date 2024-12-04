@@ -4,8 +4,6 @@
 
     .user_button {
         position: absolute;
-        /* top: 92px; */
-        /* left: 20px; */
         margin-top: 20px;
 
         display: flex;
@@ -31,9 +29,6 @@
         text-align: center;
         color: #fff;
 
-        /* position: absolute;
-        top: 15px;
-        right: 88px; */
     }
 
     .avatar {
@@ -60,7 +55,6 @@
         gap: 8px;
         position: absolute;
         top: 108px;
-        /* left: 2px; */
 
         border-radius: 15px;
         padding-top: 14px;
