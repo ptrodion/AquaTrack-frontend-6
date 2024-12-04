@@ -39,7 +39,7 @@ const WaterForm = ({
     waterValue: Yup.number()
       .required(t('waterValueRequired'))
       .min(50, t('waterValueGreater'))
-      .max(5000, t('waterValueLess')),
+      .max(5000, t('waterValueLess')), 
   });
 
   const {

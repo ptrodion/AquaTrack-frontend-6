@@ -3,6 +3,7 @@ import { SlPencil, SlTrash } from 'react-icons/sl';
 import css from './WaterList.module.css';
 import { useTranslation } from 'react-i18next';
 import ModalDeleteEntry from './ModalDeleteEntry.jsx';
+import WaterModal from '../WaterModal/WaterModal.jsx';
 
 const WaterList = () => {
   const { t } = useTranslation();
@@ -14,41 +15,48 @@ const WaterList = () => {
     { id: 5, amount: 200, time: '6:00 PM' },
   ]);
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [selectedId, setSelectedId] = useState(null);
 
-  // Відкрити модальне вікно
-  const openModal = id => {
+  // Відкрити модальне вікно видалення
+  const openDeleteModal = (id) => {
     setSelectedId(id);
-    setIsModalOpen(true);
+    setIsDeleteModalOpen(true);
+  };
+
+  // Відкрити модальне вікно редагування
+  const openEditModal = (id) => {
+    setSelectedId(id);
+    setIsEditModalOpen(true);
   };
 
   // Закрити модальне вікно
   const closeModal = () => {
-    setIsModalOpen(false);
+    setIsDeleteModalOpen(false);
+    setIsEditModalOpen(false);
     setSelectedId(null);
   };
 
   // Видалити елемент після підтвердження
-  const confirmDelete = id => {
+  const confirmDelete = (id) => {
     setWaterItems(waterItems.filter(item => item.id !== id));
     closeModal();
   };
 
-  const editItem = id => {
-    const newAmount = prompt(t('chooseDate.newAmount'));
-    if (newAmount) {
-      setWaterItems(
-        waterItems.map(item =>
-          item.id === id ? { ...item, amount: parseInt(newAmount) } : item
-        )
-      );
-    }
+  // Оновити елемент після редагування
+  const handleEdit = (updatedItem) => {
+    setWaterItems(
+      waterItems.map(item => 
+        item.id === updatedItem.id ? updatedItem : item
+      )
+    );
+    closeModal(); 
   };
 
   return (
     <div className={css.waterListContainer}>
-      <svg
+       <svg
         xmlns="http://www.w3.org/2000/svg"
         aria-hidden="true"
         style={{
@@ -77,14 +85,14 @@ const WaterList = () => {
             <div className={css.waterActions}>
               <button
                 className={css.editBtn}
-                onClick={() => editItem(item.id)}
+                onClick={() => openEditModal(item.id)}
                 aria-label={t('chooseDate.edit')}
               >
                 <SlPencil />
               </button>
               <button
                 className={css.deleteBtn}
-                onClick={() => openModal(item.id)}
+                onClick={() => openDeleteModal(item.id)}
                 aria-label={t('chooseDate.delete')}
               >
                 <SlTrash />
@@ -94,8 +102,20 @@ const WaterList = () => {
         ))}
       </div>
 
-      {isModalOpen && (
-        <ModalDeleteEntry id={selectedId} onClose={closeModal} onDelete={confirmDelete} />
+      {isDeleteModalOpen && (
+        <ModalDeleteEntry
+          id={selectedId}
+          onClose={closeModal}
+          onDelete={confirmDelete}
+        />
+      )}
+
+      {isEditModalOpen && (
+        <WaterModal
+          operationType="edit"
+          onClose={closeModal}
+          water={waterItems.find(item => item.id === selectedId)}
+        />
       )}
     </div>
   );
