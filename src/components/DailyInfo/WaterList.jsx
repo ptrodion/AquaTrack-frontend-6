@@ -1,12 +1,11 @@
 import { useState } from 'react';
-import { SlPencil } from 'react-icons/sl';
-import { SlTrash } from 'react-icons/sl';
+import { SlPencil, SlTrash } from 'react-icons/sl';
 import css from './WaterList.module.css';
 import { useTranslation } from 'react-i18next';
+import ModalDeleteEntry from './ModalDeleteEntry.jsx';
 
 const WaterList = () => {
   const { t } = useTranslation();
-  // useState
   const [waterItems, setWaterItems] = useState([
     { id: 1, amount: 250, time: '7:00 AM' },
     { id: 2, amount: 250, time: '11:00 AM' },
@@ -15,25 +14,27 @@ const WaterList = () => {
     { id: 5, amount: 200, time: '6:00 PM' },
   ]);
 
-  // add
-  const addItem = () => {
-    const newItem = {
-      id: Date.now(),
-      amount: Math.floor(Math.random() * 500 + 100),
-      time: new Date().toLocaleTimeString([], {
-        hour: '2-digit',
-        minute: '2-digit',
-      }),
-    };
-    setWaterItems([...waterItems, newItem]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedId, setSelectedId] = useState(null);
+
+  // Відкрити модальне вікно
+  const openModal = id => {
+    setSelectedId(id);
+    setIsModalOpen(true);
   };
 
-  // delete
-  const deleteItem = id => {
+  // Закрити модальне вікно
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedId(null);
+  };
+
+  // Видалити елемент після підтвердження
+  const confirmDelete = id => {
     setWaterItems(waterItems.filter(item => item.id !== id));
+    closeModal();
   };
 
-  // edit
   const editItem = id => {
     const newAmount = prompt(t('chooseDate.newAmount'));
     if (newAmount) {
@@ -47,9 +48,6 @@ const WaterList = () => {
 
   return (
     <div className={css.waterListContainer}>
-  {/*     <button onClick={addItem} className={css.addBtn}>
-        {t('waterModal.add')}
-      </button> */}
       <svg
         xmlns="http://www.w3.org/2000/svg"
         aria-hidden="true"
@@ -67,74 +65,38 @@ const WaterList = () => {
         </defs>
       </svg>
       <div className={css.waterList}>
-        {waterItems.length > 3 && (
-          <div className={css.scrollContainer}>
-            <div className={css.waterList}>
-              {waterItems.map(item => (
-                <div key={item.id} className={css.waterItem}>
-                  <svg width="64" height="64" className={css.waterIcon}>
-                    <use href="#icon-water-glass" />
-                  </svg>
-                  <div className={css.waterDetails}>
-                    <p className={css.waterAmount}>{item.amount} ml</p>
-                    <p className={css.waterTime}>{item.time}</p>
-                  </div>
-                  <div className={css.waterActions}>
-                    <button
-                      className={css.editBtn}
-                      onClick={() => editItem(item.id)}
-                      aria-label={t('chooseDate.edit')}
-                    >
-                      <SlPencil />
-                    </button>
-                    <button
-                      className={css.deleteBtn}
-                      onClick={() => deleteItem(item.id)}
-                      aria-label={t('chooseDate.delete')}
-                    >
-                      <SlTrash />
-                    </button>
-                  </div>
-                </div>
-              ))}
+        {waterItems.map(item => (
+          <div key={item.id} className={css.waterItem}>
+            <svg width="64" height="64" className={css.waterIcon}>
+              <use href="#icon-water-glass" />
+            </svg>
+            <div className={css.waterDetails}>
+              <p className={css.waterAmount}>{item.amount} ml</p>
+              <p className={css.waterTime}>{item.time}</p>
+            </div>
+            <div className={css.waterActions}>
+              <button
+                className={css.editBtn}
+                onClick={() => editItem(item.id)}
+                aria-label={t('chooseDate.edit')}
+              >
+                <SlPencil />
+              </button>
+              <button
+                className={css.deleteBtn}
+                onClick={() => openModal(item.id)}
+                aria-label={t('chooseDate.delete')}
+              >
+                <SlTrash />
+              </button>
             </div>
           </div>
-        )}
-        {waterItems.length <= 3 && (
-          <div className={css.waterList}>
-            {waterItems.map(item => (
-              <div key={item.id} className={css.waterItem}>
-                <svg width="64" height="64" className={css.waterIcon}>
-                  <use href="#icon-water-glass" />
-                </svg>
-                <div className={css.waterDetails}>
-                  <p className={css.waterAmount}>
-                    {item.amount}
-                    {t('chooseDate.ml')}
-                  </p>
-                  <p className={css.waterTime}>{item.time}</p>
-                </div>
-                <div className={css.waterActions}>
-                  <button
-                    className={css.editBtn}
-                    onClick={() => editItem(item.id)}
-                    aria-label="Edit water entry"
-                  >
-                    <SlPencil />
-                  </button>
-                  <button
-                    className={css.deleteBtn}
-                    onClick={() => deleteItem(item.id)}
-                    aria-label="Delete water entry"
-                  >
-                    <SlTrash />
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
-        )}
+        ))}
       </div>
+
+      {isModalOpen && (
+        <ModalDeleteEntry id={selectedId} onClose={closeModal} onDelete={confirmDelete} />
+      )}
     </div>
   );
 };
