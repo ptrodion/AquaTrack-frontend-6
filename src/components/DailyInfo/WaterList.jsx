@@ -51,7 +51,7 @@ const WaterList = () => {
         item.id === updatedItem.id ? updatedItem : item
       )
     );
-    closeModal();
+    closeModal(); 
   };
 
   return (
