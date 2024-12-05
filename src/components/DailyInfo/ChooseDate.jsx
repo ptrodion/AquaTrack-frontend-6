@@ -1,18 +1,20 @@
-import { useParams } from 'react-router-dom';
 import css from './ChooseDate.module.css';
-import { parseDateTime } from '../../helpers/parseDate.js';
-import { getDateMonthString } from '../../helpers/getDateMonthString.js';
 import { useTranslation } from 'react-i18next';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectChoosenDay } from '../../redux/common/selectors';
+import { useEffect } from 'react';
+import { setSelectedDay } from '../../redux/common/operations';
 
 const ChooseDate = () => {
   const { t } = useTranslation();
-  const { date } = useParams();
-  const { isToday, day, month } = getDateMonthString(parseDateTime(date));
+  const dispatch = useDispatch();
+  const selectedDay = useSelector(selectChoosenDay);
 
-  const dateString = isToday
-    ? t('chooseDate.today')
-    : `${day} ${t(month + 'Day')}`;
-  return <h3 className={css.selectedDate}>{dateString}</h3>;
+  useEffect(() => {
+    dispatch(setSelectedDay(new Date()));
+  }, [dispatch]);
+
+  return <h3 className={css.selectedDate}>{selectedDay}</h3>;
 };
 
 export default ChooseDate;

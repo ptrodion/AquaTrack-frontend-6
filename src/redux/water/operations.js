@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { instance } from '../auth/operations';
+import { checkIsToday } from '../../utils/getDateNow';
 
 export const getWaterByDay = createAsyncThunk(
   'water/getWaterByDay',
@@ -7,7 +8,11 @@ export const getWaterByDay = createAsyncThunk(
     try {
       const { data } = await instance.get(`/api/water/day/${date}`);
 
-      return data.data;
+      const isToday = checkIsToday(date);
+
+      const waterList = [...data.data];
+
+      return { waterList, isToday };
     } catch (error) {
       if (error.response) {
         const status = error.response.data.status;
