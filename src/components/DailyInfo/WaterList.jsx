@@ -5,13 +5,13 @@ import { useTranslation } from 'react-i18next';
 import ModalDeleteEntry from './ModalDeleteEntry.jsx';
 import WaterModal from '../WaterModal/WaterModal.jsx';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectDailyWater } from '../../redux/water/selectors';
-import { deleteWater, updateWater } from '../../redux/water/operations';
+import { selectChoosenDailyWater } from '../../redux/water/selectors';
+import { deleteWater } from '../../redux/water/operations';
 import { getFormattedDateForWaterList } from '../../utils/getDateNow';
 
 const WaterList = () => {
   const { t } = useTranslation();
-  const waterList = useSelector(selectDailyWater);
+  const waterList = useSelector(selectChoosenDailyWater);
   const dispatch = useDispatch();
 
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
@@ -106,24 +106,24 @@ const WaterList = () => {
           ))}
       </div>
 
-      {isDeleteModalOpen && (
-        <ModalDeleteEntry
-          id={selectedId}
-          onClose={closeModal}
-          onDelete={confirmDelete}
-        />
-      )}
+          {isDeleteModalOpen && (
+            <ModalDeleteEntry
+              id={selectedId}
+              onClose={closeModal}
+              onDelete={confirmDelete}
+            />
+          )}
 
-      {isEditModalOpen && (
-        <WaterModal
-          operationType="edit"
-          onClose={closeModal}
-          water={waterList.find(item => item.id === selectedId)}
-        />
+          {isEditModalOpen && (
+            <WaterModal
+              operationType="edit"
+              onClose={closeModal}
+              water={waterList.find(item => item.id === selectedId)}
+            />
+          )}
+        </div>
       )}
-    </div>
-    )}</>
-
+    </>
   );
 };
 

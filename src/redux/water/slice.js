@@ -10,6 +10,7 @@ import {
 const INITIAL_STATE = {
   monthWater: [],
   dailyWater: [],
+  choosenDailyWater: [],
   isLoading: false,
   error: null,
 };
@@ -25,9 +26,17 @@ export const waterSlice = createSlice({
       .addCase(getWaterByDay.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        state.dailyWater = action.payload;
+
+        if (action.payload.isToday) {
+          state.dailyWater = action.payload.waterList;
+          state.choosenDailyWater = action.payload.waterList;
+        } else {
+          state.choosenDailyWater = action.payload.waterList;
+        }
       })
       .addCase(getWaterByDay.rejected, (state, action) => {
+        state.dailyWater = [];
+        state.choosenDailyWater = [];
         state.isLoading = false;
         state.error = action.payload;
       })
