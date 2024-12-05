@@ -92,9 +92,15 @@ const AdvantagesSection = () => {
                 </picture>
               </div>
               <h3 className={styles.textCustomers}>
-                {userCount !== null
-                  ? t('homepage.advantages.customers', { counter: userCount })
-                  : t('homepage.advantages.customers', { counter: 0 })}
+                <span>
+                  {userCount !== null
+                    ? t('homepage.advantages.our', { counter: userCount })
+                    : t('homepage.advantages.our', { counter: 0 })}
+                  <span className={styles.accent}>
+                    {t('homepage.advantages.accent')}
+                  </span>
+                  {t('homepage.advantages.customers')}
+                </span>
               </h3>
             </button>
           </div>
