@@ -94,25 +94,14 @@ const AdvantagesSection = () => {
               <h3 className={styles.textCustomers}>
                 <span>
                   {userCount !== null
-                    ? t('homepage.advantages.customers', {
-                        counter: userCount,
-                        <span className={styles.accent}>
-                    
-                      ? t('homepage.advantages.accent')
-                      : t('homepage.advantages.accent')}
-                  </span>,
-                      })
-                    : t('homepage.advantages.customers', {
-                        counter: 0,
-                        accent: t('homepage.advantages.accent'),
-                      })}                                    
+                    ? t('homepage.advantages.our', { counter: userCount })
+                    : t('homepage.advantages.our', { counter: 0 })}
+                  <span className={styles.accent}>
+                    {t('homepage.advantages.accent')}
+                  </span>
+                  {t('homepage.advantages.customers')}
                 </span>
               </h3>
-              {/* <h3 className={styles.textCustomers}>
-                {userCount !== null
-                  ? t('homepage.advantages.customers', { counter: userCount })
-                  : t('homepage.advantages.customers', { counter: 0 })}
-              </h3> */}
             </button>
           </div>
           <div className={styles.buttonsBenefits}>
