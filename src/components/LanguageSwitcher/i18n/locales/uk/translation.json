@@ -58,7 +58,8 @@
     "placeholderPassword": "Введіть Ваш пароль",
     "account": "Вже маєте обліковий запис?",
     "signIn": "Увійти",
-    "placeholderRepeatPassword": "Повторіть Ваш пароль"
+    "placeholderRepeatPassword": "Повторіть Ваш пароль",
+    "notuniquemail": "Електронна пошта вже використовується"
   },
 
   "validation": {

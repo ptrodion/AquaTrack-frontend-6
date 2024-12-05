@@ -58,7 +58,8 @@
     "placeholderPassword": "Geben Sie Ihr Passwort ein",
     "account": "Haben Sie bereits ein Konto?",
     "signIn": "Anmelden",
-    "placeholderRepeatPassword": "Wiederholen Sie Ihr Passwort"
+    "placeholderRepeatPassword": "Wiederholen Sie Ihr Passwort",
+    "notuniquemail": "E-Mail wird bereits verwendet"
   },
 
   "validation": {

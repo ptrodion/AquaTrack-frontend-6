@@ -47,8 +47,7 @@ function App() {
 
 export default App; */
 
-
-import React, { useEffect, lazy } from 'react';
+import React, { useEffect, lazy, Suspense } from 'react';
 import { Toaster } from 'react-hot-toast';
 import { Route, Routes } from 'react-router-dom';
 import RestrictedRoute from 'components/RestrictedRoute/RestrictedRoute';
@@ -74,28 +73,30 @@ function App() {
     <>
       <Toaster position="top-center" reverseOrder={false} />
       <SharedLayout>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route
-            path="/signup"
-            element={
-              <RestrictedRoute
-                component={<SignUpPage />}
-                redirectTo="/tracker"
-              />
-            }
-          />
-          <Route
-            path="/signin"
-            element={
-              <RestrictedRoute
-                component={<SignInPage />}
-                redirectTo="/tracker"
-              />
-            }
-          />
-          <Route path="/tracker" element={<TrackerPage />} />
-        </Routes>
+        <Suspense>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route
+              path="/signup"
+              element={
+                <RestrictedRoute
+                  component={<SignUpPage />}
+                  redirectTo="/tracker"
+                />
+              }
+            />
+            <Route
+              path="/signin"
+              element={
+                <RestrictedRoute
+                  component={<SignInPage />}
+                  redirectTo="/tracker"
+                />
+              }
+            />
+            <Route path="/tracker" element={<TrackerPage />} />
+          </Routes>
+        </Suspense>
       </SharedLayout>
     </>
   );
