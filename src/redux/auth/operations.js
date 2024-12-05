@@ -63,7 +63,7 @@ instance.interceptors.response.use(
         localStorage.removeItem('accessToken');
         localStorage.removeItem('refreshToken');
 
-        // window.location.href = '/signin';
+        window.location.href = '/signin';
 
         return Promise.reject(refreshError);
       }
