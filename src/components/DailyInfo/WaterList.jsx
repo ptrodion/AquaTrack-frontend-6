@@ -54,7 +54,9 @@ const WaterList = () => {
   };
 
   return (
-    <div className={css.waterListContainer}>
+    <>
+    {waterList.length !==0 && (
+      <div className={css.waterListContainer}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         aria-hidden="true"
@@ -120,6 +122,8 @@ const WaterList = () => {
         />
       )}
     </div>
+    )}</>
+
   );
 };
 

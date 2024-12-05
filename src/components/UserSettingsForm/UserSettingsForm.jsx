@@ -34,8 +34,6 @@ export const UserSettingsForm = ({ onSettingModalClose }) => {
 
   useEffect(() => {
     i18n.changeLanguage(language);
-
-    console.log('changeLanguage', i18n.changeLanguage(language));
   }, [language, i18n]);
 
   const validationSchema = Yup.object().shape({
@@ -85,8 +83,6 @@ export const UserSettingsForm = ({ onSettingModalClose }) => {
         avatarUrlLocal: avatarUrlLocal,
         language: data.language,
       };
-
-      console.log('newUser', newUser);
 
       dispatch(updateUser(newUser));
     } catch (error) {
