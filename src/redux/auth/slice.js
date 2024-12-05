@@ -1,11 +1,20 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { login, logout, refreshUser, register } from './operations';
+import {
+  login,
+  logout,
+  refreshUser,
+  register,
+  resetPassword,
+  sendResetPasswordEmail,
+} from './operations';
 
 const INITIAL_STATE = {
   accessToken: null,
   refreshToken: null,
   isLoggedIn: false,
   isRefreshing: false,
+  isResetPasswordEmailSend: false,
+  isResetPasswordSuccess: false,
 
   error: null,
 };
@@ -64,6 +73,28 @@ export const authSlice = createSlice({
         return INITIAL_STATE;
       })
       .addCase(logout.rejected, (state, action) => {
+        state.error = action.payload;
+        state.isRefreshing = false;
+      })
+      .addCase(sendResetPasswordEmail.pending, state => {
+        state.isRefreshing = true;
+        state.error = null;
+      })
+      .addCase(sendResetPasswordEmail.fulfilled, state => {
+        state.isResetPasswordEmailSend = true;
+      })
+      .addCase(sendResetPasswordEmail.rejected, (state, action) => {
+        state.error = action.payload;
+        state.isRefreshing = false;
+      })
+      .addCase(resetPassword.pending, state => {
+        state.isRefreshing = true;
+        state.error = null;
+      })
+      .addCase(resetPassword.fulfilled, state => {
+        state.isResetPasswordSuccess = true;
+      })
+      .addCase(resetPassword.rejected, (state, action) => {
         state.error = action.payload;
         state.isRefreshing = false;
       }),

@@ -15,7 +15,6 @@ export const getUser = createAsyncThunk('user/getUser', async (_, thunkAPI) => {
 export const updateUser = createAsyncThunk(
   'user/updateUser',
   async (updatedUser, thunkAPI) => {
-
     try {
       const response = await instance.patch(
         '/api/auth/update-current-user',
