@@ -77,7 +77,7 @@ const WaterList = () => {
         {waterList &&
           waterList.map(item => (
             <div key={item.id} className={css.waterItem}>
-              <svg width="64" height="64" className={css.waterIcon}>
+              <svg  className={css.waterIcon}>
                 <use href="#icon-water-glass" />
               </svg>
               <div className={css.waterDetails}>
@@ -88,14 +88,14 @@ const WaterList = () => {
               </div>
               <div className={css.waterActions}>
                 <button
-                  className={css.editBtn}
+                  className={css.waterEdit}
                   onClick={() => openEditModal(item.id)}
                   aria-label={t('chooseDate.edit')}
                 >
                   <SlPencil />
                 </button>
                 <button
-                  className={css.deleteBtn}
+                  className={css.waterDelete}
                   onClick={() => openDeleteModal(item.id)}
                   aria-label={t('chooseDate.delete')}
                 >

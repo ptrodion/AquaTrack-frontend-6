@@ -18,38 +18,23 @@
   scrollbar-gutter: stable both-edges;
  }
 
- @media screen and (min-width: 768px){
-  .waterList {
-    max-width: 640px;
-   }
- }
-
- @media screen and (min-width: 1440px){
-  .waterList {
-    max-width: 608px;
-   }
- }
-
-.scrollContainer {
-  /* overflow-x: auto;
-  display: flex; */
-}
-
-.waterItem {
-  min-width: 150px;
+ .waterItem {
+  width: 148px;
+  height: 74px;
   background-color: #ffffff;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  padding: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  padding: 18px 14px;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  gap: 9px;
+  backdrop-filter: blur(33.599998474121094px);
+
 }
 
 .waterIcon {
-  margin-right: 15px;
+  width: 38px;
+  height: 38px;
   fill: rgba(92, 184, 92, 0.5);
   flex-shrink: 0;
 }
@@ -59,41 +44,87 @@
   flex-direction: column;
   align-items: flex-start;
   text-align: left;
+
 }
 
 .waterAmount {
-  font-size: 16px;
-  font-weight: bold;
-  color: #2f2f2f;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+  color: #323f47;
   margin: 0;
 }
 
 .waterTime {
-  font-size: 14px;
-  color: #888888;
+  font-size: 12px;
+  line-height: 1;
+  color: rgba(47, 47, 47, 0.6);
   margin: 0;
 }
 
-.waterActions {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.editBtn,
-.deleteBtn {
+.waterEdit,
+.waterDelete{
+  width: 14px;
+  height: 14px;
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 16px;
   color: #555555;
   transition: color 0.3s ease;
 }
 
-.editBtn:hover {
+.waterActions{
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+ @media screen and (min-width: 768px){
+  .waterList {
+    max-width: 640px;
+   }
+
+   .waterItem {
+    width: 192px;
+    height: 86px;
+    padding: 20px;
+    gap: 20px;
+
+  }
+
+  .waterIcon {
+    width: 44px;
+    height: 45px;
+  }
+
+  .waterAmount {
+    font-size: 15px;
+    line-height: 1.49;
+  }
+
+  .waterTime {
+    font-size: 12px;
+    line-height: 1.86;
+  }
+
+  .waterEdit,
+  .waterDelete{
+    width: 16px;
+    height: 16px;
+  }
+
+ }
+
+ @media screen and (min-width: 1440px){
+  .waterList {
+    max-width: 608px;
+   }
+ }
+
+ .waterEdit:hover {
   color: #007bff;
 }
 
-.deleteBtn:hover {
+.waterDelete:hover {
   color: #dc3545;
 }
