@@ -11,7 +11,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { register } from '../../redux/auth/operations';
 import { useEffect } from 'react';
 import { selectAuthIsLoggedIn } from '../../redux/auth/selector';
-
+import { clearError } from '../../redux/auth/slice';
 const SignUpForm = () => {
   const { t } = useTranslation();
   const validationSchema = Yup.object().shape({
@@ -30,6 +30,7 @@ const SignUpForm = () => {
     handleSubmit,
     control,
     formState: { errors },
+    trigger,
   } = useForm({
     mode: 'onSubmit',
     resolver: yupResolver(validationSchema),
@@ -52,7 +53,7 @@ const SignUpForm = () => {
       case 400:
         return error.message || 'Invalid registration details.';
       case 409:
-        return 'Email already in use.';
+        return t('signUp.notuniquemail');
       case 500:
         return 'Server error. Please try again later.';
       default:
@@ -92,6 +93,11 @@ const SignUpForm = () => {
                 placeholder={t('signUp.placeholderEmail')}
                 variant="borderless"
                 autoComplete="off"
+                onChange={e => {
+                  field.onChange(e);
+                  dispatch(clearError());
+                  trigger('email');
+                }}
               />
             )}
           />
@@ -108,6 +114,11 @@ const SignUpForm = () => {
                 type="password"
                 placeholder={t('signUp.placeholderPassword')}
                 variant="borderless"
+                onChange={e => {
+                  field.onChange(e);
+                  dispatch(clearError());
+                  trigger('password');
+                }}
               />
             )}
           />
@@ -128,6 +139,11 @@ const SignUpForm = () => {
                 type="password"
                 placeholder={t('signUp.placeholderRepeatPassword')}
                 variant="borderless"
+                onChange={e => {
+                  field.onChange(e);
+                  dispatch(clearError());
+                  trigger('password');
+                }}
               />
             )}
           />
