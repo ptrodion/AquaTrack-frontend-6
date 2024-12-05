@@ -63,7 +63,7 @@ instance.interceptors.response.use(
         localStorage.removeItem('accessToken');
         localStorage.removeItem('refreshToken');
 
-        window.location.href = '/signin';
+        // window.location.href = '/signin';
 
         return Promise.reject(refreshError);
       }
@@ -88,8 +88,9 @@ export const register = createAsyncThunk(
       return data.data;
     } catch (error) {
       if (error.response) {
-        const status = error.response.status;
-        const message = error.response.data.message || 'Registration failed.';
+        const status = error.response.data.status;
+        const message =
+          error.response.data.message || 'Unexpected error occurred';
         return thunkAPI.rejectWithValue({ status, message });
       } else {
         return thunkAPI.rejectWithValue({
@@ -115,7 +116,7 @@ export const login = createAsyncThunk(
       return data.data;
     } catch (error) {
       if (error.response) {
-        const status = error.response.status;
+        const status = error.response.data.status;
         const message =
           error.response.data.message || 'Unexpected error occurred';
         return thunkAPI.rejectWithValue({ status, message });
@@ -167,6 +168,69 @@ export const logout = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
     localStorage.removeItem('accessToken');
     localStorage.removeItem('refreshToken');
   } catch (error) {
-    return thunkAPI.rejectWithValue(error.message);
+    if (error.response) {
+      const status = error.response.data.status;
+      const message =
+        error.response.data.message || 'Unexpected error occurred';
+      return thunkAPI.rejectWithValue({ status, message });
+    } else {
+      return thunkAPI.rejectWithValue({
+        status: 0,
+        message: 'Network error. Please try again.',
+      });
+    }
   }
 });
+
+export const sendResetPasswordEmail = createAsyncThunk(
+  'auth/sendResetPasswordEmail',
+  async (email, thunkAPI) => {
+    try {
+      const { data } = await instance.post('api/auth/request-reset-email', {
+        email,
+      });
+
+      return data;
+    } catch (error) {
+      if (error.response) {
+        const status = error.response.data.status;
+        const message =
+          error.response.data.message || 'Unexpected error occurred';
+        return thunkAPI.rejectWithValue({ status, message });
+      } else {
+        return thunkAPI.rejectWithValue({
+          status: 0,
+          message: 'Network error. Please try again.',
+        });
+      }
+    }
+  }
+);
+
+export const resetPassword = createAsyncThunk(
+  'auth/resetPassword',
+  async (resetData, thunkAPI) => {
+    try {
+      console.log(resetData);
+
+      const { data } = await instance.post('api/auth/reset-password', {
+        ...resetData,
+      });
+      console.log(data);
+
+      return data;
+    } catch (error) {
+      if (error.response) {
+        const status = error.response.data.status;
+        const message =
+          error.response.data.message || 'Unexpected error occurred';
+        return thunkAPI.rejectWithValue({ status, message });
+      } else {
+        return thunkAPI.rejectWithValue({
+          status: 0,
+          message: 'Network error. Please try again.',
+        });
+      }
+    }
+  }
+);
