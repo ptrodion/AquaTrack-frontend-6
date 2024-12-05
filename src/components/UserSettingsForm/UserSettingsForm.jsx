@@ -65,7 +65,7 @@ export const UserSettingsForm = ({ onSettingModalClose }) => {
   });
 
   const onSubmit = async data => {
-    console.log('data', data);
+    // console.log('data', data);
 
     let avatarUrlLocal;
     if (avatar) {

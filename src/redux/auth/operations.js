@@ -58,7 +58,7 @@ instance.interceptors.response.use(
 
         return instance(originalRequest);
       } catch (refreshError) {
-        console.error('Token refresh failed:', refreshError);
+        // console.error('Token refresh failed:', refreshError);
 
         localStorage.removeItem('accessToken');
         localStorage.removeItem('refreshToken');
@@ -211,12 +211,12 @@ export const resetPassword = createAsyncThunk(
   'auth/resetPassword',
   async (resetData, thunkAPI) => {
     try {
-      console.log(resetData);
+      // console.log(resetData);
 
       const { data } = await instance.post('api/auth/reset-password', {
         ...resetData,
       });
-      console.log(data);
+
 
       return data;
     } catch (error) {

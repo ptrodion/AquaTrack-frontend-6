@@ -45,9 +45,9 @@ const WaterList = () => {
 
   // Оновити елемент після редагування
   const handleEdit = updatedItem => {
-    console.log('edit');
+    // console.log('edit');
 
-    console.log(updatedItem);
+    // console.log(updatedItem);
 
     // dispatch(updateWater({updatedItem}));
     closeModal();
