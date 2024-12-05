@@ -60,7 +60,8 @@
     "placeholderPassword": "Enter your password",
     "account": "Already have account?",
     "signIn": "Sign In",
-    "placeholderRepeatPassword": "Repeat your password"
+    "placeholderRepeatPassword": "Repeat your password",
+    "notuniquemail": "Email is already in use"
   },
 
   "validation": {

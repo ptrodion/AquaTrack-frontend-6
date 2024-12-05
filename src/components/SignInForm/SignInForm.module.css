@@ -30,7 +30,7 @@
   }
 }
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .formContainer {
     width: calc(100% - 32px);
     position: absolute;
@@ -49,7 +49,7 @@
   line-height: 1;
   letter-spacing: -0.01em;
   color: #323f47;
-}
+} */
 
 .label {
   font-family: 'Poppins', sans-serif;
